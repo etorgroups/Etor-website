@@ -1,0 +1,27 @@
+// "Our Journey" timeline — from Welcome-To-ETOR-GROUP.pdf
+export const JOURNEY = [
+  {
+    step: '1',
+    period: '2012 – 2015',
+    title: 'Foundational Years',
+    body: 'Established strong roots in the real estate sector, delivering successful residential and commercial projects and building initial client trust.',
+  },
+  {
+    step: '2',
+    period: '2016 – 2020',
+    title: 'Strategic Diversification',
+    body: 'Expanded into new sectors, including innovative agricultural projects, laying the groundwork for unique investment opportunities.',
+  },
+  {
+    step: '3',
+    period: '2021 – Present',
+    title: 'Pioneering Initiatives',
+    body: "Launched the world's first 100% cashback model in real estate, integrated with high-value agricultural ventures like the Miyazaki Mango Plantation.",
+  },
+  {
+    step: '4',
+    period: 'Ongoing',
+    title: 'Future Horizon',
+    body: 'Continuing to innovate and expand, ensuring sustained profitability and pioneering new sustainable investment models globally.',
+  },
+]
