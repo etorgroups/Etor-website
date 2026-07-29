@@ -12,7 +12,7 @@ import CookieConsent from './components/CookieConsent'
 export default function App() {
   return (
     <MotionConfig reducedMotion="user">
-      <BrowserRouter>
+      <BrowserRouter basename="/EtorGrops-website">
         <SkipLink />
         <ScrollProgress />
         <div className="flex flex-col min-h-screen bg-background text-on-background">
