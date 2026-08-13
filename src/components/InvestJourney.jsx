@@ -41,7 +41,7 @@ export default function InvestJourney({ steps }) {
               </motion.div>
 
               <Reveal tag="div" delay={index * 0.1 + 0.1} className="mt-lg text-center">
-                <h4 className="font-display text-headline-md text-primary mb-sm leading-snug">{step.title}</h4>
+                <h4 className="font-display text-headline-md text-on-surface mb-sm leading-snug">{step.title}</h4>
                 <p className="font-body text-body-sm text-on-surface-variant leading-relaxed">{step.body}</p>
               </Reveal>
             </div>
@@ -72,7 +72,7 @@ export default function InvestJourney({ steps }) {
               </motion.div>
 
               <Reveal tag="div" delay={index * 0.05} className="pt-xs">
-                <h4 className="font-display text-headline-md text-primary mb-xs leading-snug">{step.title}</h4>
+                <h4 className="font-display text-headline-md text-on-surface mb-xs leading-snug">{step.title}</h4>
                 <p className="font-body text-body-sm text-on-surface-variant leading-relaxed">{step.body}</p>
               </Reveal>
             </div>

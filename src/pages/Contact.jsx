@@ -1,11 +1,17 @@
 import { useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
+import KineticHeadline from '../components/KineticHeadline'
+import MaskReveal from '../components/MaskReveal'
 import Accordion from '../components/Accordion'
+import Disclosure from '../components/Disclosure'
 import SocialIcon from '../components/SocialIcon'
 import { COMPANY } from '../data/company'
+import { WHATSAPP_URL } from '../data/whatsapp'
+import { publicUrl } from '../lib/basePath'
 import { FAQ } from '../data/faq'
 import {
   EMAILJS_CONTACT_TEMPLATE_ID,
@@ -19,7 +25,16 @@ const SUBJECTS = ['Investment Enquiry', 'Partnership Proposal', 'Media & Press',
 const initialForm = { name: '', email: '', phone: '', subject: SUBJECTS[0], message: '' }
 
 export default function Contact() {
-  const [form, setForm] = useState(initialForm)
+  const location = useLocation()
+  const plotEnquiry = location.state?.plotEnquiry
+  const [form, setForm] = useState(() =>
+    plotEnquiry
+      ? {
+          ...initialForm,
+          message: `I'm interested in Plot ${plotEnquiry.plotNumber} (${plotEnquiry.block}) in ${plotEnquiry.city} — ${plotEnquiry.sizeSqYd} sq.yd at ₹${plotEnquiry.pricePerSqYd}/sq.yd. Please share more details and next steps.`,
+        }
+      : initialForm,
+  )
   const [status, setStatus] = useState('idle') // idle | sending | success | error
 
   const handleChange = (event) => {
@@ -71,15 +86,18 @@ export default function Contact() {
       {/* Header */}
       <section className="relative py-xl bg-primary overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />
-        <Reveal tag="div" className="relative max-w-container-max mx-auto px-margin-mobile lg:px-xl text-center max-w-[48rem]">
+        <Reveal tag="div" className="relative max-w-[48rem] mx-auto px-margin-mobile lg:px-xl text-center">
           <Eyebrow tone="dark">Let's Talk</Eyebrow>
-          <h1 className="font-display text-display-lg-mobile lg:text-display-lg text-on-primary mt-md mb-md">
+          <KineticHeadline
+            tag="h1"
+            className="font-serif-display text-display-lg-mobile lg:text-display-lg text-on-primary mt-md mb-md"
+          >
             Start a Conversation with <span className="text-secondary">ETOR Group</span>
-          </h1>
-          <p className="font-body text-body-lg text-on-primary/70">
+          </KineticHeadline>
+          <MaskReveal tag="p" className="font-body text-body-lg text-on-primary/70">
             Whether you're exploring an investment, a partnership, or just curious about our ventures, our team
             responds within one business day.
-          </p>
+          </MaskReveal>
         </Reveal>
       </section>
 
@@ -91,12 +109,12 @@ export default function Contact() {
               tag="div"
               x={-30}
               y={0}
-              className="lg:col-span-3 bg-surface rounded-[2rem] border border-outline-variant/30 p-lg lg:p-xl shadow-sm"
+              className="lg:col-span-3 surface-panel rounded-[1.25rem] p-lg lg:p-xl"
             >
               {status === 'success' && (
                 <div className="mb-lg p-md rounded-xl bg-secondary/10 border border-secondary/30 flex items-center gap-sm">
                   <span className="material-symbols-outlined text-secondary">check_circle</span>
-                  <p className="font-body text-body-sm text-primary">
+                  <p className="font-body text-body-sm text-on-surface">
                     Thanks — your message has been received. Our team will reach out shortly.
                   </p>
                 </div>
@@ -218,7 +236,7 @@ export default function Contact() {
               <div className="p-lg rounded-[1.5rem] bg-surface-container-low border border-outline-variant/20 hover:border-secondary/40 transition-colors">
                 <div className="flex items-center gap-sm mb-md">
                   <span className="material-symbols-outlined text-secondary">location_on</span>
-                  <h3 className="font-display text-headline-md text-primary">Visakhapatnam HQ</h3>
+                  <h3 className="font-display text-headline-md text-on-surface">Visakhapatnam HQ</h3>
                 </div>
                 <p className="font-body text-body-sm text-on-surface-variant mb-md">
                   {COMPANY.addressLines.join(', ')}
@@ -248,6 +266,29 @@ export default function Contact() {
                 </div>
               </div>
 
+              <div className="p-lg rounded-[1.5rem] bg-surface-container-low border border-outline-variant/20 space-y-sm">
+                <p className="font-body text-label-md text-on-surface-variant uppercase tracking-widest mb-sm">
+                  Prefer a faster answer?
+                </p>
+                <a
+                  href={publicUrl('downloads/etor-city-master-plan.pdf')}
+                  download
+                  className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[18px] text-secondary">download</span>
+                  Download the Master Plan
+                </a>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary transition-colors"
+                >
+                  <SocialIcon name="whatsapp" className="w-[18px] h-[18px] text-secondary" />
+                  Chat on WhatsApp
+                </a>
+              </div>
+
               <div className="p-lg rounded-[1.5rem] bg-primary text-on-primary">
                 <p className="font-body text-label-md uppercase tracking-widest text-secondary mb-md">Follow Us</p>
                 <div className="flex gap-md">
@@ -255,6 +296,8 @@ export default function Contact() {
                     <a
                       key={s.label}
                       href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       aria-label={s.label}
                       className="w-10 h-10 rounded-full bg-on-primary/10 flex items-center justify-center hover:bg-secondary transition-colors"
                     >
@@ -269,20 +312,27 @@ export default function Contact() {
       </section>
 
       {/* FAQ */}
-      <section className="py-xl bg-surface-container-low">
+      <section id="faq" className="py-xl bg-surface-container-low">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <Reveal tag="div" className="max-w-[36rem] mx-auto text-center mb-xl">
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="font-display text-headline-xl text-primary mt-md mb-md">Frequently Asked Questions</h2>
+            <h2 className="font-display text-headline-xl text-on-surface mt-md mb-md">Frequently Asked Questions</h2>
             <p className="font-body text-body-lg text-on-surface-variant">
-              We believe in complete transparency. If you don't find your answer here, our support team is always
-              ready to assist.
+              If you don't find your answer here, our team is happy to help directly.
             </p>
           </Reveal>
 
-          <Reveal tag="div" className="max-w-[48rem] mx-auto bg-surface rounded-[2rem] border border-outline-variant/30 p-md lg:p-lg">
+          <Reveal tag="div" className="max-w-[48rem] mx-auto surface-panel rounded-[1.25rem] p-md lg:p-lg">
             <Accordion items={FAQ} />
           </Reveal>
+          <Disclosure className="text-center mt-lg max-w-[36rem] mx-auto">
+            Cashback and return answers above describe programme terms as stated in ETOR Group's brochure, not
+            guarantees. See{' '}
+            <Link to="/terms" className="underline hover:text-secondary">
+              Terms
+            </Link>{' '}
+            for full conditions.
+          </Disclosure>
         </div>
       </section>
     </div>

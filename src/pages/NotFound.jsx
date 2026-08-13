@@ -7,7 +7,7 @@ export default function NotFound() {
     <section className="min-h-[70vh] flex items-center justify-center bg-background">
       <Reveal tag="div" className="max-w-[32rem] text-center px-margin-mobile">
         <p className="font-display text-display-lg text-secondary mb-md">404</p>
-        <h1 className="font-display text-headline-xl text-primary mb-md">This page has wandered off the plantation.</h1>
+        <h1 className="font-display text-headline-xl text-on-surface mb-md">This page has wandered off the plantation.</h1>
         <p className="font-body text-body-lg text-on-surface-variant mb-xl">
           The page you're looking for doesn't exist or has been moved.
         </p>

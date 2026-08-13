@@ -2,8 +2,6 @@ import { useRef } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Reveal from './Reveal'
 
-const EASE = [0.16, 1, 0.3, 1]
-
 // Visually richer "ecosystem" presentation: a connecting line threads
 // through each pillar's icon node (echoing that these ventures form one
 // interconnected system), with a numbered badge, a gradient icon ring, and a
@@ -38,7 +36,7 @@ export default function EcosystemGrid({ pillars }) {
             {/* Ghost numeral watermark */}
             <span
               className={`font-display absolute -top-4 -right-2 text-[7rem] leading-none font-bold select-none pointer-events-none ${
-                pillar.highlight ? 'text-on-secondary/10' : 'text-primary/5'
+                pillar.highlight ? 'text-on-secondary/10' : 'text-on-surface/5'
               }`}
             >
               0{index + 1}
@@ -66,7 +64,7 @@ export default function EcosystemGrid({ pillars }) {
               </div>
               <h4
                 className={`font-display text-headline-md mb-md ${
-                  pillar.highlight ? 'text-on-secondary' : 'text-primary'
+                  pillar.highlight ? 'text-on-secondary' : 'text-on-surface'
                 }`}
               >
                 {pillar.title}

@@ -2,92 +2,167 @@ import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
-import { PILLARS } from '../data/pillars'
-import { TESTIMONIALS } from '../data/testimonials'
-import TiltCard from '../components/TiltCard'
+import { publicUrl } from '../lib/basePath'
+import { PARTICIPATION_STEPS } from '../data/participationSteps'
 import Counter from '../components/Counter'
-import TestimonialCarousel from '../components/TestimonialCarousel'
-import EcosystemGrid from '../components/EcosystemGrid'
+import GoogleReviews from '../components/GoogleReviews'
+import InvestJourney from '../components/InvestJourney'
+import SoldTicker from '../components/SoldTicker'
+import KineticHeadline from '../components/KineticHeadline'
+import MaskReveal from '../components/MaskReveal'
+import Disclosure from '../components/Disclosure'
+import { COMPANY } from '../data/company'
+import heroLandscape from '../assets/images/hero-etor-landscape.png'
 import mangoOrchard from '../assets/images/mango-orchard.webp'
+import etorCityFlagship from '../assets/images/etor-city-flagship.png'
+import assetMango from '../assets/images/asset-miyazaki-mango.png'
+import assetDairy from '../assets/images/asset-organic-dairy.png'
+import assetCropPortfolio from '../assets/images/asset-crop-portfolio.png'
 import etorCity1 from '../assets/images/etor-city-1.webp'
 import etorCity2 from '../assets/images/etor-city-2.webp'
 import etorCity34 from '../assets/images/etor-city-3-4.webp'
-import etorVentures from '../assets/images/etor-ventures.webp'
-import etorlogo from "../assets/images/etor-coin-logo.webp";
+import founderCeo from '../assets/images/founder-ceo.webp'
 
 const METRICS = [
   { target: 12, suffix: '+', label: 'Years Experience', toneClass: 'text-secondary' },
-  { target: 1900, suffix: '+', label: 'Acres Across ETOR City', toneClass: 'text-primary' },
+  { target: 250, suffix: '+', label: 'Acres Across ETOR City', toneClass: 'text-on-surface' },
   { target: 100, suffix: '%', label: 'Cashback In 100 Months', toneClass: 'text-secondary' },
-  { value: 'Global', label: 'Impact Vision', toneClass: 'text-primary' },
+  { value: '4', label: 'ETOR City Locations', toneClass: 'text-on-surface' },
 ]
 
-const RIVERS = [
+const LIVING_ASSETS = [
   {
-    tag: 'Fertile Basins',
-    title: 'Gosthani River Belt',
-    description:
-      "A sanctuary for the world's most expensive mangoes. The Gosthani basin provides a unique micro-climate that intensifies the ruby-red skin and sweetness of our Miyazaki crops.",
-    image: etorCity2,
-    alt: 'Gosthani River plantation belt',
-    layout: 'image-left',
-    variant: 'card',
-    icon: 'water_drop',
-    metaTitle: 'High Water Table',
-    metaBody: 'Sustainable irrigation 365 days a year.',
+    tag: 'Flagship crop',
+    title: 'Miyazaki Mango',
+    body:
+      "ETOR Group's brochure describes Miyazaki mango as the world's most expensive fruit, and ETOR as the first in the real-estate industry to plan a Miyazaki plantation inside a residential-style development.",
+    priceTag: '₹2,75,000 / kg',
+    highlights: ['Rich in zinc, calcium & vitamins C, E, A, K', 'Served as a welcome fruit at Burj Khalifa & other 5-star hotels'],
+    image: assetMango,
+    alt: 'Ripe Miyazaki mango still life',
+    note: "Fruit prices are described as market/auction-dependent — see the 12-year example in “Invest smart” below.",
   },
   {
-    tag: 'Optimal Growth',
-    title: 'Champavathi Valley',
-    description:
-      'Known for its mineral-rich silt deposits, the Champavathi valley hosts our secondary tier of Miyazaki plantations, focused on robust health and high-density planting techniques.',
+    tag: 'Organic dairy',
+    title: 'ETOR Organic Dairy Farm',
+    body:
+      'A herd raised on 100% organic feed and irrigated with Gosthani river water. The brochure example: a ₹5,00,000 top-up on an existing plot targets ₹25,000 every month for 100 months — ₹25,00,000 in total.',
+    image: assetDairy,
+    alt: 'Organic dairy farm at first light',
+    note: 'Example figures shown as printed in the brochure — a programme term, not a guaranteed return.',
+  },
+  {
+    tag: 'Orchard portfolio',
+    title: 'Sandalwood, Sitafal & Dragon Fruit',
+    body:
+      "White sandalwood (Srigandham) — grown in only a handful of countries worldwide, with Indian sandalwood noted for its oil quality — is planted alongside custard apple (Balanagar Sitafal) and red/yellow dragon fruit. The brochure allocates 30 sandalwood plants to each 250 sq.yd plot, with sitafal and dragon fruit reaching full fruiting within one to two years alongside the mango.",
+    priceTag: 'Sandalwood ₹22,000/kg · Sitafal ₹200/kg · Dragon Fruit ₹300/kg',
+    highlights: [
+      'Sandalwood: antioxidant, anti-inflammatory & antimicrobial properties, used in premium cosmetics and perfumes',
+      'Sitafal: high in fibre and antioxidants that support digestion and heart health',
+      'Dragon fruit: rich in antioxidants, boosts immunity, supports skin and heart health',
+    ],
+    image: assetCropPortfolio,
+    alt: 'Sandalwood, custard apple and dragon fruit portfolio',
+    note: 'Per-kg prices and health claims as printed in the brochure — not independent lab or medical verification.',
+  },
+]
+
+const PACKAGES = [
+  {
+    name: 'ETOR City 1',
+    place: 'Sariapalli',
+    price: '₹3,999',
+    image: etorCity1,
+    href: '/projects/city-1/layouts',
+  },
+  {
+    name: 'ETOR City 2',
+    place: 'Sottadivalasa',
+    price: '₹3,999',
+    image: etorCity2,
+    href: '/projects/city-2/layouts',
+  },
+  {
+    name: 'ETOR City 3 & 4',
+    place: 'Ichapuram',
+    price: '₹4,999',
     image: etorCity34,
-    alt: 'Champavathi river valley',
-    layout: 'image-right',
-    variant: 'stats',
-    stats: [
-      { value: '98%', label: 'Soil Vitality' },
-      { value: 'Eco', label: 'Certified Organic' },
+    href: '/projects/city-3-4/layouts',
+  },
+]
+
+// Matches the brochure's own "Return on Investment of ₹10,00,000 on 250
+// Sq.Yd" table exactly — the base plot ROI row was previously missing here
+// and the Sandalwood/Miyazaki 12-year totals were swapped, so the four
+// visible rows didn't actually add up to the ₹4,26,70,000 shown below them.
+const ROI_EXAMPLE = [
+  { crop: 'Plot ROI (base return)', perYear: '₹1,20,000', over12yr: '₹10,00,000' },
+  { crop: 'Sandalwood (30 plants)', perYear: '—', over12yr: '₹3,75,00,000' },
+  { crop: 'Miyazaki Mango (3 plants)', perYear: '₹3,00,000', over12yr: '₹30,00,000' },
+  { crop: 'Custard Apple (30 plants)', perYear: '₹90,000', over12yr: '₹9,00,000' },
+  { crop: 'Dragon Fruit (25 plants)', perYear: '₹22,500', over12yr: '₹2,70,000' },
+]
+
+const AMENITY_THEMES = [
+  {
+    title: 'Stay & hospitality',
+    icon: 'hotel',
+    items: ['Restaurant', 'OTT theatre', '3-star guest accommodation', 'Natural swimming pool', 'Buggies, horse riding & ATV bike riding'],
+  },
+  {
+    title: 'Safety & infrastructure',
+    icon: 'shield',
+    items: [
+      '24-hour security surveillance & trained dog squad',
+      '360° CCTV surveillance and solar fencing',
+      'Clear title, non-scheduled land, owner name on every plot',
+      'Electricity, water and solar, generator & 3-phase power for each plot',
+      'Spot registration',
     ],
   },
   {
-    tag: 'Coastal Advantage',
-    title: 'Bahudha River Delta',
-    description:
-      "The perfect balance of moisture and sunlight. Our Bahudha estates specialize in late-season harvests, ensuring ETOR Group's Miyazaki presence long after others have faded.",
-    image: etorVentures,
-    alt: 'Bahudha river delta estuary',
-    layout: 'image-left',
-    variant: 'dark',
+    title: 'Nature & recreation',
+    icon: 'park',
+    items: [
+      'Green landscaped gardens',
+      'Border drip irrigation for every plant, fed by 9.5 pH river water',
+      'Walking, cycling & e-biking trails',
+      'Vastu-compliant plot planning',
+    ],
   },
 ]
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
-      {/* Hero */}
+      {/* Scene 1 — The ground */}
       <section className="relative w-full h-screen min-h-[640px] flex items-center -mt-20 overflow-hidden">
         <img
-          src={mangoOrchard}
-          alt="Premium Miyazaki mango plantation at golden hour"
+          src={heroLandscape}
+          alt="Premium mango orchard in coastal Andhra Pradesh at first light"
           className="absolute inset-0 w-full h-full object-cover scale-105"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-primary/55" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-transparent to-background/30" />
+        <div className="absolute inset-0 bg-primary/65" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/66 to-primary/20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-transparent to-primary/55" />
 
         <div className="relative z-20 max-w-container-max mx-auto px-margin-mobile lg:px-xl pt-20 w-full">
-          <div className="flex flex-col lg:flex-row items-center gap-xl">
-            <Reveal tag="div" y={30} className="w-full lg:w-2/3 space-y-lg">
-              <Eyebrow tone="light">Agricultural Revolution 2.0</Eyebrow>
-              <h1 className="font-display text-display-lg-mobile lg:text-display-lg text-on-primary leading-none">
-                Empowering Growth
+          <div className="flex items-center">
+            <Reveal tag="div" y={30} className="hero-copy w-full max-w-[58rem] space-y-lg">
+              <Eyebrow tone="light">Land · Life · Long-term value</Eyebrow>
+              <KineticHeadline
+                tag="h1"
+                className="font-serif-display text-display-lg-mobile lg:text-display-lg text-on-primary leading-none"
+              >
+                Build value
                 <br />
-                <span className="text-secondary">Through Innovation</span>
-              </h1>
+                <span className="text-on-primary">that keeps growing.</span>
+              </KineticHeadline>
               <p className="font-body text-body-lg text-on-primary max-w-[36rem] drop-shadow-md">
-                Experience the future of sustainable wealth with our Miyazaki Mango Plantation—the world's most
-                premium harvest—coupled with an unprecedented 100% cashback guarantee.
+                ETOR Group brings land, cultivation, community and long-term participation
+                together in one living portfolio across Andhra Pradesh.
               </p>
               <div className="flex flex-wrap gap-md">
                 <MagneticButton
@@ -96,7 +171,7 @@ export default function Home() {
                   className="group relative px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest overflow-hidden shadow-xl shadow-secondary/30 inline-flex"
                 >
                   <span className="relative z-10 flex items-center gap-sm">
-                    See Packages
+                    Explore ETOR City
                     <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">
                       arrow_forward
                     </span>
@@ -107,21 +182,8 @@ export default function Home() {
                   to="/about"
                   className="px-xl py-md border border-on-primary/30 backdrop-blur-md text-on-primary rounded-full font-body text-label-md uppercase tracking-widest hover:bg-on-primary/10 transition-colors inline-flex"
                 >
-                  Learn More
+                  Read our story
                 </MagneticButton>
-              </div>
-            </Reveal>
-
-            <Reveal tag="div" delay={0.2} x={30} y={0} className="hidden lg:block w-1/3 relative">
-              <TiltCard>
-                <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border border-on-primary/20 rotate-3 hover:rotate-0 transition-transform duration-700">
-                  <img src={etorlogo} alt="ETOR City venture aerial view" className="w-full h-full object-cover object-top" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
-                </div>
-              </TiltCard>
-              <div className="absolute -top-6 -left-6 bg-surface/95 backdrop-blur-md rounded-2xl px-lg py-md shadow-xl border border-outline-variant/30">
-                <p className="font-display text-headline-md text-secondary leading-none">12+ Years</p>
-                <p className="font-body text-body-sm text-on-surface-variant">Legacy of Excellence</p>
               </div>
             </Reveal>
           </div>
@@ -132,7 +194,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Metrics / Trust Bar */}
+      <SoldTicker />
+
+      {/* Scene 2 — The proof rail */}
       <section className="bg-surface py-lg border-y border-outline-variant/30">
         <Reveal tag="div" className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-lg items-center">
@@ -153,204 +217,557 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <Disclosure className="mt-md text-center sm:text-left">
+            Acreage and cashback figures are as stated in ETOR Group's programme brochure. Download the{' '}
+            <a href={publicUrl("downloads/etor-city-master-plan.pdf")} download className="underline hover:text-secondary">
+              master plan
+            </a>{' '}
+            or see{' '}
+            <Link to="/terms" className="underline hover:text-secondary">
+              Terms
+            </Link>{' '}
+            for full conditions.
+          </Disclosure>
         </Reveal>
       </section>
 
-      {/* Rivers of Prosperity */}
+      {/* Scene 3 — ETOR City */}
       <section className="relative py-xl bg-background overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+        <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+            <Reveal
+              tag="div"
+              x={-30}
+              y={0}
+              className="lg:col-span-7 rounded-3xl overflow-hidden shadow-xl aspect-video lg:aspect-auto lg:h-[460px]"
+            >
+              <img
+                src={etorCityFlagship}
+                alt="Aerial view of the ETOR City riverside development"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover"
+              />
+            </Reveal>
 
-        <div className="relative max-w-container-max mx-auto px-margin-mobile lg:px-xl space-y-xl">
+            <Reveal tag="div" delay={0.1} x={40} y={0} className="lg:col-span-5 space-y-md">
+              <Eyebrow>ETOR City</Eyebrow>
+              <h2 className="font-display text-headline-xl text-on-surface">
+                One managed place, not a scattered land bank.
+              </h2>
+              <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
+                ETOR City spans roughly 250 acres and is still extending, laid out across four
+                locations along the Andhra Pradesh coast: Sariapalli, Sottadivalasa and
+                Ichapuram. Each plot sits inside one managed development combining
+                plantation plots, hospitality and on-ground amenities — not just a title
+                deed on an empty field.
+              </p>
+              <div className="flex flex-wrap gap-md pt-sm">
+                <MagneticButton
+                  as={Link}
+                  to="/projects"
+                  className="group px-xl py-md bg-primary text-on-primary rounded-full font-body text-label-md uppercase tracking-widest inline-flex items-center gap-sm"
+                >
+                  Explore Packages
+                  <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">
+                    arrow_forward
+                  </span>
+                </MagneticButton>
+                <a
+                  href={publicUrl("downloads/etor-city-master-plan.pdf")}
+                  download
+                  className="px-xl py-md border border-outline-variant/50 text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:bg-surface-container-low transition-colors inline-flex items-center gap-sm"
+                >
+                  Master Plan
+                  <span className="material-symbols-outlined text-[18px]">download</span>
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Scene 4 — A living portfolio */}
+      <section className="relative py-xl bg-surface-container-low overflow-hidden">
+        <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl space-y-xl">
           <Reveal tag="div" className="text-center max-w-2xl mx-auto mb-xl">
-            <h2 className="font-display text-headline-xl text-primary mb-md">Rivers of Prosperity</h2>
+            <Eyebrow>A living portfolio</Eyebrow>
+            <h2 className="font-display text-headline-xl text-on-surface mt-md mb-md">
+              Four assets, one plot of land.
+            </h2>
+            <MaskReveal tag="p" className="font-body text-body-lg text-on-surface-variant">
+              Every ETOR City plot plants the same core mix — mango, dairy access, sandalwood
+              and orchard fruit — so the land is working from year one, not sitting idle.
+            </MaskReveal>
+          </Reveal>
+
+          <div className="space-y-xl">
+            {LIVING_ASSETS.map((asset, index) => (
+              <div
+                key={asset.title}
+                className={`grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center ${
+                  index % 2 === 1 ? 'lg:[direction:rtl]' : ''
+                }`}
+              >
+                <Reveal
+                  tag="div"
+                  x={index % 2 === 1 ? 40 : -40}
+                  y={0}
+                  className="lg:col-span-5 rounded-3xl overflow-hidden shadow-xl aspect-[4/5] lg:h-[380px] [direction:ltr]"
+                >
+                  <img
+                    src={asset.image}
+                    alt={asset.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                </Reveal>
+                <Reveal
+                  tag="div"
+                  delay={0.1}
+                  x={index % 2 === 1 ? -40 : 40}
+                  y={0}
+                  className="lg:col-span-7 space-y-sm [direction:ltr]"
+                >
+                  <span className="font-body text-label-md text-secondary uppercase tracking-[0.2em]">
+                    {asset.tag}
+                  </span>
+                  <h3 className="font-display text-headline-lg text-on-surface">{asset.title}</h3>
+                  {asset.priceTag && (
+                    <span className="inline-flex items-center px-md py-xs rounded-full bg-secondary/10 text-secondary font-body text-label-md">
+                      {asset.priceTag}
+                    </span>
+                  )}
+                  <p className="font-body text-body-md text-on-surface-variant leading-relaxed max-w-[36rem]">
+                    {asset.body}
+                  </p>
+                  {asset.highlights && (
+                    <ul className="space-y-1.5 max-w-[36rem]">
+                      {asset.highlights.map((item) => (
+                        <li key={item} className="flex items-start gap-xs font-body text-body-sm text-on-surface-variant">
+                          <span className="material-symbols-outlined text-secondary text-[16px] mt-0.5 shrink-0">check_circle</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {asset.note && (
+                    <Disclosure className="max-w-[36rem]">{asset.note}</Disclosure>
+                  )}
+                </Reveal>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Scene 5 — How participation works */}
+      <section className="py-xl bg-background overflow-hidden">
+        <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
+          <Reveal tag="div" className="max-w-[36rem] mx-auto text-center mb-xl">
+            <Eyebrow>How it works</Eyebrow>
+            <h2 className="font-display text-headline-xl text-on-surface mt-md mb-md">
+              Five steps, at your own pace.
+            </h2>
             <p className="font-body text-body-lg text-on-surface-variant">
-              Our strategic plantation locations are nestled along the life-giving veins of India, ensuring
-              unmatched natural fertility and premium yield quality.
+              No countdown, no pressure — just a clear path from first conversation to
+              ongoing updates.
             </p>
           </Reveal>
 
-          {RIVERS.map((river, index) => (
-            <div
-              key={river.title}
-              className={`group relative grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center ${index > 0 ? 'pt-xl' : ''}`}
-            >
-              <Reveal
-                tag="div"
-                x={river.layout === 'image-left' ? -40 : 40}
-                y={0}
-                className={`lg:col-span-7 rounded-3xl overflow-hidden shadow-xl aspect-video lg:aspect-auto lg:h-[500px] ${
-                  river.layout === 'image-right' ? 'order-1 lg:order-2' : ''
-                }`}
-              >
-                <img
-                  src={river.image}
-                  alt={river.alt}
-                  loading="lazy"
-                  decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
-              </Reveal>
-
-              <Reveal
-                tag="div"
-                delay={0.1}
-                x={river.layout === 'image-left' ? 40 : -40}
-                y={0}
-                className={`lg:col-span-5 z-10 ${
-                  river.layout === 'image-left' ? 'lg:-ml-20' : 'lg:-mr-20 order-2 lg:order-1'
-                }`}
-              >
-                <div
-                  className={`p-lg rounded-3xl shadow-2xl ${
-                    river.variant === 'dark'
-                      ? 'bg-primary text-on-primary'
-                      : 'bg-surface/90 backdrop-blur-xl border border-outline-variant/30'
-                  }`}
-                >
-                  <span className="font-body text-label-md text-secondary uppercase tracking-[0.2em] mb-xs block">
-                    {river.tag}
-                  </span>
-                  <h3
-                    className={`font-display text-headline-lg mb-md ${
-                      river.variant === 'dark' ? 'text-on-primary' : 'text-primary'
-                    }`}
-                  >
-                    {river.title}
-                  </h3>
-                  <p
-                    className={`font-body text-body-md mb-lg ${
-                      river.variant === 'dark' ? 'text-on-primary/70' : 'text-on-surface-variant'
-                    }`}
-                  >
-                    {river.description}
-                  </p>
-
-                  {river.variant === 'card' && (
-                    <div className="flex items-center gap-md">
-                      <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                        <span className="material-symbols-outlined text-secondary">{river.icon}</span>
-                      </div>
-                      <div>
-                        <p className="font-body text-label-md text-primary">{river.metaTitle}</p>
-                        <p className="font-body text-body-sm text-on-surface-variant">{river.metaBody}</p>
-                      </div>
-                    </div>
-                  )}
-
-                  {river.variant === 'stats' && (
-                    <div className="grid grid-cols-2 gap-md">
-                      {river.stats.map((stat) => (
-                        <div key={stat.label} className="bg-background p-sm rounded-xl">
-                          <p className="font-display text-headline-md text-primary">{stat.value}</p>
-                          <p className="font-body text-body-sm text-on-surface-variant">{stat.label}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {river.variant === 'dark' && (
-                    <Link
-                      to="/projects"
-                      className="block w-full text-center py-md bg-on-primary text-primary font-body text-label-md uppercase tracking-widest rounded-xl hover:bg-secondary hover:text-on-secondary transition-colors"
-                    >
-                      View Site Details
-                    </Link>
-                  )}
-                </div>
-              </Reveal>
-            </div>
-          ))}
+          <InvestJourney steps={PARTICIPATION_STEPS} />
         </div>
       </section>
 
-      {/* Why Choose Us */}
+      {/* Scene 6 — Packages */}
       <section className="py-xl bg-surface-container-low">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
-          <Reveal tag="div" className="flex flex-col lg:flex-row justify-between items-end mb-xl gap-md">
-            <div className="max-w-[36rem]">
-              <h2 className="font-display text-headline-xl lg:text-display-lg text-primary mb-md">
-                The ETOR <span className="text-secondary">Ecosystem</span>
-              </h2>
-              <p className="font-body text-body-lg text-on-surface-variant leading-relaxed">
-                We don't just plant trees; we build financial infrastructures powered by nature and secured by
-                technology.
-              </p>
-            </div>
-            <Link
-              to="/about"
-              className="font-body text-label-md text-secondary uppercase tracking-widest border-b-2 border-secondary pb-xs hover:opacity-70 transition-opacity"
-            >
-              Our Full Methodology
-            </Link>
+          <Reveal tag="div" className="max-w-[36rem] mx-auto text-center mb-xl">
+            <Eyebrow>Packages</Eyebrow>
+            <h2 className="font-display text-headline-xl text-on-surface mt-md mb-md">
+              Invest smart, pick your package.
+            </h2>
+            <p className="font-body text-body-lg text-on-surface-variant">
+              Prices as shown in ETOR Group's brochure, until confirmed current with an advisor.
+            </p>
           </Reveal>
 
-          <EcosystemGrid pillars={PILLARS} />
+          <Reveal tag="div" className="grid grid-cols-1 md:grid-cols-3 gap-lg">
+            {PACKAGES.map((pkg) => (
+              <Link
+                key={pkg.name}
+                to={pkg.href}
+                className="group relative rounded-3xl overflow-hidden shadow-lg aspect-[4/5] flex flex-col justify-end"
+              >
+                <img
+                  src={pkg.image}
+                  alt={`${pkg.name}, ${pkg.place}`}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent" />
+                <div className="relative z-10 p-lg">
+                  <p className="font-body text-label-md text-on-primary/70 uppercase tracking-widest mb-xs">
+                    {pkg.place}
+                  </p>
+                  <h3 className="font-display text-headline-md text-on-primary mb-sm">{pkg.name}</h3>
+                  <p className="font-display text-headline-lg text-on-primary">
+                    {pkg.price}
+                    <span className="font-body text-body-sm align-top"> /sq.yd</span>
+                  </p>
+                  <span className="mt-md inline-flex items-center gap-xs font-body text-label-md text-on-primary uppercase tracking-widest">
+                    View Layouts
+                    <span className="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">
+                      arrow_forward
+                    </span>
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </Reveal>
+
+          {/* Illustrative return example, straight from the brochure */}
+          <Reveal tag="div" className="mt-xl rounded-3xl bg-surface border border-outline-variant/30 p-lg lg:p-xl">
+            <h3 className="font-display text-headline-md text-on-surface mb-xs">
+              Illustrative example — ₹10,00,000 on a 250 sq.yd plot
+            </h3>
+            <p className="font-body text-body-sm text-on-surface-variant mb-lg">
+              As printed in ETOR Group's brochure. Shown for illustration only, not a promise of
+              future performance.
+            </p>
+            {/* Below sm: a stacked list, since a 3-column table needs more
+                width than a phone screen gives without forcing a horizontal
+                scroll most visitors would never discover — that silently
+                hid the "over 12 years" column and the total return. */}
+            <div className="sm:hidden space-y-md">
+              {ROI_EXAMPLE.map((row) => (
+                <div key={row.crop} className="pb-md border-b border-outline-variant/15">
+                  <p className="font-body text-body-sm text-on-surface mb-xs">{row.crop}</p>
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-body text-body-sm text-on-surface-variant">{row.perYear} / yr</span>
+                    <span className="font-body text-body-md text-secondary font-medium">{row.over12yr}</span>
+                  </div>
+                </div>
+              ))}
+              <div className="pt-sm">
+                <p className="font-body text-body-sm font-medium text-on-surface mb-xs">
+                  Total return after company share
+                </p>
+                <p className="font-display text-headline-md text-secondary">₹4,26,70,000</p>
+              </div>
+            </div>
+
+            <div className="hidden sm:block overflow-x-auto">
+              <table className="w-full text-left font-body text-body-sm min-w-[28rem]">
+                <thead>
+                  <tr className="border-b border-outline-variant/30 text-on-surface-variant uppercase text-[11px] tracking-widest">
+                    <th className="py-sm pr-md">Crop</th>
+                    <th className="py-sm pr-md">Per year</th>
+                    <th className="py-sm">Over 12 years</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {ROI_EXAMPLE.map((row) => (
+                    <tr key={row.crop} className="border-b border-outline-variant/15">
+                      <td className="py-sm pr-md text-on-surface">{row.crop}</td>
+                      <td className="py-sm pr-md text-on-surface-variant">{row.perYear}</td>
+                      <td className="py-sm text-secondary font-medium">{row.over12yr}</td>
+                    </tr>
+                  ))}
+                  <tr>
+                    <td className="py-sm pr-md font-medium text-on-surface">
+                      Total return after company share
+                    </td>
+                    <td className="py-sm pr-md" />
+                    <td className="py-sm text-secondary font-display text-headline-md">₹4,26,70,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <Disclosure className="mt-lg">
+              Miyazaki mango is described as a highly valuable, auction-priced fruit — prices vary.
+              All income is shared 50:50 between the company and client, and all prices are based on
+              market prices at the time. See{' '}
+              <Link to="/terms" className="underline hover:text-secondary">
+                Terms
+              </Link>{' '}
+              for full conditions.
+            </Disclosure>
+          </Reveal>
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Scene 7 — 33-Year Management & Investor Benefits */}
+      <section className="relative py-xl bg-primary overflow-hidden">
+        <span
+          className="material-symbols-outlined absolute -top-10 -left-10 text-on-primary/5 pointer-events-none select-none"
+          style={{ fontSize: '380px' }}
+          aria-hidden="true"
+        >
+          engineering
+        </span>
+
+        <div className="relative max-w-container-max mx-auto px-margin-mobile lg:px-xl">
+          <Reveal tag="div" className="max-w-[42rem] mx-auto text-center mb-xl">
+            <Eyebrow tone="dark">33-Year Management & Investor Benefits</Eyebrow>
+            <h2 className="font-display text-headline-xl lg:text-display-lg text-on-primary mt-md mb-md">
+              We manage your plot for 33 years. Your benefit is sized to it.
+            </h2>
+            <Counter
+              target={33}
+              suffix=" Years"
+              className="font-display text-display-lg text-secondary-fixed-dim block"
+            />
+          </Reveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+            <Reveal tag="div" x={-30} y={0} className="flex gap-md items-start">
+              <div className="w-12 h-12 rounded-full bg-on-primary/10 flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-secondary-fixed-dim">engineering</span>
+              </div>
+              <div>
+                <h3 className="font-display text-headline-md text-on-primary mb-xs">
+                  Who manages your plot, and for how long?
+                </h3>
+                <p className="font-body text-body-md text-on-primary/70 leading-relaxed">
+                  ETOR takes responsibility for maintaining your plot — including spot registration — for a
+                  full 33 years, so upkeep is never something you have to chase down.
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal tag="div" delay={0.1} x={30} y={0} className="flex gap-md items-start">
+              <div className="w-12 h-12 rounded-full bg-on-primary/10 flex items-center justify-center shrink-0">
+                <span className="material-symbols-outlined text-secondary-fixed-dim">agriculture</span>
+              </div>
+              <div>
+                <h3 className="font-display text-headline-md text-on-primary mb-xs">How you benefit</h3>
+                <p className="font-body text-body-md text-on-primary/70 leading-relaxed">
+                  Your dairy top-up return and plantation allocation are sized to your specific plot, exactly
+                  as set out in ETOR's brochure — see the size-by-size breakdown in Living Assets.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal tag="div" delay={0.15} className="flex flex-col items-center mt-xl gap-md">
+            <MagneticButton
+              as={Link}
+              to="/services"
+              className="px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest inline-flex items-center gap-sm"
+            >
+              See What You'd Get
+              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </MagneticButton>
+            <Disclosure className="text-on-primary/50 text-center max-w-[36rem]">
+              Maintenance duration and benefit tiers are as set out in ETOR Group's brochure and your signed
+              agreement — individual outcomes are not guaranteed. See{' '}
+              <Link to="/terms" className="underline hover:text-secondary-fixed-dim">
+                Terms
+              </Link>{' '}
+              for full conditions.
+            </Disclosure>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Scene 8 — The place around the plot */}
+      <section className="py-xl bg-background">
+        <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
+          <Reveal tag="div" className="max-w-[36rem] mx-auto text-center mb-xl">
+            <Eyebrow>Beyond the plot</Eyebrow>
+            <h2 className="font-display text-headline-xl text-on-surface mt-md mb-md">
+              The place around your plot.
+            </h2>
+            <p className="font-body text-body-lg text-on-surface-variant">
+              Amenities and development details, grouped so they're easy to scan rather than a
+              wall of badges.
+            </p>
+          </Reveal>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-lg">
+            {AMENITY_THEMES.map((theme) => (
+              <Reveal
+                key={theme.title}
+                tag="div"
+                className="rounded-3xl bg-surface-container-low p-lg border border-outline-variant/20"
+              >
+                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center mb-md">
+                  <span className="material-symbols-outlined text-secondary">{theme.icon}</span>
+                </div>
+                <h3 className="font-display text-headline-md text-on-surface mb-md">{theme.title}</h3>
+                <ul className="space-y-sm">
+                  {theme.items.map((item) => (
+                    <li key={item} className="flex items-start gap-sm font-body text-body-sm text-on-surface-variant">
+                      <span className="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">
+                        check_circle
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal tag="div" className="max-w-[42rem] mx-auto text-center mt-xl">
+            <p className="font-display text-headline-md text-on-surface mb-xs">Pleasures, not just plots.</p>
+            <p className="font-body text-body-md text-on-surface-variant">
+              Owners can avail nature-friendly riverside accommodation at ETOR's resorts, with good food
+              alongside family and friends — and enjoy the amenities above every year, for a lifetime.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Scene 9 — Trust and disclosure */}
+      <section className="py-xl bg-surface-container-low">
+        <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
+          <Reveal tag="div" className="max-w-[36rem] mx-auto text-center mb-xl">
+            <Eyebrow>Trust & disclosure</Eyebrow>
+            <h2 className="font-display text-headline-xl text-on-surface mt-md mb-md">
+              Know who you're dealing with.
+            </h2>
+          </Reveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+            <Reveal tag="div" className="flex gap-md items-start">
+              <img
+                src={founderCeo}
+                alt="B. Nagesh, Founder & CEO of ETOR Group"
+                loading="lazy"
+                decoding="async"
+                className="w-20 h-20 rounded-2xl object-cover shrink-0"
+              />
+              <div>
+                <p className="font-display text-headline-md text-on-surface">B. Nagesh</p>
+                <p className="font-body text-body-sm text-secondary mb-sm">Founder & CEO, ETOR Group</p>
+                <p className="font-body text-body-sm text-on-surface-variant leading-relaxed">
+                  ETOR Group has operated since {COMPANY.foundedYear} under Mr. Nagesh's leadership. Read
+                  the full story, team and history on the{' '}
+                  <Link to="/about" className="underline hover:text-secondary">
+                    About page
+                  </Link>
+                  .
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal tag="div" delay={0.1} className="space-y-sm">
+              <p className="font-body text-label-md text-on-surface uppercase tracking-widest mb-xs">
+                Registered address
+              </p>
+              <address className="font-body text-body-sm text-on-surface-variant not-italic leading-relaxed">
+                {COMPANY.addressLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
+              <div className="flex flex-wrap gap-sm pt-sm">
+                <a
+                  href={publicUrl("downloads/etor-city-master-plan.pdf")}
+                  download
+                  className="inline-flex items-center gap-xs px-md py-xs rounded-full border border-outline-variant/40 font-body text-body-sm hover:bg-surface transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[16px]">description</span>
+                  Master Plan
+                </a>
+                <a
+                  href={publicUrl("downloads/etor-group-whitepaper.pdf")}
+                  download
+                  className="inline-flex items-center gap-xs px-md py-xs rounded-full border border-outline-variant/40 font-body text-body-sm hover:bg-surface transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[16px]">description</span>
+                  Whitepaper
+                </a>
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-xs px-md py-xs rounded-full border border-outline-variant/40 font-body text-body-sm hover:bg-surface transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[16px]">help</span>
+                  FAQ
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          <Disclosure className="mt-xl max-w-[48rem] mx-auto text-center">
+            As stated in ETOR Group's brochure: this material is a conceptual presentation, not a legal
+            offering, and the developer reserves the right to alter specifications and plans. See{' '}
+            <Link to="/terms" className="underline hover:text-secondary">
+              Terms
+            </Link>{' '}
+            for full conditions.
+          </Disclosure>
+        </div>
+      </section>
+
+      {/* Client reviews — live from Google, not written by us. A curated
+          testimonial carousel (see TestimonialCarousel.jsx / data/testimonials.js,
+          still wired up but unused here) can go back above this the moment
+          ETOR Group shares real, client-approved quotes. */}
       <section className="py-xl bg-surface">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <Reveal tag="div" className="max-w-[36rem] mx-auto text-center mb-xl">
-            <h2 className="font-display text-headline-xl text-primary mb-md">
-              Client <span className="text-secondary">Testimonials</span>
+            <h2 className="font-display text-headline-xl text-on-surface mb-md">
+              Live <span className="text-secondary">Google Reviews</span>
             </h2>
             <p className="font-body text-body-lg text-on-surface-variant">
-              Our greatest achievement lies in the success of our clients and investors.
+              Pulled directly from ETOR Group's Google Business Profile — not written by us.
             </p>
           </Reveal>
-
-          <TestimonialCarousel testimonials={TESTIMONIALS} />
+          <GoogleReviews />
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Scene 10 — The invitation */}
       <section className="relative py-xl overflow-hidden bg-gradient-to-br from-primary via-primary to-secondary-container/30">
         <img
           src={mangoOrchard}
           alt=""
           aria-hidden="true"
-          loading="lazy"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/70 to-primary/40" />
 
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-secondary/20 blur-[120px]" />
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
-          <span className="absolute w-[700px] h-[700px] rounded-full border border-secondary/15 animate-[spin_50s_linear_infinite]" />
-          <span className="absolute w-[500px] h-[500px] rounded-full border border-secondary/15 animate-[spin_35s_linear_infinite_reverse]" />
-        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-secondary/20 blur-[120px]" aria-hidden="true" />
 
         <Reveal tag="div" className="relative z-10 max-w-container-max mx-auto px-margin-mobile lg:px-xl text-center">
-          <div className="inline-block px-lg py-xs bg-secondary/20 rounded-full border border-secondary/40 mb-lg">
-            <span className="font-body text-label-md text-secondary uppercase tracking-[0.3em]">
-              Limited Opportunities
-            </span>
-          </div>
-          <h2 className="font-display text-display-lg-mobile lg:text-display-xl text-on-primary mb-lg max-w-4xl mx-auto">
-            Join the Agricultural <span className="text-secondary">Elite</span>
+          <h2 className="font-serif-display text-display-lg-mobile lg:text-display-xl text-on-primary mb-lg max-w-4xl mx-auto">
+            See the land. Understand the terms. <span className="text-gradient-shimmer">Decide with clarity.</span>
           </h2>
-          <p className="font-body text-body-lg text-on-primary/60 max-w-2xl mx-auto mb-xl">
-            Secure your share in the future of the Miyazaki Mango market today and experience the security of a 100%
-            cashback guarantee.
+          <p className="font-body text-body-lg text-on-primary/60 max-w-2xl mx-auto mb-md">
+            Review the ETOR City master plan, ask any question, and take the next step at your own pace — no
+            pressure, no countdown.
           </p>
+          <Disclosure className="max-w-[36rem] mx-auto mb-xl text-on-primary/50">
+            Cashback and return figures shown across this site are programme terms as described in ETOR Group's
+            brochure, subject to the conditions in our{' '}
+            <Link to="/terms" className="underline hover:text-on-primary">
+              Terms
+            </Link>
+            , not a guarantee of performance.
+          </Disclosure>
           <div className="flex flex-col sm:flex-row gap-md justify-center items-center">
+            <a
+              href={publicUrl("downloads/etor-city-master-plan.pdf")}
+              download
+              className="w-full sm:w-auto px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest shadow-2xl shadow-secondary/50 inline-flex items-center justify-center gap-sm"
+            >
+              Request Master Plan
+              <span className="material-symbols-outlined text-[18px]">download</span>
+            </a>
             <MagneticButton
               as={Link}
               to="/contact"
-              className="w-full sm:w-auto px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest shadow-2xl shadow-secondary/50 inline-flex justify-center"
-            >
-              Invest Now
-            </MagneticButton>
-            <a
-              href="/downloads/etor-group-whitepaper.pdf"
-              download
               className="w-full sm:w-auto px-xl py-md bg-on-primary/10 text-on-primary backdrop-blur-md rounded-full font-body text-label-md uppercase tracking-widest hover:bg-on-primary/20 transition-all text-center"
             >
-              Download Whitepaper
-            </a>
+              Speak to ETOR
+            </MagneticButton>
           </div>
         </Reveal>
       </section>

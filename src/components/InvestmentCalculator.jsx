@@ -35,10 +35,10 @@ export default function InvestmentCalculator() {
   const progressPct = 8 // purely illustrative starting sliver on the timeline bar
 
   return (
-    <div className="rounded-[2rem] bg-surface border border-outline-variant/30 p-lg lg:p-xl shadow-sm">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-xl">
+    <div className="surface-panel rounded-[1.25rem] p-lg lg:p-xl">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-xl">
         {/* Inputs */}
-        <div>
+        <div className="min-w-0">
           <p className="font-body text-label-md text-on-surface-variant uppercase tracking-widest mb-sm">
             1. Choose a package
           </p>
@@ -60,11 +60,16 @@ export default function InvestmentCalculator() {
             ))}
           </div>
 
-          <div className="flex items-center justify-between mb-sm">
-            <label htmlFor="area-slider" className="font-body text-label-md text-on-surface-variant uppercase tracking-widest">
+          <div className="flex flex-col gap-3 justify-between mb-sm sm:flex-row sm:items-center">
+            <label
+              htmlFor="area-slider"
+              className="font-body text-label-md text-on-surface-variant uppercase tracking-widest"
+            >
               2. Investment area
             </label>
-            <span className="font-display text-headline-md text-primary">{area.toLocaleString('en-IN')} sq.yd</span>
+            <span className="font-display text-headline-md text-on-surface break-words">
+              {area.toLocaleString('en-IN')} sq.yd
+            </span>
           </div>
           <input
             id="area-slider"
@@ -77,27 +82,27 @@ export default function InvestmentCalculator() {
             className="w-full accent-secondary"
             aria-valuetext={`${area} square yards`}
           />
-          <div className="flex justify-between font-body text-body-sm text-on-surface-variant mt-xs">
+          <div className="flex flex-wrap justify-between gap-4 font-body text-body-sm text-on-surface-variant mt-xs">
             <span>{MIN_AREA.toLocaleString('en-IN')} sq.yd</span>
             <span>{MAX_AREA.toLocaleString('en-IN')} sq.yd</span>
           </div>
         </div>
 
         {/* Results */}
-        <div className="bg-surface-container-low rounded-[1.5rem] p-lg flex flex-col">
+        <div className="bg-surface-container-low rounded-xl p-lg flex min-w-0 flex-col">
           <p className="font-body text-label-md text-on-surface-variant uppercase tracking-widest mb-sm">
             Your cashback timeline
           </p>
 
-          <div className="grid grid-cols-2 gap-md mb-lg">
-            <div>
-              <AnimatedCurrency value={totalInvestment} className="font-display text-headline-lg text-primary block" />
+          <div className="grid grid-cols-1 gap-md mb-lg md:grid-cols-2">
+            <div className="min-w-0">
+              <AnimatedCurrency value={totalInvestment} className="font-display text-headline-lg text-on-surface block break-words" />
               <p className="font-body text-body-sm text-on-surface-variant">Total investment</p>
             </div>
-            <div>
+            <div className="min-w-0">
               <AnimatedCurrency
                 value={monthlyCashback}
-                className="font-display text-headline-lg text-secondary block"
+                className="font-display text-headline-lg text-secondary block break-words"
               />
               <p className="font-body text-body-sm text-on-surface-variant">Cashback / month</p>
             </div>
@@ -113,17 +118,17 @@ export default function InvestmentCalculator() {
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               />
             </div>
-            <div className="flex justify-between font-body text-body-sm text-on-surface-variant mt-xs">
+            <div className="flex flex-col gap-2 font-body text-body-sm text-on-surface-variant mt-xs sm:flex-row sm:justify-between">
               <span>Month 1</span>
               <span>100% returned by Month {CASHBACK_MONTHS}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-sm p-md rounded-xl bg-surface border border-outline-variant/20 mb-lg">
+          <div className="flex flex-col gap-3 p-md rounded-xl bg-surface border border-outline-variant/20 mb-lg sm:flex-row sm:items-start">
             <span className="material-symbols-outlined text-secondary">eco</span>
             <p className="font-body text-body-sm text-on-surface">
               This package's stated yield potential:{' '}
-              <span className="font-display text-primary">{pkg.statedYield}</span>
+              <span className="font-display text-on-surface">{pkg.statedYield}</span>
               <span className="text-on-surface-variant"> — separate from the cashback above.</span>
             </p>
           </div>
@@ -131,7 +136,7 @@ export default function InvestmentCalculator() {
           <MagneticButton
             as={Link}
             to="/contact"
-            className="mt-auto w-full text-center px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest inline-flex justify-center"
+            className="mt-auto self-start w-full max-w-full sm:w-auto sm:max-w-[18rem] text-center px-lg py-sm bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest inline-flex justify-center"
           >
             Enquire About This Package
           </MagneticButton>

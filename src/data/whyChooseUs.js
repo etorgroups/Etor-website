@@ -1,19 +1,26 @@
-// "Why Choose ETOR GROUP?" — from Welcome-To-ETOR-GROUP.pdf
+// "Why Choose ETOR GROUP?" — adapted from Welcome-To-ETOR-GROUP.pdf. Cashback,
+// diversification and risk claims reworded for plain, accurate language; see
+// the Disclosure note rendered alongside this list on the About page.
 export const WHY_CHOOSE_US = [
   {
     icon: 'verified',
     title: '12 Years of Trust',
-    body: 'With over a decade of sustained growth and successful ventures, ETOR GROUP has built an impeccable reputation for reliability and consistent performance in diverse markets.',
+    body: 'Over a decade of operating history in real estate and, more recently, agriculture — see our Journey below for the timeline.',
   },
-  {  
-    icon: 'currency_exchange',    
-    title: '100% Cashback Guarantee',
-    body: 'Pioneer in financial innovation, we offer a revolutionary 100% cashback model in real estate, ensuring capital protection and unprecedented peace of mind for our investors.',
-  },  
-  {  
-    icon: 'account_tree',   
-    title: 'Multi-Venture Diversification',
-    body: 'Our strategically diversified portfolio spans high-growth sectors including real estate, agriculture, gaming, Forex, and crypto, minimizing risk and maximizing potential returns.',
+  {
+    icon: 'currency_exchange',
+    title: '100% Cashback Programme',
+    body: "A stated programme term on selected packages — cashback paid out over a fixed period, not a capital guarantee. Full conditions are in our Terms.",
+  },
+  {
+    icon: 'engineering',
+    title: '33-Year Managed Plots',
+    body: 'ETOR maintains and manages your plot for 33 years. Your dairy and plantation benefits are sized to your specific plot — see the full breakdown in Living Assets.',
+  },
+  {
+    icon: 'account_tree',
+    title: 'Multi-Venture Portfolio',
+    body: 'Our portfolio spans real estate and agriculture, plus separate ventures in ROI, Forex, gaming and crypto — kept apart from the ETOR City programme.',
   },
   {
     icon: 'support_agent',
@@ -27,8 +34,8 @@ export const WHY_CHOOSE_US = [
   },
   {
     icon: 'shield',
-    title: 'Secure Investments',
-    body: 'Our rigorous due diligence and risk management strategies ensure that every investment opportunity is thoroughly vetted, safeguarding your capital and promoting sustainable growth.',
+    title: 'Reviewed Investments',
+    body: 'Every opportunity we offer goes through internal review before it reaches investors — though as with any land or agriculture investment, returns are not guaranteed.',
   },
   {
     icon: 'groups',  

@@ -29,6 +29,7 @@ export default function TestimonialCarousel({ testimonials }) {
 
   const current = testimonials[index]
   const xOffset = prefersReducedMotion ? 0 : 40
+  const hasMultiple = testimonials.length > 1
 
   return (
     <div
@@ -36,7 +37,7 @@ export default function TestimonialCarousel({ testimonials }) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
-      <div className="relative rounded-[2rem] bg-surface-container-low border border-outline-variant/20 p-xl overflow-hidden min-h-[20rem] flex flex-col justify-center">
+      <div className="surface-panel relative rounded-[1.25rem] p-xl overflow-hidden min-h-[20rem] flex flex-col justify-center">
         <span
           className="material-symbols-outlined absolute top-lg left-lg text-secondary/10 pointer-events-none select-none"
           style={{ fontSize: '96px' }}
@@ -57,13 +58,17 @@ export default function TestimonialCarousel({ testimonials }) {
           >
             <div className="flex gap-xs mb-lg" aria-hidden="true">
               {Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} className="material-symbols-outlined text-secondary text-[20px]">
+                <span
+                  key={i}
+                  className="material-symbols-outlined text-secondary-fixed-dim text-[20px]"
+                  style={{ fontVariationSettings: "'FILL' 1" }}
+                >
                   star
                 </span>
               ))}
             </div>
 
-            <p className="font-display text-headline-md text-primary leading-relaxed mb-lg max-w-[36rem]">
+            <p className="font-display text-headline-md text-on-surface leading-relaxed mb-lg max-w-[36rem]">
               "{current.quote}"
             </p>
 
@@ -72,7 +77,7 @@ export default function TestimonialCarousel({ testimonials }) {
                 {current.name.charAt(0)}
               </div>
               <div className="text-left">
-                <p className="font-display text-headline-md text-primary leading-none">{current.name}</p>
+                <p className="font-display text-headline-md text-on-surface leading-none">{current.name}</p>
                 <p className="font-body text-body-sm text-secondary mt-xs">{current.role}</p>
               </div>
             </div>
@@ -80,35 +85,39 @@ export default function TestimonialCarousel({ testimonials }) {
         </AnimatePresence>
       </div>
 
-      <button
-        type="button"
-        onClick={prev}
-        aria-label="Previous testimonial"
-        className="hidden sm:flex absolute top-1/2 -translate-y-1/2 -left-5 w-10 h-10 rounded-full bg-surface border border-outline-variant/40 shadow-lg items-center justify-center hover:bg-secondary hover:text-on-secondary hover:border-secondary transition-colors"
-      >
-        <span className="material-symbols-outlined text-[20px]">chevron_left</span>
-      </button>
-      <button
-        type="button"
-        onClick={next}
-        aria-label="Next testimonial"
-        className="hidden sm:flex absolute top-1/2 -translate-y-1/2 -right-5 w-10 h-10 rounded-full bg-surface border border-outline-variant/40 shadow-lg items-center justify-center hover:bg-secondary hover:text-on-secondary hover:border-secondary transition-colors"
-      >
-        <span className="material-symbols-outlined text-[20px]">chevron_right</span>
-      </button>
-
-      <div className="flex justify-center gap-sm mt-lg">
-        {testimonials.map((t, i) => (
+      {hasMultiple && (
+        <>
           <button
-            key={t.name}
             type="button"
-            onClick={() => goTo(i)}
-            aria-label={`Go to testimonial ${i + 1} of ${testimonials.length}`}
-            aria-current={i === index}
-            className={`h-2 rounded-full transition-all ${i === index ? 'w-8 bg-secondary' : 'w-2 bg-outline-variant/50 hover:bg-secondary/50'}`}
-          />
-        ))}
-      </div>
+            onClick={prev}
+            aria-label="Previous testimonial"
+            className="hidden sm:flex absolute top-1/2 -translate-y-1/2 -left-5 w-10 h-10 rounded-full bg-surface border border-outline-variant/40 shadow-lg items-center justify-center hover:bg-secondary hover:text-on-secondary hover:border-secondary transition-colors"
+          >
+            <span className="material-symbols-outlined text-[20px]">chevron_left</span>
+          </button>
+          <button
+            type="button"
+            onClick={next}
+            aria-label="Next testimonial"
+            className="hidden sm:flex absolute top-1/2 -translate-y-1/2 -right-5 w-10 h-10 rounded-full bg-surface border border-outline-variant/40 shadow-lg items-center justify-center hover:bg-secondary hover:text-on-secondary hover:border-secondary transition-colors"
+          >
+            <span className="material-symbols-outlined text-[20px]">chevron_right</span>
+          </button>
+
+          <div className="flex justify-center gap-sm mt-lg">
+            {testimonials.map((t, i) => (
+              <button
+                key={t.name}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Go to testimonial ${i + 1} of ${testimonials.length}`}
+                aria-current={i === index}
+                className={`h-2 rounded-full transition-all ${i === index ? 'w-8 bg-secondary' : 'w-2 bg-outline-variant/50 hover:bg-secondary/50'}`}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }

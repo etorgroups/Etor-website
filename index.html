@@ -8,11 +8,45 @@
       name="description"
       content="ETOR Group — a diversified enterprise across premium agriculture, fintech, gaming and ventures, engineering sustainable wealth for a global community of stakeholders."
     />
+    <link rel="canonical" href="https://impacgodeveloper.github.io/EtorGrops-website/" />
+    <meta name="theme-color" content="#f6f1e9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#10100e" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph / social preview. og-image.webp is a placeholder crop of the
+         hero photo — swap for a dedicated 1200x630 share image when available. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ETOR Group" />
+    <meta property="og:title" content="ETOR Group | Empowering Growth Through Innovation" />
+    <meta
+      property="og:description"
+      content="A diversified enterprise across premium agriculture, fintech, gaming and ventures, engineering sustainable wealth for a global community of stakeholders."
+    />
+    <meta property="og:url" content="https://impacgodeveloper.github.io/EtorGrops-website/" />
+    <meta property="og:image" content="https://impacgodeveloper.github.io/EtorGrops-website/og-image.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ETOR Group | Empowering Growth Through Innovation" />
+    <meta
+      name="twitter:description"
+      content="A diversified enterprise across premium agriculture, fintech, gaming and ventures, engineering sustainable wealth for a global community of stakeholders."
+    />
+    <meta name="twitter:image" content="https://impacgodeveloper.github.io/EtorGrops-website/og-image.webp" />
+
     <title>ETOR Group | Empowering Growth Through Innovation</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('etor-theme')
+          var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+          document.documentElement.dataset.theme = theme
+        } catch (e) {
+          /* localStorage unavailable — default light theme applies via CSS. */
+        }
+      })()
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
       rel="stylesheet"
     />
     <link

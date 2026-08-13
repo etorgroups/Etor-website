@@ -10,7 +10,7 @@ export const INVEST_STEPS = [
     number: '02',
     icon: 'inventory_2',
     title: 'Tailored Package Selection',
-    body: "We present investment packages from our diverse portfolio — real estate, agriculture, gaming, Forex, and crypto. You choose what aligns with your goals.",
+    body: 'We match you to the right ETOR City package and living-asset mix — mango, dairy, sandalwood and orchard fruit — based on your goals.',
   },
   {
     number: '03',

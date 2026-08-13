@@ -1,9 +1,12 @@
-// Frequently Asked Questions — from Welcome-To-ETOR-GROUP.pdf
+// Frequently Asked Questions — adapted from Welcome-To-ETOR-GROUP.pdf.
+// Answers touching risk, cashback or return claims have been reworded for
+// plain, accurate language per the site's content rules — see Disclosure
+// component and docs/ETOR_CREATIVE_BRIEF.md.
 export const FAQ = [
   {
     question: 'Is investing with ETOR GROUP safe?',
     answer:
-      'Yes, your safety is our utmost priority. ETOR GROUP employs rigorous due diligence and sophisticated risk management strategies across all our ventures, from real estate to digital assets. Our multi-venture diversification strategy minimizes exposure to single-market volatility, ensuring robust capital protection and peace of mind for our investors. We operate with complete transparency and adhere to strict regulatory compliance.',
+      "Like any land and agriculture investment, there is inherent market risk — fruit and crop prices depend on market and auction conditions, and returns are not guaranteed. ETOR Group shares the master plan, programme terms and full documentation upfront so you can assess that risk yourself before committing. See our Terms for the conditions that apply to each package.",
   },
   {
     question: 'How much can I invest with ETOR GROUP?',
@@ -18,12 +21,12 @@ export const FAQ = [
   {
     question: 'What is the 100% cashback guarantee?',
     answer:
-      'Our 100% cashback guarantee is a testament to our commitment to capital protection and investor confidence. This guarantee applies to the principal investment amount under specific terms and conditions outlined in selected investment products, particularly those designed for maximum stability. It ensures that your initial capital is safeguarded, offering an unprecedented level of security and peace of mind. Details are provided during your tailored package selection.',
+      "“100% cashback” refers to a stated programme term in ETOR Group's brochure — cashback paid out over a fixed period (100 months) on selected packages — not a capital guarantee or deposit insurance. The exact schedule and conditions are set out in your investment agreement and in our Terms; ask your advisor for the current terms before you commit.",
   },
   {
     question: 'How does the Miyazaki Mango Plantation investment work?',
     answer:
-      "The Miyazaki Mango Plantation is one of our unique agricultural investment opportunities, offering stable and predictable returns. As an investor, you participate in the profits generated from the cultivation and sale of premium Miyazaki mangoes. This investment typically involves a passive ownership model or profit-sharing arrangement, with ETOR GROUP managing all aspects of farming, harvesting, and distribution. It's an innovative way to diversify your portfolio with a tangible, high-yield asset.",
+      "You participate in the plantation's fruit yield through ETOR Group's profit-sharing model — income is shared 50:50 between the company and client, as stated in the brochure — with ETOR Group managing cultivation, harvesting and sale. Miyazaki mango pricing is market and auction-dependent, so the figures shown are illustrative brochure examples rather than fixed, predictable returns.",
   },
   {
     question: 'What kind of support is available to investors?',

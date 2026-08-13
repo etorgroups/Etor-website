@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'
 import Reveal from './Reveal'
 import SocialIcon from './SocialIcon'
 import { COMPANY } from '../data/company'
+import { COMPANY_APPS } from '../data/partnerApps'
 import {
   EMAILJS_NEWSLETTER_TEMPLATE_ID,
   EMAILJS_PUBLIC_KEY,
@@ -11,18 +12,21 @@ import {
   isEmailjsConfigured,
 } from '../data/emailjs'
 
+// Every label here must point to real content — no "Careers" or "Media Kit"
+// placeholders leading to a generic contact form, since that reads as a
+// broken promise rather than a working link.
 const QUICK_LINKS = [
+  { label: 'The Story', to: '/about' },
   { label: 'Core Portfolio', to: '/projects' },
-  { label: 'Investment Strategy', to: '/services' },
-  { label: 'Case Studies', to: '/projects' },
-  { label: 'Careers', to: '/contact' },
+  { label: 'Living Assets', to: '/services' },
+  { label: 'Other Ventures', to: '/other-ventures' },
 ]
 
 const SUPPORT_LINKS = [
   { label: 'Privacy Policy', to: '/privacy' },
   { label: 'Terms of Service', to: '/terms' },
-  { label: 'Media Kit', to: '/contact' },
-  { label: 'FAQ', to: '/contact' },
+  { label: 'Press Inquiries', to: '/contact' },
+  { label: 'FAQ', to: '/contact#faq' },
 ]
 
 export default function Footer() {
@@ -64,7 +68,7 @@ export default function Footer() {
         <Reveal tag="div" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-xl mb-xl">
           <div className="space-y-md">
             <div className="flex items-center gap-xs">
-              <span className="material-symbols-outlined text-secondary text-headline-lg">hub</span>
+              <span className="material-symbols-outlined text-secondary-fixed-dim text-headline-lg">hub</span>
               <span className="font-display text-headline-md text-on-primary">ETOR GROUP</span>
             </div>
             <p className="font-body text-body-sm text-on-primary-container max-w-[20rem]">
@@ -76,6 +80,8 @@ export default function Footer() {
                 <a
                   key={s.label}
                   href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={s.label}
                   className="hover:text-secondary transition-colors"
                 >
@@ -86,7 +92,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-md">
-            <h4 className="font-display text-label-md uppercase tracking-widest text-secondary">Quick Links</h4>
+            <h4 className="font-display text-label-md uppercase tracking-widest text-secondary-fixed-dim">Quick Links</h4>
             <ul className="space-y-sm font-body text-body-sm text-on-primary-container">
               {QUICK_LINKS.map((link) => (
                 <li key={link.label}>
@@ -99,7 +105,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-md">
-            <h4 className="font-display text-label-md uppercase tracking-widest text-secondary">Support</h4>
+            <h4 className="font-display text-label-md uppercase tracking-widest text-secondary-fixed-dim">Support</h4>
             <ul className="space-y-sm font-body text-body-sm text-on-primary-container">
               {SUPPORT_LINKS.map((link) => (
                 <li key={link.label}>
@@ -112,7 +118,7 @@ export default function Footer() {
           </div>
 
           <div className="space-y-md">
-            <h4 className="font-display text-label-md uppercase tracking-widest text-secondary">Get In Touch</h4>
+            <h4 className="font-display text-label-md uppercase tracking-widest text-secondary-fixed-dim">Get In Touch</h4>
             <ul className="space-y-sm font-body text-body-sm text-on-primary-container">
               <li>{COMPANY.addressLines[0]}</li>
               <li>{COMPANY.addressLines[1]}</li>
@@ -133,7 +139,7 @@ export default function Footer() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-md mb-xl">
           <div>
-            <h4 className="font-display text-label-md uppercase tracking-widest text-secondary mb-sm">Newsletter</h4>
+            <h4 className="font-display text-label-md uppercase tracking-widest text-secondary-fixed-dim mb-sm">Newsletter</h4>
             <p className="font-body text-body-sm text-on-primary-container mb-sm">Get the latest news & updates.</p>
             <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-sm max-w-[28rem]">
               <input
@@ -161,10 +167,34 @@ export default function Footer() {
         </div>
 
         <div className="pt-lg border-t border-on-primary/10 flex flex-col md:flex-row justify-between items-center gap-md font-body text-body-sm text-on-primary-container">
-          <span>© {COMPANY.foundedYear} All rights reserved — ETOR Group.</span>
-          <a href={`https://${COMPANY.website}`} className="hover:text-on-primary transition-colors">
-            {COMPANY.website}
-          </a>
+          <span>
+            © {COMPANY.foundedYear}–{new Date().getFullYear()} ETOR Group. All rights reserved.
+          </span>
+          <div className="flex items-center gap-md">
+            {/* Internal/company-side tools — trained staff already know
+                these by name, so they sit here quietly rather than
+                competing with the "My Investment" login customers need. */}
+            {COMPANY_APPS.map((app) => (
+              <a
+                key={app.name}
+                href={app.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={app.description}
+                className="hover:text-on-primary transition-colors"
+              >
+                {app.name}
+              </a>
+            ))}
+            <a
+              href={`https://${COMPANY.website}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-on-primary transition-colors"
+            >
+              {COMPANY.website}
+            </a>
+          </div>
         </div>
       </div>
     </footer>

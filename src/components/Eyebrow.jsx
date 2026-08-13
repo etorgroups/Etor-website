@@ -1,16 +1,16 @@
 // Small pulsing-dot pill label used above headlines throughout the site.
 export default function Eyebrow({ children, tone = 'light' }) {
   const tones = {
-    light: 'bg-secondary/20 border-secondary/30 text-secondary',
-    dark: 'bg-on-primary/10 border-on-primary/20 text-on-primary',
+    light: 'border-secondary text-secondary',
+    dark: 'border-secondary-fixed-dim text-secondary-fixed-dim',
   }
 
   return (
     <div
-      className={`inline-flex items-center gap-sm px-md py-xs rounded-full backdrop-blur-md border ${tones[tone]}`}
+      className={`inline-flex items-center gap-sm border-l-2 pl-sm py-xs ${tones[tone]}`}
     >
-      <span className="w-2 h-2 rounded-full bg-current animate-pulse" />
-      <span className="font-body text-label-md uppercase tracking-widest">{children}</span>
+      <span className="w-1.5 h-1.5 rounded-full bg-current" />
+      <span className="font-body text-[11px] font-bold uppercase tracking-[0.18em]">{children}</span>
     </div>
   )
 }

@@ -18,7 +18,7 @@ export default function Accordion({ items }) {
               className="w-full flex items-center justify-between gap-md py-md px-md text-left"
               aria-expanded={isOpen}
             >
-              <span className="font-display text-headline-md text-primary">{item.question}</span>
+              <span className="font-display text-headline-md text-on-surface">{item.question}</span>
               <span
                 className="material-symbols-outlined text-secondary shrink-0 transition-transform duration-300"
                 style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}

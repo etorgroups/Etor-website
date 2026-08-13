@@ -1,4 +1,6 @@
-// "Our Journey" timeline — from Welcome-To-ETOR-GROUP.pdf
+// "Our Journey" timeline — adapted from Welcome-To-ETOR-GROUP.pdf. Step 3's
+// superlative claim was reworded — see docs/ETOR_CREATIVE_BRIEF.md's content
+// rules on "first"/"world's most" claims never being treated as verified.
 export const JOURNEY = [
   {
     step: '1',
@@ -16,7 +18,7 @@ export const JOURNEY = [
     step: '3',
     period: '2021 – Present',
     title: 'Pioneering Initiatives',
-    body: "Launched the world's first 100% cashback model in real estate, integrated with high-value agricultural ventures like the Miyazaki Mango Plantation.",
+    body: "Introduced ETOR Group's 100% cashback programme in real estate, integrated with agricultural ventures like the Miyazaki Mango Plantation.",
   },
   {
     step: '4',

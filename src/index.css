@@ -1,85 +1,118 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors — ETOR Group design system */
-  --color-surface: #fcf8fa;
-  --color-surface-dim: #dcd9db;
-  --color-surface-bright: #fcf8fa;
-  --color-surface-container-lowest: #ffffff;
-  --color-surface-container-low: #f6f3f5;
-  --color-surface-container: #f0edef;
-  --color-surface-container-high: #eae7e9;
-  --color-surface-container-highest: #e4e2e4;
-  --color-surface-variant: #e4e2e4;
-  --color-on-surface: #1b1b1d;
-  --color-on-surface-variant: #45464d;
-  --color-inverse-surface: #303032;
-  --color-inverse-on-surface: #f3f0f2;
-  --color-outline: #76777d;
-  --color-outline-variant: #c6c6cd;
-  --color-surface-tint: #565e74;
+  /* Colors — ETOR Group design system, v2.
+     Three deliberate accents, each with one job:
+       ink (primary)     — structure: full-bleed sections, headings, scrims
+       sapphire (secondary) — interactive: links, active states, primary actions
+       gold (tertiary)    — premium signal: badges, ratings, the highest-value CTA
+     Neutrals lean a hair cool/warm (not pure gray) on purpose — flat neutral
+     gray is what reads as "generic" at a glance; a deliberate undertone is
+     what makes a palette feel designed rather than default. */
+  --color-surface: #f6f1e9;
+  --color-surface-dim: #ded7cc;
+  --color-surface-bright: #fffdfa;
+  --color-surface-container-lowest: #fffdfa;
+  --color-surface-container-low: #f0e9df;
+  --color-surface-container: #eae2d7;
+  --color-surface-container-high: #e2d9cd;
+  --color-surface-container-highest: #d8cec0;
+  --color-surface-variant: #ddd2c3;
+  --color-on-surface: #211d18;
+  --color-on-surface-variant: #615950;
+  --color-inverse-surface: #211d18;
+  --color-inverse-on-surface: #f8f2e9;
+  --color-outline: #7a7167;
+  --color-outline-variant: #cdc2b5;
+  --color-surface-tint: #8a5a2d;
 
-  --color-primary: #000000;
-  --color-on-primary: #ffffff;
-  --color-primary-container: #131b2e;
-  --color-on-primary-container: #7c839b;
-  --color-inverse-primary: #bec6e0;
+  --color-primary: #1c1916;
+  --color-on-primary: #fffaf2;
+  --color-primary-container: #2c2722;
+  --color-on-primary-container: #d8cec2;
+  --color-inverse-primary: #e7d8c4;
 
-  --color-secondary: #0051d5;
+  --color-secondary: #86562d;
   --color-on-secondary: #ffffff;
-  --color-secondary-container: #316bf3;
-  --color-on-secondary-container: #fefcff;
+  --color-secondary-container: #f2ddc6;
+  --color-on-secondary-container: #4a280e;
 
-  --color-tertiary: #000000;
+  /* Gold/bronze accent sampled from the ETOR coin logo — a deliberate
+     "black and gold" luxury layer reserved for premium moments (badges,
+     ratings, the highest-value CTA) so it stays a signal, not wallpaper.
+     Deep enough that on-tertiary white text clears 7:1 contrast; unlike
+     primary/secondary this role is intentionally identical in both themes
+     — see the dark-theme comment further down. */
+  --color-tertiary: #456052;
   --color-on-tertiary: #ffffff;
-  --color-tertiary-container: #001f26;
-  --color-on-tertiary-container: #0090a9;
+  --color-tertiary-container: #dbe8db;
+  --color-on-tertiary-container: #18382a;
 
   --color-error: #ba1a1a;
   --color-on-error: #ffffff;
   --color-error-container: #ffdad6;
   --color-on-error-container: #93000a;
 
-  --color-primary-fixed: #dae2fd;
-  --color-primary-fixed-dim: #bec6e0;
-  --color-on-primary-fixed: #131b2e;
-  --color-on-primary-fixed-variant: #3f465c;
+  --color-primary-fixed: #eee3d5;
+  --color-primary-fixed-dim: #d5c1aa;
+  --color-on-primary-fixed: #2b2119;
+  --color-on-primary-fixed-variant: #554233;
 
-  --color-secondary-fixed: #dbe1ff;
-  --color-secondary-fixed-dim: #b4c5ff;
-  --color-on-secondary-fixed: #00174b;
-  --color-on-secondary-fixed-variant: #003ea8;
+  --color-secondary-fixed: #f2ddc6;
+  --color-secondary-fixed-dim: #dfb27f;
+  --color-on-secondary-fixed: #3a1e08;
+  --color-on-secondary-fixed-variant: #72451e;
 
-  --color-tertiary-fixed: #acedff;
-  --color-tertiary-fixed-dim: #4cd7f6;
-  --color-on-tertiary-fixed: #001f26;
-  --color-on-tertiary-fixed-variant: #004e5c;
+  --color-tertiary-fixed: #dbe8db;
+  --color-tertiary-fixed-dim: #a6c3a8;
+  --color-on-tertiary-fixed: #173528;
+  --color-on-tertiary-fixed-variant: #365c45;
 
-  --color-background: #fcf8fa;
-  --color-on-background: #1b1b1d;
+  --color-background: #f6f1e9;
+  --color-on-background: #211d18;
 
   /* Fonts */
-  --font-display: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-display: "DM Sans", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+  /* Reserved for the biggest hero statements only (H1s + the two flagship
+     CTA headlines) — an editorial-serif top note over the Space Grotesk /
+     Inter system everywhere else, not a wholesale identity swap. Fraunces
+     (not Bodoni Moda) — its "soft" axis gives rounder, warmer strokes that
+     hold up at large display sizes instead of Bodoni's hairline-thin ones;
+     see the .font-serif-display rule below for the variation-settings that
+     dial that in. */
+  --font-serif-display: "Fraunces", serif;
 
-  --text-display-xl: 5.5rem;
-  --text-display-xl--line-height: 1.02;
+  /* clamp(min, preferred, max) — these four carry the biggest headlines, so
+     making them fluid buys the most: text now grows continuously with the
+     viewport instead of jumping only at the lg breakpoint. Min/max anchor
+     close to the old fixed values, so nothing changes at the extremes —
+     everything between just got smoother. */
+  /* Line-height was 0.98/1.04 — barely more than the font size itself, which
+     let Bodoni Moda's tall ascenders/descenders bleed into the line above or
+     below on any multi-line headline (most visible on descenders like "y"
+     sitting right at the collision zone). 1.08/1.16 keeps the tight
+     editorial feel without the overlap. Letter-spacing eased alongside it —
+     the old -0.045em/-0.04em was crowding glyphs into each other at these
+     large sizes. */
+  --text-display-xl: clamp(3.25rem, 1rem + 7vw, 6.25rem);
+  --text-display-xl--line-height: 1.08;
   --text-display-xl--letter-spacing: -0.02em;
   --text-display-xl--font-weight: 700;
 
-  --text-display-lg: 4rem;
-  --text-display-lg--line-height: 1.1;
+  --text-display-lg: clamp(2.7rem, 1.5rem + 4.3vw, 4.75rem);
+  --text-display-lg--line-height: 1.16;
   --text-display-lg--letter-spacing: -0.02em;
   --text-display-lg--font-weight: 700;
 
-  --text-display-lg-mobile: 2.5rem;
+  --text-display-lg-mobile: clamp(2rem, 1.6rem + 3vw, 2.75rem);
   --text-display-lg-mobile--line-height: 1.2;
   --text-display-lg-mobile--letter-spacing: -0.01em;
   --text-display-lg-mobile--font-weight: 700;
 
-  --text-headline-xl: 3rem;
-  --text-headline-xl--line-height: 1.2;
-  --text-headline-xl--letter-spacing: -0.015em;
+  --text-headline-xl: clamp(1.85rem, 1.3rem + 2.2vw, 3.3rem);
+  --text-headline-xl--line-height: 1.12;
+  --text-headline-xl--letter-spacing: -0.03em;
   --text-headline-xl--font-weight: 600;
 
   --text-headline-lg: 2rem;
@@ -109,11 +142,11 @@
   --text-label-md--font-weight: 600;
 
   /* Radius */
-  --radius: 0.5rem;
+  --radius: 0.375rem;
   --radius-sm: 0.25rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.25rem;
 
   /* Spacing scale (on top of Tailwind's default numeric scale).
      NOTE: xs/sm/md/lg/xl below intentionally shadow Tailwind's default
@@ -130,11 +163,153 @@
   --spacing-gutter: 1.5rem;
   --spacing-margin-mobile: 1rem;
 
-  /* Container width */
-  --container-container-max: 1280px;
+  /* Container width — was 1280px, which left the header (5 nav links +
+     download/search/theme/login) only ~2px of slack before overlapping at
+     any desktop width. 1400px gives real breathing room for wider nav
+     spacing without misaligning the header from the page content below it
+     (both use this same container, so they stay edge-aligned). */
+  --container-container-max: 1400px;
 
   /* Easing */
   --ease-etor: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Dark theme token overrides only, so every existing bg-* / text-* utility
+   repaints automatically with zero per-component changes. The primary,
+   on-primary, tertiary and fixed roles are deliberately left untouched:
+   those back the full-bleed black hero and CTA sections and photo scrims,
+   which read as dramatic dark blocks in both themes, not just dark mode.
+   Only the neutral surface, text, secondary and error roles invert.
+   Surfaces carry a deliberate cool navy undertone (not neutral gray) —
+   that's what separates a "designed" dark theme from one that's merely
+   inverted; pure gray next to the sapphire secondary reads muddy. */
+:root[data-theme="dark"] {
+  --color-surface: #141210;
+  --color-surface-dim: #0d0c0b;
+  --color-surface-bright: #2b2723;
+  --color-surface-container-lowest: #0d0c0b;
+  --color-surface-container-low: #1a1714;
+  --color-surface-container: #211d1a;
+  --color-surface-container-high: #292420;
+  --color-surface-container-highest: #332d28;
+  --color-surface-variant: #332d28;
+  --color-on-surface: #f3ece2;
+  --color-on-surface-variant: #cabfb2;
+  --color-inverse-surface: #f3ece2;
+  --color-inverse-on-surface: #211d18;
+  --color-outline: #9a8e81;
+  --color-outline-variant: #4a4139;
+  --color-surface-tint: #dfb27f;
+
+  --color-secondary: #dfb27f;
+  --color-on-secondary: #35200d;
+  --color-secondary-container: #70461f;
+  --color-on-secondary-container: #f6dfc4;
+
+  --color-tertiary: #a6c3a8;
+  --color-on-tertiary: #173528;
+  --color-tertiary-container: #365c45;
+  --color-on-tertiary-container: #dbe8db;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  --color-background: #10100e;
+  --color-on-background: #f3ece2;
+
+  color-scheme: dark;
+}
+
+/* Fraunces ships a "soft" axis (rounder, warmer strokes) and a "wonk" axis
+   (quirky alternate letterforms) beyond the standard opsz/wght Google Fonts
+   already loads — dialing SOFT up and WONK to 0 keeps the display headlines
+   calm and legible at large sizes instead of Bodoni Moda's high-contrast,
+   easily-overlapping hairlines. */
+.font-serif-display {
+  font-variation-settings: "SOFT" 60, "WONK" 0;
+}
+
+/* KineticHeadline.jsx's word-level SplitText wrapper — keeps each word as
+   one unbreakable unit so lines only wrap between words, not mid-word. */
+.kinetic-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Shimmering blue-to-gold gradient text — reserved for the single accent
+   word/phrase inside a major headline (paired with text-secondary
+   elsewhere), so it reads as one deliberate flourish, not a rainbow. */
+@keyframes text-shimmer {
+  to {
+    background-position: 200% 50%;
+  }
+}
+.text-gradient-shimmer {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-secondary) 0%,
+    var(--color-secondary-fixed-dim) 50%,
+    var(--color-secondary) 100%
+  );
+  background-size: 200% auto;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: text-shimmer 5s linear infinite;
+}
+
+/* Accent colours can decorate dark panels, but never carry the burden of
+   reading. Critical copy on photographic or primary surfaces stays bright. */
+.bg-primary .text-secondary {
+  color: var(--color-secondary-fixed-dim);
+}
+@media (prefers-reduced-motion: reduce) {
+  .text-gradient-shimmer {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}
+
+/* Brand-matched scrollbar — thin track, secondary-blue thumb, both engines. */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-secondary) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+  border-radius: 20px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-secondary-container);
+}
+
+/* CustomCursor.jsx adds this class only after confirming a fine pointer with
+   real hover support (never on touch), so hiding the native cursor here is
+   safe — there's always a replacement drawn on top. */
+.custom-cursor,
+.custom-cursor * {
+  cursor: none !important;
+}
+
+/* Lenis drives scroll physics itself once mounted — native CSS smooth
+   scroll would fight it on anchor jumps, so it's disabled while active. */
+html.lenis {
+  scroll-behavior: auto !important;
+}
+html.lenis[data-lenis-stopped] {
+  overflow: hidden;
 }
 
 @layer base {
@@ -148,20 +323,42 @@
     padding: 0;
     background-color: var(--color-background);
     color: var(--color-on-background);
+    background-image: radial-gradient(circle at 12% 2%, rgb(134 86 45 / 0.07), transparent 28rem);
   }
 
   body {
     overscroll-behavior: none;
     font-family: var(--font-body);
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1,
-  h2,
+  h2 {
+    font-family: var(--font-serif-display);
+    font-weight: 550;
+    letter-spacing: -0.035em;
+  }
+
   h3,
   h4,
   h5 {
     font-family: var(--font-display);
+    text-wrap: balance;
   }
+
+  h1.font-display,
+  h2.font-display {
+    font-family: var(--font-serif-display);
+    font-weight: 550;
+    letter-spacing: -0.035em;
+  }
+
+  p { text-wrap: pretty; }
+
+  button,
+  a { -webkit-tap-highlight-color: transparent; }
 
   ::selection {
     background-color: var(--color-secondary);
@@ -173,6 +370,26 @@
     outline-offset: 2px;
     border-radius: 2px;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* The circular reveal in src/lib/theme.js drives its own clip-path animation
+   on ::view-transition-new(root) — disable the browser's default cross-fade
+   so the two don't fight. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 @layer utilities {
@@ -204,6 +421,22 @@
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  .surface-panel {
+    background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 88%, transparent);
+    box-shadow: 0 20px 60px rgb(28 25 22 / 0.07);
+  }
+
+  .section-heading {
+    font-family: var(--font-serif-display);
+    font-weight: 550;
+    letter-spacing: -0.04em;
+  }
+
+  .hero-copy {
+    text-shadow: 0 2px 24px rgb(0 0 0 / 0.35);
   }
 
   .material-symbols-outlined {
