@@ -1,6 +1,8 @@
-// Converts the client's real drone/site photos (C:\Users\impac\Downloads\
-// EtorCitiesLayouts\etor cities images) into web-ready webp files, one set
-// per city group. Re-run if the client adds more photos to that folder.
+// Converts the client's real drone/site photos into web-ready webp files,
+// one set per city group. Currently pointed at the enhanced version of the
+// photo set (C:\Users\impac\Downloads\EtorCitiesLayouts\etorInhanceImages) —
+// the original, unenhanced set lives alongside it at "etor cities images"
+// if we ever need to revert. Re-run if the client sends another updated set.
 //
 // Usage: node scripts/convert-site-photos.mjs
 import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises'
@@ -10,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
-const SOURCE_DIR = 'C:\\Users\\impac\\Downloads\\EtorCitiesLayouts\\etor cities images'
+const SOURCE_DIR = 'C:\\Users\\impac\\Downloads\\EtorCitiesLayouts\\etorInhanceImages'
 const ASSETS_DIR = path.join(ROOT, 'src', 'assets', 'site-photos')
 
 // Source folder name -> our city slug + output basename prefix.

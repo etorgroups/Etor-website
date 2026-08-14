@@ -200,21 +200,21 @@ export default function Header() {
         scrolled ? 'bg-surface/98 shadow-[0_8px_32px_rgba(28,25,22,0.08)] border-b border-outline-variant/45' : 'bg-surface/96 border-b border-outline-variant/25'
       }`}
     >
-      <div className="h-20 max-w-container-max mx-auto px-margin-mobile lg:px-xl flex items-center justify-between gap-lg">
-        <div className="flex items-center gap-xl min-w-0">
+      <div className="h-20 max-w-container-max mx-auto px-margin-mobile lg:px-lg xl:px-xl flex items-center justify-between gap-md lg:gap-lg">
+        <div className="flex items-center gap-md lg:gap-lg xl:gap-xl min-w-0">
         <Link to="/" className="flex items-center gap-xs shrink-0">
           <img src={coinLogo} alt="ETOR Group" className="w-10 h-10 object-contain" />
           <span className="font-display text-headline-md font-bold tracking-[-0.04em] text-on-surface whitespace-nowrap">ETOR GROUP</span>
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-4 2xl:gap-8">
+        <nav className="hidden lg:flex items-center gap-3 2xl:gap-8">
           {NAV_LINKS.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               end={link.to === '/'}
               className={({ isActive }) =>
-                `nav-underline whitespace-nowrap font-body text-label-md uppercase tracking-widest transition-colors ${
+                `nav-underline whitespace-nowrap font-body text-[13px] 2xl:text-label-md uppercase tracking-wide 2xl:tracking-widest transition-colors ${
                   isActive ? 'text-secondary font-bold' : 'text-on-surface-variant hover:text-secondary'
                 }`
               }
@@ -239,10 +239,10 @@ export default function Header() {
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent('command-palette:toggle'))}
             aria-label="Open quick navigation"
-            className="hidden sm:flex items-center gap-xs px-sm py-xs rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary transition-colors"
+            className="hidden sm:flex lg:hidden xl:flex items-center gap-xs px-sm py-xs rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary transition-colors"
           >
             <span className="material-symbols-outlined text-[18px]">search</span>
-            <kbd className="font-body text-[10px] uppercase tracking-wider">⌘K</kbd>
+            <kbd className="hidden xl:inline font-body text-[10px] uppercase tracking-wider">⌘K</kbd>
           </button>
           <ThemeToggle className="hidden sm:flex" />
           <a
@@ -254,11 +254,11 @@ export default function Header() {
             {CUSTOMER_LOGIN.label}
             <span className="material-symbols-outlined text-[16px]">arrow_outward</span>
           </a>
-          <OtherAppsMenu className="hidden sm:flex" />
+          <OtherAppsMenu className="hidden sm:flex lg:hidden xl:flex" />
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
-            className="xl:hidden relative w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors"
+            className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors"
             aria-label="Toggle navigation menu"
             aria-expanded={menuOpen}
           >
@@ -283,7 +283,7 @@ export default function Header() {
             animate="open"
             exit="closed"
             variants={MENU_PANEL_VARIANTS}
-            className="xl:hidden overflow-hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20"
+            className="lg:hidden overflow-hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/20"
           >
             {/* The row list can now run longer than a short phone screen (nav
                 links + login + two app rows + search + theme) — cap it to
