@@ -10,6 +10,14 @@ import { WHY_CHOOSE_US } from '../data/whyChooseUs'
 import heroStory from '../assets/images/asset-etor-stewardship.png'
 import founderCeo from '../assets/images/founder-ceo.webp'
 import mangoOrchard from '../assets/images/mango-orchard.webp'
+import awardPlaque from '../assets/images/award-viswaguru-world-records-2026.webp'
+
+const AWARD_DETAILS = [
+  { icon: 'eco', label: 'Category', value: 'Green Entrepreneur' },
+  { icon: 'workspace_premium', label: 'Presented by', value: 'Viswaguru World Records' },
+  { icon: 'calendar_month', label: 'Date', value: '22 March 2026' },
+  { icon: 'location_on', label: 'Venue', value: 'Hotel Daspalla, Visakhapatnam, Andhra Pradesh' },
+]
 
 const CORE_VALUES = [
   {
@@ -157,6 +165,63 @@ export default function About() {
                   </div>
                 </div>
               </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Recognition */}
+      <section id="recognition" className="py-xl bg-surface-container-low overflow-hidden">
+        <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-xl items-center">
+            <Reveal tag="div" delay={0.1} x={-30} y={0} className="space-y-lg order-2 lg:order-1">
+              <div>
+                <Eyebrow>Recognition</Eyebrow>
+                <h2 className="font-display text-headline-xl text-on-surface mt-md mb-md">
+                  Green Entrepreneur, Ugadi Puraskaralu 2026.
+                </h2>
+                <MaskReveal tag="p" className="font-body text-body-lg text-on-surface-variant leading-relaxed">
+                  In March 2026, Viswaguru World Records presented B. Nagesh, Founder & CEO of
+                  ETOR Group, with its "Green Entrepreneur" award at Ugadi Puraskaralu 2026 — in
+                  recognition of ETOR City's land-and-agriculture model, where every plot carries a
+                  working mango, sandalwood and dairy programme from day one.
+                </MaskReveal>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-md">
+                {AWARD_DETAILS.map((detail) => (
+                  <div key={detail.label} className="flex items-start gap-md">
+                    <div className="w-11 h-11 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+                      <span className="material-symbols-outlined text-secondary text-[20px]">{detail.icon}</span>
+                    </div>
+                    <div>
+                      <p className="font-body text-label-md text-on-surface-variant uppercase tracking-widest">
+                        {detail.label}
+                      </p>
+                      <p className="font-body text-body-md text-on-surface">{detail.value}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal tag="div" x={30} y={0} className="relative group order-1 lg:order-2">
+              <div
+                className="absolute -inset-6 bg-secondary/10 rounded-[2.5rem] -rotate-2 transition-transform duration-500 ease-out group-hover:rotate-0 group-hover:scale-[1.02]"
+                aria-hidden="true"
+              />
+              <TiltCard
+                max={6}
+                className="relative rounded-[2rem] overflow-hidden shadow-xl bg-surface p-lg max-w-[26rem] mx-auto ring-1 ring-outline-variant/20 transition-shadow duration-500 group-hover:shadow-[0_40px_80px_-24px_rgba(28,25,22,0.35)] group-hover:ring-secondary/50"
+              >
+                <img
+                  src={awardPlaque}
+                  alt="Viswaguru World Records 'Green Entrepreneur' award plaque presented to Sri. B. Nagesh, Founder & CEO of ETOR Group, at Ugadi Puraskaralu 2026, Hotel Daspalla, Visakhapatnam"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-auto object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
+              </TiltCard>
             </Reveal>
           </div>
         </div>

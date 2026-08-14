@@ -652,6 +652,13 @@ export default function Home() {
                   </Link>
                   .
                 </p>
+                <Link
+                  to="/about#recognition"
+                  className="inline-flex items-center gap-xs mt-sm px-md py-xs rounded-full bg-secondary/10 text-secondary font-body text-body-sm hover:bg-secondary/20 transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[16px]">workspace_premium</span>
+                  Green Entrepreneur, Ugadi Puraskaralu 2026
+                </Link>
               </div>
             </Reveal>
 
