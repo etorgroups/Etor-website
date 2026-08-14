@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
+import TiltCard from '../components/TiltCard'
+import ImageLightbox from '../components/ImageLightbox'
 import { publicUrl } from '../lib/basePath'
 import { PARTICIPATION_STEPS } from '../data/participationSteps'
 import Counter from '../components/Counter'
@@ -22,6 +24,13 @@ import etorCity1 from '../assets/images/etor-city-1.webp'
 import etorCity2 from '../assets/images/etor-city-2.webp'
 import etorCity34 from '../assets/images/etor-city-3-4.webp'
 import founderCeo from '../assets/images/founder-ceo.webp'
+import awardPlaque from '../assets/images/award-viswaguru-world-records-2026.webp'
+
+const HERO_TRUST_POINTS = [
+  { value: '12+', label: 'Years' },
+  { value: '250+', label: 'Acres' },
+  { value: '4', label: 'Locations' },
+]
 
 const METRICS = [
   { target: 12, suffix: '+', label: 'Years Experience', toneClass: 'text-secondary' },
@@ -185,6 +194,21 @@ export default function Home() {
                   Read our story
                 </MagneticButton>
               </div>
+              <div className="flex flex-wrap items-center gap-lg pt-xs">
+                {HERO_TRUST_POINTS.map((point, index) => (
+                  <div key={point.label} className="flex items-center gap-lg">
+                    {index > 0 && (
+                      <span className="hidden sm:block w-px h-8 bg-on-primary/20" aria-hidden="true" />
+                    )}
+                    <div className="flex items-baseline gap-xs">
+                      <span className="font-display text-headline-md text-secondary">{point.value}</span>
+                      <span className="font-body text-body-sm text-on-primary/70 uppercase tracking-wide">
+                        {point.label}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </Reveal>
           </div>
         </div>
@@ -228,6 +252,49 @@ export default function Home() {
             </Link>{' '}
             for full conditions.
           </Disclosure>
+        </Reveal>
+      </section>
+
+      {/* Scene 2.5 — Award recognition */}
+      <section className="relative py-lg bg-primary overflow-hidden">
+        <Reveal tag="div" className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
+          <div className="flex flex-col md:flex-row items-center gap-lg rounded-[2rem] border border-on-primary/10 bg-on-primary/5 p-lg lg:p-xl">
+            <ImageLightbox
+              src={awardPlaque}
+              alt="Viswaguru World Records 'Green Entrepreneur' award plaque presented to B. Nagesh, Founder & CEO of ETOR Group"
+              className="shrink-0 block"
+            >
+              <TiltCard max={6} className="rounded-2xl overflow-hidden shadow-xl bg-surface p-sm w-32 h-32 sm:w-36 sm:h-36">
+                <img
+                  src={awardPlaque}
+                  alt="Viswaguru World Records 'Green Entrepreneur' award plaque presented to B. Nagesh, Founder & CEO of ETOR Group"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-contain"
+                />
+              </TiltCard>
+            </ImageLightbox>
+            <div className="flex-1 text-center md:text-left">
+              <p className="font-body text-label-md text-secondary-fixed-dim uppercase tracking-widest mb-xs">
+                Recognition
+              </p>
+              <h3 className="font-display text-headline-md text-on-primary mb-xs">
+                Honoured as a Green Entrepreneur
+              </h3>
+              <p className="font-body text-body-md text-on-primary/70">
+                Viswaguru World Records — Ugadi Puraskaralu 2026, presented to our Founder & CEO,
+                B. Nagesh.
+              </p>
+            </div>
+            <MagneticButton
+              as={Link}
+              to="/about#recognition"
+              className="shrink-0 px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest inline-flex items-center gap-sm"
+            >
+              See The Recognition
+              <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </MagneticButton>
+          </div>
         </Reveal>
       </section>
 
