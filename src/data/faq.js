@@ -31,6 +31,11 @@ export const FAQ = [
   {
     question: 'What kind of support is available to investors?',
     answer:
-      'ETOR GROUP provides dedicated 24/7 client support to ensure you always have access to expert assistance and guidance. Our responsive client-centric team is available to answer your questions, provide updates, and help you navigate your investment journey. From your initial consultation through ongoing portfolio management and beyond, we are committed to fostering a supportive and transparent partnership.',
+      'ETOR GROUP provides dedicated client support throughout your investment journey — from your initial consultation through ongoing portfolio management and beyond. Reach us via WhatsApp, live chat, phone or email any time, and our team responds within one business day. We also provide regular updates so you are never left wondering about your portfolio\'s progress.',
+  },
+  {
+    question: 'What if I want to exit early, or something goes wrong?',
+    answer:
+      "Exit timing and conditions vary by package and are set out in your specific investment agreement — ask your advisor to walk you through them for your plot before you commit. ETOR Group's registered address, founder and management are public on this site, and all agreements are governed by Indian law, with any dispute subject to the jurisdiction of the courts in Visakhapatnam, Andhra Pradesh. See our Terms for the full conditions.",
   },
 ]

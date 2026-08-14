@@ -27,14 +27,22 @@ const initialForm = { name: '', email: '', phone: '', subject: SUBJECTS[0], mess
 export default function Contact() {
   const location = useLocation()
   const plotEnquiry = location.state?.plotEnquiry
-  const [form, setForm] = useState(() =>
-    plotEnquiry
-      ? {
-          ...initialForm,
-          message: `I'm interested in Plot ${plotEnquiry.plotNumber} (${plotEnquiry.block}) in ${plotEnquiry.city} — ${plotEnquiry.sizeSqYd} sq.yd at ₹${plotEnquiry.pricePerSqYd}/sq.yd. Please share more details and next steps.`,
-        }
-      : initialForm,
-  )
+  const packageEnquiry = location.state?.packageEnquiry
+  const [form, setForm] = useState(() => {
+    if (plotEnquiry) {
+      return {
+        ...initialForm,
+        message: `I'm interested in Plot ${plotEnquiry.plotNumber} (${plotEnquiry.block}) in ${plotEnquiry.city} — ${plotEnquiry.sizeSqYd} sq.yd at ₹${plotEnquiry.pricePerSqYd}/sq.yd. Please share more details and next steps.`,
+      }
+    }
+    if (packageEnquiry) {
+      return {
+        ...initialForm,
+        message: `I'm interested in ${packageEnquiry.packageName} — ${packageEnquiry.area.toLocaleString('en-IN')} sq.yd at ₹${packageEnquiry.pricePerSqYd}/sq.yd (₹${Math.round(packageEnquiry.totalInvestment).toLocaleString('en-IN')} total). Based on the calculator, my estimated cashback is ₹${Math.round(packageEnquiry.monthlyCashback).toLocaleString('en-IN')}/month over ${packageEnquiry.cashbackMonths} months. Please share more details and next steps.`,
+      }
+    }
+    return initialForm
+  })
   const [status, setStatus] = useState('idle') // idle | sending | success | error
 
   const handleChange = (event) => {
@@ -56,6 +64,7 @@ export default function Contact() {
       // EmailJS not set up yet — never let a submission just vanish.
       mailtoFallback()
       setForm(initialForm)
+      setStatus('fallback')
       return
     }
 
@@ -116,6 +125,24 @@ export default function Contact() {
                   <span className="material-symbols-outlined text-secondary">check_circle</span>
                   <p className="font-body text-body-sm text-on-surface">
                     Thanks — your message has been received. Our team will reach out shortly.
+                  </p>
+                </div>
+              )}
+
+              {status === 'fallback' && (
+                <div className="mb-lg p-md rounded-xl bg-secondary/10 border border-secondary/30 flex items-start gap-sm">
+                  <span className="material-symbols-outlined text-secondary">mail</span>
+                  <p className="font-body text-body-sm text-on-surface">
+                    We've opened your email app with your message ready to send — just hit send there. If
+                    nothing opened, email us directly at{' '}
+                    <a href={`mailto:${COMPANY.email}`} className="underline">
+                      {COMPANY.email}
+                    </a>{' '}
+                    or{' '}
+                    <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="underline">
+                      message us on WhatsApp
+                    </a>
+                    .
                   </p>
                 </div>
               )}

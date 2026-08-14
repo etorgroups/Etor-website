@@ -8,6 +8,13 @@ export const COMPANY = {
   email: 'etorventure@gmail.com',
   website: 'www.etorgroup.com',
   foundedYear: 2014,
+  // Placeholders — swap for the real registration numbers once issued. Kept
+  // in this obviously-a-placeholder form (matching the YOUR_..._ID pattern
+  // used for EmailJS/Tawk below) rather than a realistic-looking fake
+  // number, since a fabricated RERA/CIN that looks real is a false
+  // regulatory claim if it ever ships without being replaced.
+  reraNumber: 'YOUR_RERA_NUMBER',
+  cin: 'YOUR_CIN_NUMBER',
   social: [
     { label: 'WhatsApp', icon: 'whatsapp', href: WHATSAPP_URL },
     { label: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=100093114993555' },

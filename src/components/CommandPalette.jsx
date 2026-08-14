@@ -5,11 +5,14 @@ import { toggleTheme } from '../lib/theme'
 import { CITY_META } from '../data/plotMap'
 
 const PAGES = [
-  { label: 'Home', to: '/', icon: 'home' },
-  { label: 'The Story', to: '/about', icon: 'info' },
-  { label: 'ETOR City', to: '/projects', icon: 'domain' },
-  { label: 'Living Assets', to: '/services', icon: 'apps' },
-  { label: 'Contact', to: '/contact', icon: 'mail' },
+  { label: 'Home', to: '/', icon: 'home', keywords: ['home', 'landing'] },
+  { label: 'The Story', to: '/about', icon: 'info', keywords: ['about', 'story', 'team', 'founder', 'history'] },
+  { label: 'ETOR City', to: '/projects', icon: 'domain', keywords: ['projects', 'city', 'plots', 'packages', 'land'] },
+  { label: 'Living Assets', to: '/services', icon: 'apps', keywords: ['services', 'assets', 'mango', 'dairy', 'sandalwood'] },
+  { label: 'Other Ventures', to: '/other-ventures', icon: 'storefront', keywords: ['ventures', 'roi', 'gaming', 'forex', 'crypto'] },
+  { label: 'Contact', to: '/contact', icon: 'mail', keywords: ['contact', 'reach', 'phone', 'email', 'whatsapp'] },
+  { label: 'Privacy Policy', to: '/privacy', icon: 'shield', keywords: ['privacy', 'cookies', 'data'] },
+  { label: 'Terms', to: '/terms', icon: 'gavel', keywords: ['terms', 'conditions', 'legal'] },
 ]
 
 export default function CommandPalette() {
@@ -96,6 +99,7 @@ export default function CommandPalette() {
             <Command.Item
               key={page.to}
               onSelect={() => go(page.to)}
+              keywords={page.keywords}
               className="flex items-center gap-sm px-md py-sm rounded-lg cursor-pointer font-body text-body-sm text-on-surface data-[selected=true]:bg-secondary/10 data-[selected=true]:text-secondary"
             >
               <span className="material-symbols-outlined text-[18px]">{page.icon}</span>

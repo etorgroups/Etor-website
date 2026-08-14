@@ -66,7 +66,7 @@ export default function Layouts() {
                   <div className="p-lg flex flex-col justify-between gap-4">
                     <div className="flex items-start gap-4">
                       <div className="min-w-0 flex-1">
-                        <h3 title={layout.name} className="font-display text-headline-md text-on-surface mb-1 truncate">
+                        <h3 title={layout.name} className="font-display text-headline-md text-on-surface mb-1 line-clamp-2">
                           {layout.name}
                         </h3>
                         <p className="font-body text-body-sm text-on-surface-variant mb-2 truncate">{layout.location}</p>
@@ -76,11 +76,6 @@ export default function Layouts() {
                           </p>
                         )}
                       </div>
-                      {layout.plotCount ? (
-                        <div className="flex-shrink-0 text-[12px] font-body bg-secondary text-on-secondary px-2 py-1 rounded-full shadow-sm">
-                          {layout.plotCount} plots
-                        </div>
-                      ) : null}
                     </div>
 
                     <div className="flex items-center justify-between gap-3 mt-2">

@@ -264,7 +264,7 @@ export default function Home() {
               alt="Viswaguru World Records 'Green Entrepreneur' award plaque presented to B. Nagesh, Founder & CEO of ETOR Group"
               className="shrink-0 block"
             >
-              <TiltCard max={6} className="rounded-2xl overflow-hidden shadow-xl bg-surface p-sm w-32 h-32 sm:w-36 sm:h-36">
+              <TiltCard max={6} className="rounded-2xl overflow-hidden shadow-xl bg-surface p-sm w-40 sm:w-48 aspect-[3/2]">
                 <img
                   src={awardPlaque}
                   alt="Viswaguru World Records 'Green Entrepreneur' award plaque presented to B. Nagesh, Founder & CEO of ETOR Group"
@@ -289,9 +289,9 @@ export default function Home() {
             <MagneticButton
               as={Link}
               to="/about#recognition"
-              className="shrink-0 px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest inline-flex items-center gap-sm"
+              className="shrink-0 px-lg sm:px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest inline-flex items-center justify-center gap-sm whitespace-nowrap"
             >
-              See The Recognition
+              See Recognition
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </MagneticButton>
           </div>
@@ -380,7 +380,7 @@ export default function Home() {
                   tag="div"
                   x={index % 2 === 1 ? 40 : -40}
                   y={0}
-                  className="lg:col-span-5 rounded-3xl overflow-hidden shadow-xl aspect-[4/5] lg:h-[380px] [direction:ltr]"
+                  className="lg:col-span-5 rounded-3xl overflow-hidden shadow-xl aspect-[4/5] lg:aspect-auto lg:h-[380px] [direction:ltr]"
                 >
                   <img
                     src={asset.image}

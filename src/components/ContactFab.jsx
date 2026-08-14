@@ -24,9 +24,34 @@ export default function ContactFab() {
   const [open, setOpen] = useState(false)
   const [nudgeVisible, setNudgeVisible] = useState(false)
   const [isScrolling, setIsScrolling] = useState(false)
+  const [navOpen, setNavOpen] = useState(false)
+  const [cookieBannerOpen, setCookieBannerOpen] = useState(false)
   const prefersReducedMotion = useReducedMotion()
   const containerRef = useRef(null)
   const scrollTimeoutRef = useRef(null)
+
+  // Header's mobile nav panel shares this button's z-index and renders
+  // first, so with the header open this button must get out of the way
+  // entirely rather than just receding, or it sits on top of the nav links.
+  useEffect(() => {
+    function handleNavToggle(event) {
+      setNavOpen(event.detail)
+      if (event.detail) setOpen(false)
+    }
+    window.addEventListener('mobile-nav:toggle', handleNavToggle)
+    return () => window.removeEventListener('mobile-nav:toggle', handleNavToggle)
+  }, [])
+
+  // The cookie banner's bottom-right footprint overlaps this button's corner
+  // on narrow viewports (both are fixed, both z-50) — same fix as navOpen.
+  useEffect(() => {
+    function handleCookieBannerToggle(event) {
+      setCookieBannerOpen(event.detail)
+      if (event.detail) setOpen(false)
+    }
+    window.addEventListener('cookie-banner:toggle', handleCookieBannerToggle)
+    return () => window.removeEventListener('cookie-banner:toggle', handleCookieBannerToggle)
+  }, [])
 
   // Being fixed to a screen corner means this button will inevitably pass
   // over whatever page content happens to scroll underneath it — a plot
@@ -50,12 +75,13 @@ export default function ContactFab() {
   }, [])
 
   const recede = isScrolling && !open
+  const forceHidden = navOpen || cookieBannerOpen
 
   const items = [
     {
       key: 'chat',
-      label: isTawkConfigured ? 'Live Chat' : 'Live Chat (email)',
-      icon: 'chat',
+      label: isTawkConfigured ? 'Chat with Us' : 'Chat with Us (email)',
+      icon: 'smart_toy',
       onClick: () => {
         openChat()
         setOpen(false)
@@ -106,9 +132,9 @@ export default function ContactFab() {
     <motion.div
       ref={containerRef}
       className="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-sm"
-      animate={{ opacity: recede ? 0.35 : 1, scale: recede ? 0.85 : 1 }}
+      animate={{ opacity: forceHidden ? 0 : recede ? 0.35 : 1, scale: forceHidden ? 0.85 : recede ? 0.85 : 1 }}
       transition={{ duration: 0.25, ease: 'easeOut' }}
-      style={{ pointerEvents: recede ? 'none' : 'auto' }}
+      style={{ pointerEvents: forceHidden || recede ? 'none' : 'auto' }}
     >
       <AnimatePresence>
         {open && (

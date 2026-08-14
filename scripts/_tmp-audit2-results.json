@@ -1,0 +1,66 @@
+[
+  {
+    "page": "home",
+    "theme": "light",
+    "viewport": "desktop",
+    "url": "http://localhost:5177/EtorGrops-website/",
+    "brokenImages": [],
+    "consoleMsgs": []
+  },
+  {
+    "page": "home",
+    "theme": "dark",
+    "viewport": "desktop",
+    "url": "http://localhost:5177/EtorGrops-website/",
+    "brokenImages": [],
+    "consoleMsgs": []
+  },
+  {
+    "page": "about",
+    "theme": "light",
+    "viewport": "desktop",
+    "url": "http://localhost:5177/EtorGrops-website/about",
+    "brokenImages": [],
+    "consoleMsgs": []
+  },
+  {
+    "page": "about",
+    "theme": "dark",
+    "viewport": "desktop",
+    "url": "http://localhost:5177/EtorGrops-website/about",
+    "brokenImages": [],
+    "consoleMsgs": []
+  },
+  {
+    "page": "home",
+    "theme": "light",
+    "viewport": "mobile",
+    "url": "http://localhost:5177/EtorGrops-website/",
+    "brokenImages": [],
+    "consoleMsgs": []
+  },
+  {
+    "page": "home",
+    "theme": "dark",
+    "viewport": "mobile",
+    "url": "http://localhost:5177/EtorGrops-website/",
+    "brokenImages": [],
+    "consoleMsgs": []
+  },
+  {
+    "page": "about",
+    "theme": "light",
+    "viewport": "mobile",
+    "url": "http://localhost:5177/EtorGrops-website/about",
+    "brokenImages": [],
+    "consoleMsgs": []
+  },
+  {
+    "page": "about",
+    "theme": "dark",
+    "viewport": "mobile",
+    "url": "http://localhost:5177/EtorGrops-website/about",
+    "brokenImages": [],
+    "consoleMsgs": []
+  }
+]

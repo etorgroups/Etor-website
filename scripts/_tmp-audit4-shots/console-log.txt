@@ -1,0 +1,66 @@
+[fab-cookie-light] BROKEN IMAGES: ["http://localhost:5177/EtorGrops-website/src/assets/images/asset-organic-dairy.png","http://localhost:5177/EtorGrops-website/src/assets/images/asset-crop-portfolio.png","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-1.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-2.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-3-4.webp","http://localhost:5177/EtorGrops-website/src/assets/images/founder-ceo.webp"]
+[fab-cookie-dark] BROKEN IMAGES: ["http://localhost:5177/EtorGrops-website/src/assets/images/asset-organic-dairy.png","http://localhost:5177/EtorGrops-website/src/assets/images/asset-crop-portfolio.png","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-1.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-2.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-3-4.webp","http://localhost:5177/EtorGrops-website/src/assets/images/founder-ceo.webp"]
+[general-contact-desktop-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-contact-desktop-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-contact-desktop-light] console.error: Failed to load resource: net::ERR_FAILED
+[general-privacy-desktop-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-privacy-desktop-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-privacy-desktop-light] console.error: Failed to load resource: net::ERR_FAILED
+[general-terms-desktop-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-terms-desktop-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-terms-desktop-light] console.error: Failed to load resource: net::ERR_FAILED
+[general-404-desktop-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-404-desktop-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-404-desktop-light] console.error: Failed to load resource: net::ERR_FAILED
+[general-contact-desktop-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-contact-desktop-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-contact-desktop-dark] console.error: Failed to load resource: net::ERR_FAILED
+[general-privacy-desktop-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-privacy-desktop-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-privacy-desktop-dark] console.error: Failed to load resource: net::ERR_FAILED
+[general-terms-desktop-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-terms-desktop-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-terms-desktop-dark] console.error: Failed to load resource: net::ERR_FAILED
+[general-404-desktop-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-404-desktop-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-404-desktop-dark] console.error: Failed to load resource: net::ERR_FAILED
+[general-contact-mobile-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-contact-mobile-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-contact-mobile-light] console.error: Failed to load resource: net::ERR_FAILED
+[general-privacy-mobile-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-privacy-mobile-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-privacy-mobile-light] console.error: Failed to load resource: net::ERR_FAILED
+[general-terms-mobile-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-terms-mobile-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-terms-mobile-light] console.error: Failed to load resource: net::ERR_FAILED
+[general-404-mobile-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-404-mobile-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-404-mobile-light] console.error: Failed to load resource: net::ERR_FAILED
+[general-contact-mobile-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-contact-mobile-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-contact-mobile-dark] console.error: Failed to load resource: net::ERR_FAILED
+[general-privacy-mobile-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-privacy-mobile-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-privacy-mobile-dark] console.error: Failed to load resource: net::ERR_FAILED
+[general-terms-mobile-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-terms-mobile-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-terms-mobile-dark] console.error: Failed to load resource: net::ERR_FAILED
+[general-404-mobile-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[general-404-mobile-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[general-404-mobile-dark] console.error: Failed to load resource: net::ERR_FAILED
+[chrome-desktop-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[chrome-desktop-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[chrome-desktop-light] console.error: Failed to load resource: net::ERR_FAILED
+[chrome-desktop-light] BROKEN IMAGES: ["http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-1.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-2.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-3-4.webp"]
+[chrome-desktop-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[chrome-desktop-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[chrome-desktop-dark] console.error: Failed to load resource: net::ERR_FAILED
+[chrome-desktop-dark] BROKEN IMAGES: ["http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-1.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-2.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-3-4.webp"]
+[chrome-mobile-light] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[chrome-mobile-light] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[chrome-mobile-light] console.error: Failed to load resource: net::ERR_FAILED
+[chrome-mobile-light] BROKEN IMAGES: ["http://localhost:5177/EtorGrops-website/src/assets/images/asset-organic-dairy.png","http://localhost:5177/EtorGrops-website/src/assets/images/asset-crop-portfolio.png","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-1.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-2.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-3-4.webp"]
+[chrome-mobile-dark] console.error: Access to script at 'https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g' from origin 'http://localhost:5177' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+[chrome-mobile-dark] requestfailed: https://embed.tawk.to/6a13d5bc83cf321c3962e34c/1jpenlr2g net::ERR_FAILED
+[chrome-mobile-dark] console.error: Failed to load resource: net::ERR_FAILED
+[chrome-mobile-dark] BROKEN IMAGES: ["http://localhost:5177/EtorGrops-website/src/assets/images/asset-organic-dairy.png","http://localhost:5177/EtorGrops-website/src/assets/images/asset-crop-portfolio.png","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-1.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-2.webp","http://localhost:5177/EtorGrops-website/src/assets/images/etor-city-3-4.webp"]

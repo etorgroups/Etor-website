@@ -1,0 +1,8 @@
+home-light-desktop: 50 low-contrast text elements
+home-dark-desktop: 4 low-contrast text elements
+about-light-desktop: 7 low-contrast text elements
+about-dark-desktop: 2 low-contrast text elements
+home-light-mobile: 50 low-contrast text elements
+home-dark-mobile: 4 low-contrast text elements
+about-light-mobile: 7 low-contrast text elements
+about-dark-mobile: 2 low-contrast text elements

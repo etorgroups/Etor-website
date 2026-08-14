@@ -13,6 +13,13 @@ export default function CookieConsent() {
     }
   }, [])
 
+  // On mobile this banner's footprint overlaps the contact FAB's bottom-right
+  // corner (same z-50, same screen region) — tell it to get out of the way,
+  // same pattern already used for the mobile nav panel vs. this same FAB.
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('cookie-banner:toggle', { detail: visible }))
+  }, [visible])
+
   const choose = (value) => {
     setCookieConsent(value)
     setVisible(false)
@@ -28,9 +35,9 @@ export default function CookieConsent() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 24 }}
           transition={{ type: 'spring', stiffness: 260, damping: 26 }}
-          className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-2rem)] max-w-[42rem] surface-panel rounded-xl px-md py-sm flex flex-col sm:flex-row sm:items-center gap-sm"
+          className="fixed bottom-3 sm:bottom-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-[42rem] surface-panel rounded-xl px-sm py-xs sm:px-md sm:py-sm flex flex-col sm:flex-row sm:items-center gap-xs sm:gap-sm"
         >
-          <p className="font-body text-body-sm text-on-surface-variant leading-relaxed sm:flex-1">
+          <p className="font-body text-[12px] sm:text-body-sm text-on-surface-variant leading-snug sm:leading-relaxed sm:flex-1">
             We use a minimal set of cookies to run this site and understand how it's used. See our{' '}
             <Link to="/privacy" className="text-secondary underline underline-offset-2">
               Privacy Policy
@@ -41,14 +48,14 @@ export default function CookieConsent() {
             <button
               type="button"
               onClick={() => choose('accepted')}
-              className="px-md py-xs rounded-full bg-secondary text-on-secondary font-body text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity"
+              className="px-sm py-xs sm:px-md rounded-full bg-secondary text-on-secondary font-body text-[11px] sm:text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity"
             >
               Accept
             </button>
             <button
               type="button"
               onClick={() => choose('declined')}
-              className="px-md py-xs rounded-full border border-outline-variant text-on-surface-variant font-body text-label-md uppercase tracking-widest hover:bg-surface-container transition-colors"
+              className="px-sm py-xs sm:px-md rounded-full border border-outline-variant text-on-surface-variant font-body text-[11px] sm:text-label-md uppercase tracking-widest hover:bg-surface-container transition-colors"
             >
               Decline
             </button>

@@ -7,6 +7,7 @@ import AnimatedRoutes from './components/AnimatedRoutes'
 import SkipLink from './components/SkipLink'
 import ScrollProgress from './components/ScrollProgress'
 import ContactFab from './components/ContactFab'
+import ExploreNowTab from './components/ExploreNowTab'
 import TawkWidget from './components/TawkWidget'
 import CookieConsent from './components/CookieConsent'
 import SmoothScroll from './components/SmoothScroll'
@@ -50,6 +51,7 @@ export default function App() {
             <Footer />
           </div>
           <ContactFab />
+          <ExploreNowTab />
           <TawkWidget />
           <CookieConsent />
         </SmoothScroll>

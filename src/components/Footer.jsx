@@ -159,7 +159,10 @@ export default function Footer() {
               </button>
             </form>
             {status === 'error' && (
-              <p className="font-body text-body-sm text-error-container mt-xs">
+              // Footer is always bg-primary (fixed dark ink in both themes), so this
+              // needs a fixed light-on-dark color too — text-error-container would
+              // flip to a dark maroon in dark mode and disappear against bg-primary.
+              <p className="font-body text-body-sm mt-xs" style={{ color: '#ffdad6' }}>
                 Couldn't subscribe — please try again shortly.
               </p>
             )}
@@ -167,9 +170,14 @@ export default function Footer() {
         </div>
 
         <div className="pt-lg border-t border-on-primary/10 flex flex-col md:flex-row justify-between items-center gap-md font-body text-body-sm text-on-primary-container">
-          <span>
-            © {COMPANY.foundedYear}–{new Date().getFullYear()} ETOR Group. All rights reserved.
-          </span>
+          <div className="flex flex-col items-center md:items-start gap-xs text-center md:text-left">
+            <span>
+              © {COMPANY.foundedYear}–{new Date().getFullYear()} ETOR Group. All rights reserved.
+            </span>
+            <span className="text-[12px] text-on-primary-container/70">
+              RERA Reg. No. {COMPANY.reraNumber} · CIN {COMPANY.cin}
+            </span>
+          </div>
           <div className="flex items-center gap-md">
             {/* Internal/company-side tools — trained staff already know
                 these by name, so they sit here quietly rather than

@@ -11,13 +11,29 @@ export default function NotFound() {
         <p className="font-body text-body-lg text-on-surface-variant mb-xl">
           The page you're looking for doesn't exist or has been moved.
         </p>
-        <MagneticButton
-          as={Link}
-          to="/"
-          className="px-xl py-md bg-primary text-on-primary rounded-full font-body text-label-md uppercase tracking-widest inline-flex"
+        <div className="flex flex-wrap items-center justify-center gap-md">
+          <MagneticButton
+            as={Link}
+            to="/"
+            className="px-xl py-md bg-primary text-on-primary rounded-full font-body text-label-md uppercase tracking-widest inline-flex"
+          >
+            Back to Home
+          </MagneticButton>
+          <MagneticButton
+            as={Link}
+            to="/projects"
+            className="px-xl py-md border border-outline-variant/50 text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:bg-surface-container-low transition-colors inline-flex"
+          >
+            Explore ETOR City
+          </MagneticButton>
+        </div>
+        <Link
+          to="/contact"
+          className="mt-lg inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary hover:text-secondary-container transition-colors"
         >
-          Back to Home
-        </MagneticButton>
+          Or contact us directly
+          <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+        </Link>
       </Reveal>
     </section>
   )

@@ -144,6 +144,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Both the header's mobile nav panel and ContactFab are `z-50` — with a
+  // tied z-index, DOM order decides the winner, and ContactFab renders
+  // after Header in App.jsx, so it was painting on top of the open nav
+  // panel. Tell it to hide itself instead of fighting over z-index.
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent('mobile-nav:toggle', { detail: menuOpen }))
+  }, [menuOpen])
+
   useEffect(() => {
     if (!menuOpen) return undefined
 
@@ -239,7 +247,7 @@ export default function Header() {
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent('command-palette:toggle'))}
             aria-label="Open quick navigation"
-            className="hidden sm:flex lg:hidden xl:flex items-center gap-xs px-sm py-xs rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary transition-colors"
+            className="hidden sm:flex lg:hidden min-[1080px]:flex! items-center gap-xs px-sm py-xs rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary transition-colors"
           >
             <span className="material-symbols-outlined text-[18px]">search</span>
             <kbd className="hidden xl:inline font-body text-[10px] uppercase tracking-wider">⌘K</kbd>
@@ -254,7 +262,7 @@ export default function Header() {
             {CUSTOMER_LOGIN.label}
             <span className="material-symbols-outlined text-[16px]">arrow_outward</span>
           </a>
-          <OtherAppsMenu className="hidden sm:flex lg:hidden xl:flex" />
+          <OtherAppsMenu className="hidden sm:flex lg:hidden min-[1080px]:flex!" />
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
@@ -334,7 +342,7 @@ export default function Header() {
               </motion.p>
               {COMPANY_APPS.map((app) => {
                   let displayName = app.name
-                  if (app.name === 'FarmYieldIQ') displayName = 'EtorFarmTeild'
+                  if (app.name === 'FarmYieldIQ') displayName = 'EtorFarmYield'
                   else if (app.name === 'CalviQ') displayName = 'Etor Dairy Farm'
                 return (
                   <motion.a

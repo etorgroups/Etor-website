@@ -67,7 +67,7 @@ export default function InvestmentCalculator() {
             >
               2. Investment area
             </label>
-            <span className="font-display text-headline-md text-on-surface break-words">
+            <span className="font-display text-headline-md text-on-surface whitespace-nowrap">
               {area.toLocaleString('en-IN')} sq.yd
             </span>
           </div>
@@ -96,13 +96,13 @@ export default function InvestmentCalculator() {
 
           <div className="grid grid-cols-1 gap-md mb-lg md:grid-cols-2">
             <div className="min-w-0">
-              <AnimatedCurrency value={totalInvestment} className="font-display text-headline-lg text-on-surface block break-words" />
+              <AnimatedCurrency value={totalInvestment} className="font-display text-headline-md text-on-surface block whitespace-nowrap" />
               <p className="font-body text-body-sm text-on-surface-variant">Total investment</p>
             </div>
             <div className="min-w-0">
               <AnimatedCurrency
                 value={monthlyCashback}
-                className="font-display text-headline-lg text-secondary block break-words"
+                className="font-display text-headline-md text-secondary block whitespace-nowrap"
               />
               <p className="font-body text-body-sm text-on-surface-variant">Cashback / month</p>
             </div>
@@ -136,6 +136,16 @@ export default function InvestmentCalculator() {
           <MagneticButton
             as={Link}
             to="/contact"
+            state={{
+              packageEnquiry: {
+                packageName: pkg.name,
+                area,
+                pricePerSqYd: pkg.pricePerSqYd,
+                totalInvestment,
+                monthlyCashback,
+                cashbackMonths: CASHBACK_MONTHS,
+              },
+            }}
             className="mt-auto self-start w-full max-w-full sm:w-auto sm:max-w-[18rem] text-center px-lg py-sm bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest inline-flex justify-center"
           >
             Enquire About This Package

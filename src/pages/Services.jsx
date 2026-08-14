@@ -235,33 +235,43 @@ export default function Services() {
             </p>
           </Reveal>
 
-          <Reveal tag="div" className="rounded-3xl bg-surface-container-low border border-outline-variant/30 p-lg lg:p-xl overflow-x-auto">
-            <table className="w-full text-left font-body text-body-sm min-w-[34rem]">
-              <thead>
-                <tr className="border-b border-outline-variant/30 text-on-surface-variant uppercase text-[11px] tracking-widest">
-                  <th className="py-sm pr-md">Plot size</th>
-                  <th className="py-sm pr-md">Sandalwood</th>
-                  <th className="py-sm pr-md">Custard apple</th>
-                  <th className="py-sm pr-md">Dragon fruit</th>
-                  <th className="py-sm pr-md">Miyazaki mango</th>
-                  <th className="py-sm pr-md">Investment</th>
-                  <th className="py-sm">Crop ROI · 12 yrs</th>
-                </tr>
-              </thead>
-              <tbody>
-                {PLANTATION_TIERS.map((tier) => (
-                  <tr key={tier.area} className="border-b border-outline-variant/15">
-                    <td className="py-sm pr-md text-on-surface font-medium">{tier.area}</td>
-                    <td className="py-sm pr-md text-on-surface-variant">{tier.sandalwood} plants</td>
-                    <td className="py-sm pr-md text-on-surface-variant">{tier.custardApple} plants</td>
-                    <td className="py-sm pr-md text-on-surface-variant">{tier.dragonFruit} plants</td>
-                    <td className="py-sm pr-md text-on-surface-variant">{tier.miyazaki} plants</td>
-                    <td className="py-sm pr-md text-on-surface-variant">{tier.investment}</td>
-                    <td className="py-sm text-secondary font-medium">{tier.roi12yr}</td>
+          <p className="sm:hidden flex items-center justify-center gap-xs mb-sm font-body text-body-sm text-on-surface-variant">
+            <span className="material-symbols-outlined text-[18px]">swipe</span>
+            Swipe to see Investment &amp; ROI
+          </p>
+          <Reveal tag="div" className="relative rounded-3xl bg-surface-container-low border border-outline-variant/30">
+            <div className="p-lg lg:p-xl overflow-x-auto">
+              <table className="w-full text-left font-body text-body-sm min-w-[34rem]">
+                <thead>
+                  <tr className="border-b border-outline-variant/30 text-on-surface-variant uppercase text-[11px] tracking-widest">
+                    <th className="py-sm pr-md">Plot size</th>
+                    <th className="py-sm pr-md">Sandalwood</th>
+                    <th className="py-sm pr-md">Custard apple</th>
+                    <th className="py-sm pr-md">Dragon fruit</th>
+                    <th className="py-sm pr-md">Miyazaki mango</th>
+                    <th className="py-sm pr-md">Investment</th>
+                    <th className="py-sm">Crop ROI · 12 yrs</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {PLANTATION_TIERS.map((tier) => (
+                    <tr key={tier.area} className="border-b border-outline-variant/15">
+                      <td className="py-sm pr-md text-on-surface font-medium">{tier.area}</td>
+                      <td className="py-sm pr-md text-on-surface-variant">{tier.sandalwood} plants</td>
+                      <td className="py-sm pr-md text-on-surface-variant">{tier.custardApple} plants</td>
+                      <td className="py-sm pr-md text-on-surface-variant">{tier.dragonFruit} plants</td>
+                      <td className="py-sm pr-md text-on-surface-variant">{tier.miyazaki} plants</td>
+                      <td className="py-sm pr-md text-on-surface-variant">{tier.investment}</td>
+                      <td className="py-sm text-secondary font-medium">{tier.roi12yr}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div
+              aria-hidden="true"
+              className="sm:hidden pointer-events-none absolute top-0 right-0 h-full w-10 rounded-r-3xl bg-gradient-to-l from-surface-container-low to-transparent"
+            />
           </Reveal>
           <Disclosure className="mt-lg max-w-[36rem] mx-auto text-center">
             Plant counts and returns as printed in ETOR Group's brochure — crop yield only, separate from

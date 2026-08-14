@@ -75,11 +75,11 @@ export default function PlotMap() {
                   <p className="font-body text-[11px] text-on-surface-variant uppercase tracking-widest">Total Plots</p>
                 </div>
                 <div className="text-center px-md border-l border-outline-variant/30">
-                  <p className="font-display text-headline-lg" style={{ color: '#15803d' }}>{counts.available}</p>
+                  <p className="font-display text-headline-lg text-tertiary">{counts.available}</p>
                   <p className="font-body text-[11px] text-on-surface-variant uppercase tracking-widest">Available</p>
                 </div>
                 <div className="text-center px-md border-l border-outline-variant/30">
-                  <p className="font-display text-headline-lg" style={{ color: '#991b1b' }}>{counts.sold}</p>
+                  <p className="font-display text-headline-lg text-error">{counts.sold}</p>
                   <p className="font-body text-[11px] text-on-surface-variant uppercase tracking-widest">Sold</p>
                 </div>
               </div>

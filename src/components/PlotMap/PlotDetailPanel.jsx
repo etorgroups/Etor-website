@@ -78,8 +78,12 @@ export default function PlotDetailPanel({ plot, cityTitle, onClose }) {
                   <p className="font-body text-label-md uppercase tracking-widest" style={{ color: '#92400e' }}>
                     Booking Held By
                   </p>
-                  <p className="font-display text-headline-md text-on-surface">{plot.customerName}</p>
-                  <p className="font-body text-body-sm text-on-surface-variant">Since {plot.bookedDate}</p>
+                  <p className="font-display text-headline-md" style={{ color: '#211d18' }}>
+                    {plot.customerName}
+                  </p>
+                  <p className="font-body text-body-sm" style={{ color: '#615950' }}>
+                    Since {plot.bookedDate}
+                  </p>
                 </div>
               )}
 

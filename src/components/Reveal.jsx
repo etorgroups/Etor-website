@@ -15,8 +15,13 @@ const TAGS = {
 
 const EASE = [0.16, 1, 0.3, 1]
 
-// Fades + slides an element into view as it enters the viewport, and fades it
-// back out as it leaves (once=false) so the effect replays on scroll up too.
+// Fades + slides an element into view as it enters the viewport, then stays
+// visible — it doesn't replay on scroll-up (once=true) since that caused
+// visible flicker on content-dense pages, and broke print/PDF/full-page
+// screenshot exports entirely (whileInView never triggers outside a real
+// scroll interaction, so anything not yet scrolled past stayed invisible).
+// Pass once={false} on a specific instance if a deliberate replay flourish
+// is ever wanted somewhere.
 export default function Reveal({
   children,
   tag = 'div',
@@ -25,7 +30,7 @@ export default function Reveal({
   y = 40,
   x = 0,
   scale = 1,
-  once = false,
+  once = true,
   amount = 0.2,
   className,
   ...rest

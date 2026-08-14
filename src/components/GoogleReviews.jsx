@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getCookieConsent, onCookieConsentChange } from '../lib/cookieConsent'
+import { getCookieConsent, setCookieConsent, onCookieConsentChange } from '../lib/cookieConsent'
 
 const ELFSIGHT_APP_CLASS = 'elfsight-app-4b051ef0-0ed3-4acf-9a67-9d2049ea5c10'
 
@@ -32,9 +32,22 @@ export default function GoogleReviews({ className = '' }) {
 
   if (!consented) {
     return (
-      <p className="font-body text-body-sm text-on-surface-variant text-center">
-        Live Google reviews load once cookies are accepted.
-      </p>
+      <div className="text-center space-y-md">
+        <p className="font-body text-body-sm text-on-surface-variant">
+          Live Google reviews load once cookies are accepted.
+        </p>
+        <button
+          type="button"
+          onClick={() => {
+            setCookieConsent('accepted')
+            setConsented(true)
+            loadElfsight()
+          }}
+          className="inline-flex items-center gap-xs px-md py-xs rounded-full bg-secondary text-on-secondary font-body text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity"
+        >
+          Accept & View Reviews
+        </button>
+      </div>
     )
   }
 
