@@ -151,6 +151,21 @@ export default function About() {
                 </MaskReveal>
               </div>
 
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-sm">
+                {[
+                  'IRDA & FMC certified Financial Advisor',
+                  '12+ years in financial services, wealth management & investment advisory',
+                  'Guided and mentored over 4 lakh traders and investors',
+                  'Vishwaguru World Record — planting 10 lakh trees within two years',
+                  '2 FMC Awards for Excellence in Portfolio Management',
+                ].map((credential) => (
+                  <li key={credential} className="flex items-start gap-xs font-body text-body-sm text-on-surface-variant">
+                    <span className="material-symbols-outlined text-secondary text-[18px] mt-0.5 shrink-0">check_circle</span>
+                    {credential}
+                  </li>
+                ))}
+              </ul>
+
               <div className="space-y-md">
                 <div className="flex items-center gap-md">
                   <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">

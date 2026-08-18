@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
@@ -19,18 +20,17 @@ import mangoOrchard from '../assets/images/mango-orchard.webp'
 import etorCityFlagship from '../assets/images/etor-city-flagship.png'
 import assetMango from '../assets/images/asset-miyazaki-mango.png'
 import assetDairy from '../assets/images/asset-organic-dairy.png'
-import assetCropPortfolio from '../assets/images/asset-crop-portfolio.png'
+import assetSandalwood from '../assets/images/asset-sandalwood.webp'
+import assetCustardApple from '../assets/images/asset-custard-apple.webp'
+import assetDragonFruit from '../assets/images/asset-dragon-fruit.webp'
+import assetGreenSugar from '../assets/images/asset-green-sugar.webp'
+import assetAloeVera from '../assets/images/asset-aloe-vera.webp'
+import assetAllTimeMango from '../assets/images/asset-all-time-mango.webp'
 import etorCity1 from '../assets/images/etor-city-1.webp'
 import etorCity2 from '../assets/images/etor-city-2.webp'
 import etorCity34 from '../assets/images/etor-city-3-4.webp'
 import founderCeo from '../assets/images/founder-ceo.webp'
 import awardPlaque from '../assets/images/award-viswaguru-world-records-2026.webp'
-
-const HERO_TRUST_POINTS = [
-  { value: '12+', label: 'Years' },
-  { value: '250+', label: 'Acres' },
-  { value: '4', label: 'Locations' },
-]
 
 const METRICS = [
   { target: 12, suffix: '+', label: 'Years Experience', toneClass: 'text-secondary' },
@@ -39,7 +39,7 @@ const METRICS = [
   { value: '4', label: 'ETOR City Locations', toneClass: 'text-on-surface' },
 ]
 
-const LIVING_ASSETS = [
+const FEATURED_ASSETS = [
   {
     tag: 'Flagship crop',
     title: 'Miyazaki Mango',
@@ -49,7 +49,7 @@ const LIVING_ASSETS = [
     highlights: ['Rich in zinc, calcium & vitamins C, E, A, K', 'Served as a welcome fruit at Burj Khalifa & other 5-star hotels'],
     image: assetMango,
     alt: 'Ripe Miyazaki mango still life',
-    note: "Fruit prices are described as market/auction-dependent — see the 12-year example in “Invest smart” below.",
+    note: 'Fruit prices are described as market/auction-dependent — see the 12-year example in "Invest smart" below.',
   },
   {
     tag: 'Organic dairy',
@@ -60,20 +60,59 @@ const LIVING_ASSETS = [
     alt: 'Organic dairy farm at first light',
     note: 'Example figures shown as printed in the brochure — a programme term, not a guaranteed return.',
   },
+]
+
+// The rest of the orchard mix on every plot — one dedicated product shot
+// per crop (same premium dark-studio style as the Miyazaki mango photo
+// above), generated via Stitch from the prompts handed to the client.
+const PORTFOLIO_CROPS = [
   {
-    tag: 'Orchard portfolio',
-    title: 'Sandalwood, Sitafal & Dragon Fruit',
-    body:
-      "White sandalwood (Srigandham) — grown in only a handful of countries worldwide, with Indian sandalwood noted for its oil quality — is planted alongside custard apple (Balanagar Sitafal) and red/yellow dragon fruit. The brochure allocates 30 sandalwood plants to each 250 sq.yd plot, with sitafal and dragon fruit reaching full fruiting within one to two years alongside the mango.",
-    priceTag: 'Sandalwood ₹22,000/kg · Sitafal ₹200/kg · Dragon Fruit ₹300/kg',
-    highlights: [
-      'Sandalwood: antioxidant, anti-inflammatory & antimicrobial properties, used in premium cosmetics and perfumes',
-      'Sitafal: high in fibre and antioxidants that support digestion and heart health',
-      'Dragon fruit: rich in antioxidants, boosts immunity, supports skin and heart health',
-    ],
-    image: assetCropPortfolio,
-    alt: 'Sandalwood, custard apple and dragon fruit portfolio',
-    note: 'Per-kg prices and health claims as printed in the brochure — not independent lab or medical verification.',
+    image: assetSandalwood,
+    alt: 'Cross-section of a sandalwood log with a carved sandalwood chip',
+    title: 'Sandalwood',
+    subtitle: 'Srigandham',
+    body: 'Antioxidant, anti-inflammatory & antimicrobial — used in premium cosmetics and perfumes.',
+    priceTag: '₹22,000 / kg',
+  },
+  {
+    image: assetCustardApple,
+    alt: 'Whole and halved custard apple (sitafal)',
+    title: 'Custard Apple',
+    subtitle: 'Balanagar Sitafal',
+    body: 'Drought-tolerant and low-maintenance across a wide range of soils, high in fibre and antioxidants that support digestion and heart health.',
+    priceTag: '₹200 / kg',
+  },
+  {
+    image: assetDragonFruit,
+    alt: 'Whole and halved dragon fruit',
+    title: 'Dragon Fruit',
+    subtitle: 'Red & yellow varieties',
+    body: 'Rich in antioxidants — boosts immunity, supports skin and heart health.',
+    priceTag: '₹300 / kg',
+  },
+  {
+    image: assetGreenSugar,
+    alt: 'Fresh bundle of stevia leaves',
+    title: 'Green Sugar',
+    subtitle: 'Stevia',
+    body: 'A natural, zero-calorie sweetener — a refined-sugar alternative for blood sugar and weight management.',
+    priceTag: null,
+  },
+  {
+    image: assetAloeVera,
+    alt: 'Aloe vera leaf sliced open revealing the gel inside',
+    title: 'Juicy Aloe Vera',
+    subtitle: 'Wellness crop',
+    body: 'Hydrating and rich in antioxidant compounds — valued for skin, digestion and overall wellness.',
+    priceTag: null,
+  },
+  {
+    image: assetAllTimeMango,
+    alt: 'Mango orchard heavy with ripe fruit at sunrise',
+    title: 'All Time Mango',
+    subtitle: '365-day plantation',
+    body: 'A year-round mango plantation cycle bred to deliver fresh, premium-quality fruit every season — naturally rich in vitamins A & C, antioxidants and fibre.',
+    priceTag: null,
   },
 ]
 
@@ -146,34 +185,91 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       {/* Scene 1 — The ground */}
-      <section className="relative w-full h-screen min-h-[640px] flex items-center -mt-20 overflow-hidden">
-        <img
+      <section className="relative w-full min-h-screen flex items-start lg:items-center -mt-20 overflow-hidden">
+        <motion.img
           src={heroLandscape}
           alt="Premium mango orchard in coastal Andhra Pradesh at first light"
-          className="absolute inset-0 w-full h-full object-cover scale-105"
+          className="absolute inset-0 w-full h-full object-cover"
           fetchPriority="high"
+          initial={{ scale: 1.05 }}
+          animate={{ scale: 1.16 }}
+          transition={{ duration: 26, repeat: Infinity, repeatType: 'mirror', ease: 'linear' }}
         />
         <div className="absolute inset-0 bg-primary/65" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/66 to-primary/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-transparent to-primary/55" />
 
+        <div className="hidden sm:block absolute inset-0 z-10 pointer-events-none overflow-hidden" aria-hidden="true">
+          {[
+            { top: '28%', left: '62%', size: 6, delay: '0s' },
+            { top: '48%', left: '74%', size: 4, delay: '1.6s' },
+            { top: '68%', left: '58%', size: 5, delay: '3.1s' },
+            { top: '38%', left: '85%', size: 3, delay: '4.4s' },
+            { top: '58%', left: '90%', size: 4, delay: '2.3s' },
+          ].map((mote, i) => (
+            <span
+              key={i}
+              className="absolute rounded-full bg-secondary-fixed-dim animate-mote-drift"
+              style={{
+                top: mote.top,
+                left: mote.left,
+                width: mote.size,
+                height: mote.size,
+                animationDelay: mote.delay,
+                boxShadow: '0 0 8px 2px var(--color-secondary-fixed-dim)',
+              }}
+            />
+          ))}
+        </div>
+
         <div className="relative z-20 max-w-container-max mx-auto px-margin-mobile lg:px-xl pt-20 w-full">
-          <div className="flex items-center">
-            <Reveal tag="div" y={30} className="hero-copy w-full max-w-[58rem] space-y-lg">
-              <Eyebrow tone="light">Land · Life · Long-term value</Eyebrow>
-              <KineticHeadline
-                tag="h1"
-                className="font-serif-display text-display-lg-mobile lg:text-display-lg text-on-primary leading-none"
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-xl items-center w-full">
+            <Reveal tag="div" y={30} className="hero-copy w-full lg:col-span-7 max-w-[42rem] lg:max-w-none">
+              <div className="space-y-md">
+                <Eyebrow tone="light">
+                  ETOR City — Believe In <br className="sm:hidden" />
+                  The Future Of Earnings
+                </Eyebrow>
+                <KineticHeadline
+                  tag="h1"
+                  className="font-serif-display text-display-lg-mobile lg:text-display-lg text-on-primary leading-none"
+                >
+                  Build value
+                  <br />
+                  <span className="text-on-primary">that keeps growing.</span>
+                </KineticHeadline>
+                <p className="font-body text-body-lg text-on-primary max-w-[36rem] drop-shadow-md">
+                  ETOR Group brings land, cultivation, community and long-term participation
+                  together in one living portfolio across Andhra Pradesh.
+                </p>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 12 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                className="relative inline-flex mt-lg md:mt-xl"
               >
-                Build value
-                <br />
-                <span className="text-on-primary">that keeps growing.</span>
-              </KineticHeadline>
-              <p className="font-body text-body-lg text-on-primary max-w-[36rem] drop-shadow-md">
-                ETOR Group brings land, cultivation, community and long-term participation
-                together in one living portfolio across Andhra Pradesh.
-              </p>
-              <div className="flex flex-wrap gap-md">
+                <span
+                  aria-hidden="true"
+                  className="absolute -inset-4 rounded-[2rem] bg-secondary/30 blur-2xl animate-glow-pulse"
+                />
+                <div className="shine-sweep relative inline-flex items-center gap-md sm:gap-lg rounded-[1.5rem] border border-secondary/40 bg-primary/60 backdrop-blur-md text-on-primary px-lg py-md shadow-2xl">
+                  <span className="material-symbols-outlined text-secondary text-[26px] sm:text-[32px] shrink-0">trending_up</span>
+                  <div>
+                    <p className="font-body text-label-md uppercase tracking-widest text-on-primary/60">Projected Return</p>
+                    <p className="font-display text-headline-lg sm:text-display-lg-mobile leading-none text-secondary whitespace-nowrap">
+                      <Counter
+                        target={25000}
+                        prefix="Rs. "
+                        suffix="/mo"
+                        duration={1.8}
+                        format={(n) => Math.floor(n).toLocaleString('en-IN')}
+                      />
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+              <div className="flex flex-wrap gap-md mt-lg">
                 <MagneticButton
                   as={Link}
                   to="/projects"
@@ -186,30 +282,78 @@ export default function Home() {
                     </span>
                   </span>
                 </MagneticButton>
-                <MagneticButton
-                  as={Link}
-                  to="/about"
-                  className="px-xl py-md border border-on-primary/30 backdrop-blur-md text-on-primary rounded-full font-body text-label-md uppercase tracking-widest hover:bg-on-primary/10 transition-colors inline-flex"
-                >
-                  Read our story
-                </MagneticButton>
               </div>
-              <div className="flex flex-wrap items-center gap-lg pt-xs">
-                {HERO_TRUST_POINTS.map((point, index) => (
-                  <div key={point.label} className="flex items-center gap-lg">
-                    {index > 0 && (
-                      <span className="hidden sm:block w-px h-8 bg-on-primary/20" aria-hidden="true" />
-                    )}
-                    <div className="flex items-baseline gap-xs">
-                      <span className="font-display text-headline-md text-secondary">{point.value}</span>
-                      <span className="font-body text-body-sm text-on-primary/70 uppercase tracking-wide">
-                        {point.label}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <a
+                href="#reviews"
+                className="flex items-center gap-xs mt-md font-body text-body-sm text-on-primary/70 hover:text-on-primary transition-colors"
+              >
+                <span className="material-symbols-outlined text-secondary text-[20px]">star</span>
+                Rated on Google — see live reviews
+              </a>
             </Reveal>
+
+            <motion.div
+              className="hidden lg:block lg:col-span-5"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <motion.div
+                animate={{ y: [0, -14, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                className="relative max-w-[26rem] mx-auto"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute -inset-6 rounded-[3rem] bg-secondary/25 blur-2xl animate-glow-pulse"
+                />
+                <TiltCard
+                  max={7}
+                  className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[2/3] ring-1 ring-on-primary/15"
+                >
+                  <img
+                    src={etorCityFlagship}
+                    alt="Aerial view of the ETOR City riverside development at golden hour"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/10 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-lg">
+                    <p className="font-body text-body-sm text-on-primary/60 uppercase tracking-widest mb-xs">
+                      ETOR City, live on the ground
+                    </p>
+                    <p className="font-display text-headline-md text-on-primary leading-tight">
+                      250+ acres, one river-view masterplan
+                    </p>
+                  </div>
+                </TiltCard>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.85, y: -10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute -top-6 -left-8 bg-surface/95 backdrop-blur-xl rounded-2xl px-lg py-md shadow-2xl border border-outline-variant/20 flex items-center gap-md"
+                >
+                  <svg width="52" height="28" viewBox="0 0 56 28" fill="none" aria-hidden="true">
+                    <motion.polyline
+                      points="0,24 10,20 20,22 30,12 40,14 56,2"
+                      stroke="var(--color-secondary)"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 1.6, delay: 1.3, ease: 'easeOut' }}
+                    />
+                  </svg>
+                  <div>
+                    <p className="font-body text-body-sm text-on-surface-variant leading-none">Over 100 months</p>
+                    <p className="font-display text-headline-md text-secondary leading-none mt-1">₹25,00,000</p>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
 
@@ -360,71 +504,105 @@ export default function Home() {
           <Reveal tag="div" className="text-center max-w-2xl mx-auto mb-xl">
             <Eyebrow>A living portfolio</Eyebrow>
             <h2 className="font-display text-headline-xl text-on-surface mt-md mb-md">
-              Four assets, one plot of land.
+              Eight living assets, one plot of land.
             </h2>
             <MaskReveal tag="p" className="font-body text-body-lg text-on-surface-variant">
-              Every ETOR City plot plants the same core mix — mango, dairy access, sandalwood
-              and orchard fruit — so the land is working from year one, not sitting idle.
+              Every ETOR City plot plants Miyazaki and all-time mango, dairy access, sandalwood,
+              custard apple, dragon fruit, stevia and aloe vera — a full orchard working from year
+              one, not sitting idle.
             </MaskReveal>
           </Reveal>
 
-          <div className="space-y-xl">
-            {LIVING_ASSETS.map((asset, index) => (
-              <div
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+            {FEATURED_ASSETS.map((asset, index) => (
+              <Reveal
                 key={asset.title}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center ${
-                  index % 2 === 1 ? 'lg:[direction:rtl]' : ''
-                }`}
+                tag="div"
+                delay={index * 0.1}
+                className="group relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3]"
               >
-                <Reveal
-                  tag="div"
-                  x={index % 2 === 1 ? 40 : -40}
-                  y={0}
-                  className="lg:col-span-5 rounded-3xl overflow-hidden shadow-xl aspect-[4/5] lg:aspect-auto lg:h-[380px] [direction:ltr]"
-                >
-                  <img
-                    src={asset.image}
-                    alt={asset.alt}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover"
-                  />
-                </Reveal>
-                <Reveal
-                  tag="div"
-                  delay={0.1}
-                  x={index % 2 === 1 ? -40 : 40}
-                  y={0}
-                  className="lg:col-span-7 space-y-sm [direction:ltr]"
-                >
-                  <span className="font-body text-label-md text-secondary uppercase tracking-[0.2em]">
+                <img
+                  src={asset.image}
+                  alt={asset.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/45 to-transparent" />
+                <div className="absolute inset-0 p-lg lg:p-xl flex flex-col justify-end">
+                  <span className="font-body text-label-md text-secondary-fixed-dim uppercase tracking-[0.2em] mb-xs">
                     {asset.tag}
                   </span>
-                  <h3 className="font-display text-headline-lg text-on-surface">{asset.title}</h3>
+                  <h3 className="font-display text-headline-lg text-on-primary mb-xs">{asset.title}</h3>
                   {asset.priceTag && (
-                    <span className="inline-flex items-center px-md py-xs rounded-full bg-secondary/10 text-secondary font-body text-label-md">
+                    <span className="inline-flex items-center self-start px-md py-xs rounded-full bg-on-primary/10 border border-on-primary/25 text-on-primary font-body text-label-md mb-sm">
                       {asset.priceTag}
                     </span>
                   )}
-                  <p className="font-body text-body-md text-on-surface-variant leading-relaxed max-w-[36rem]">
+                  <p className="font-body text-body-sm text-on-primary/75 leading-relaxed max-w-[30rem] mb-sm">
                     {asset.body}
                   </p>
                   {asset.highlights && (
-                    <ul className="space-y-1.5 max-w-[36rem]">
+                    <ul className="space-y-1 mb-sm">
                       {asset.highlights.map((item) => (
-                        <li key={item} className="flex items-start gap-xs font-body text-body-sm text-on-surface-variant">
-                          <span className="material-symbols-outlined text-secondary text-[16px] mt-0.5 shrink-0">check_circle</span>
+                        <li key={item} className="flex items-start gap-xs font-body text-body-sm text-on-primary/85">
+                          <span className="material-symbols-outlined text-secondary-fixed-dim text-[16px] mt-0.5 shrink-0">
+                            check_circle
+                          </span>
                           {item}
                         </li>
                       ))}
                     </ul>
                   )}
-                  {asset.note && (
-                    <Disclosure className="max-w-[36rem]">{asset.note}</Disclosure>
-                  )}
-                </Reveal>
-              </div>
+                </div>
+              </Reveal>
             ))}
+          </div>
+          <Disclosure className="max-w-[48rem] mx-auto text-center">
+            Fruit prices are described as market/auction-dependent — see the 12-year example in "Invest
+            smart" below. Dairy example figures are shown as printed in the brochure — a programme term,
+            not a guaranteed return.
+          </Disclosure>
+
+          <div>
+            <Reveal tag="p" className="font-body text-label-md text-on-surface-variant uppercase tracking-widest text-center mb-md">
+              Plus, growing on every plot
+            </Reveal>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-md">
+              {PORTFOLIO_CROPS.map((crop, index) => (
+                <Reveal key={crop.title} tag="div" delay={index * 0.06} className="h-full">
+                  <TiltCard max={6} className="group h-full rounded-2xl bg-surface border border-outline-variant/20 overflow-hidden flex flex-col">
+                    <div className="aspect-square overflow-hidden">
+                      <img
+                        src={crop.image}
+                        alt={crop.alt}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-lg flex flex-col flex-1">
+                      <h4 className="font-display text-body-lg text-on-surface leading-tight break-words">
+                        {crop.title}
+                      </h4>
+                      <p className="font-body text-body-sm text-secondary mb-sm">{crop.subtitle}</p>
+                      <p className="font-body text-body-sm text-on-surface-variant leading-relaxed mb-md flex-1">
+                        {crop.body}
+                      </p>
+                      {crop.priceTag && (
+                        <span className="inline-flex items-center self-start px-sm py-1 rounded-full bg-secondary/10 text-secondary font-body text-label-md">
+                          {crop.priceTag}
+                        </span>
+                      )}
+                    </div>
+                  </TiltCard>
+                </Reveal>
+              ))}
+            </div>
+            <Disclosure className="mt-md text-center max-w-[42rem] mx-auto">
+              Per-kg prices and health claims as printed in the brochure — not independent lab or medical
+              verification.
+            </Disclosure>
           </div>
         </div>
       </section>
@@ -783,7 +961,7 @@ export default function Home() {
           testimonial carousel (see TestimonialCarousel.jsx / data/testimonials.js,
           still wired up but unused here) can go back above this the moment
           ETOR Group shares real, client-approved quotes. */}
-      <section className="py-xl bg-surface">
+      <section id="reviews" className="py-xl bg-surface">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <Reveal tag="div" className="max-w-[36rem] mx-auto text-center mb-xl">
             <h2 className="font-display text-headline-xl text-on-surface mb-md">
