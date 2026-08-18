@@ -9,7 +9,7 @@ import TiltCard from '../components/TiltCard'
 import InvestJourney from '../components/InvestJourney'
 import { INVEST_STEPS } from '../data/investSteps'
 import assetLivingPortfolio from '../assets/images/asset-living-portfolio.webp'
-import assetDairy from '../assets/images/asset-organic-dairy.png'
+import assetDairy from '../assets/images/asset-organic-dairy.webp'
 
 // ETOR Organic Dairy Farm — real figures from the brochure, not a consumer
 // milk-delivery feature list (this is a plot add-on programme, not a
@@ -314,13 +314,13 @@ export default function Services() {
             <MagneticButton
               as={Link}
               to="/contact"
-              className="px-xl py-md bg-primary text-on-primary rounded-full font-body text-label-md uppercase tracking-widest shadow-xl inline-flex justify-center"
+              className="w-full sm:w-auto px-xl py-md bg-primary text-on-primary rounded-full font-body text-label-md uppercase tracking-widest shadow-xl inline-flex justify-center whitespace-nowrap"
             >
               Speak to ETOR
             </MagneticButton>
             <Link
               to="/projects"
-              className="px-xl py-md border border-on-secondary/40 text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest hover:bg-on-secondary/10 transition-colors text-center"
+              className="w-full sm:w-auto px-xl py-md border border-on-secondary/40 text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest hover:bg-on-secondary/10 transition-colors text-center whitespace-nowrap"
             >
               View ETOR City Packages
             </Link>

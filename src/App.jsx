@@ -9,6 +9,7 @@ import ScrollProgress from './components/ScrollProgress'
 import ContactFab from './components/ContactFab'
 import ExploreNowTab from './components/ExploreNowTab'
 import TawkWidget from './components/TawkWidget'
+import Analytics from './components/Analytics'
 import CookieConsent from './components/CookieConsent'
 import SmoothScroll from './components/SmoothScroll'
 import RouteCurtain from './components/RouteCurtain'
@@ -53,6 +54,7 @@ export default function App() {
           <ContactFab />
           <ExploreNowTab />
           <TawkWidget />
+          <Analytics />
           <CookieConsent />
         </SmoothScroll>
       </BrowserRouter>

@@ -15,11 +15,11 @@ import KineticHeadline from '../components/KineticHeadline'
 import MaskReveal from '../components/MaskReveal'
 import Disclosure from '../components/Disclosure'
 import { COMPANY } from '../data/company'
-import heroLandscape from '../assets/images/hero-etor-landscape.png'
+import heroLandscape from '../assets/images/hero-etor-landscape.webp'
 import mangoOrchard from '../assets/images/mango-orchard.webp'
-import etorCityFlagship from '../assets/images/etor-city-flagship.png'
-import assetMango from '../assets/images/asset-miyazaki-mango.png'
-import assetDairy from '../assets/images/asset-organic-dairy.png'
+import etorCityFlagship from '../assets/images/etor-city-flagship.webp'
+import assetMango from '../assets/images/asset-miyazaki-mango.webp'
+import assetDairy from '../assets/images/asset-organic-dairy.webp'
 import assetSandalwood from '../assets/images/asset-sandalwood.webp'
 import assetCustardApple from '../assets/images/asset-custard-apple.webp'
 import assetDragonFruit from '../assets/images/asset-dragon-fruit.webp'
@@ -254,10 +254,10 @@ export default function Home() {
                   className="absolute -inset-4 rounded-[2rem] bg-secondary/30 blur-2xl animate-glow-pulse"
                 />
                 <div className="shine-sweep relative inline-flex items-center gap-md sm:gap-lg rounded-[1.5rem] border border-secondary/40 bg-primary/60 backdrop-blur-md text-on-primary px-lg py-md shadow-2xl">
-                  <span className="material-symbols-outlined text-secondary text-[26px] sm:text-[32px] shrink-0">trending_up</span>
+                  <span className="material-symbols-outlined text-secondary-fixed-dim text-[26px] sm:text-[32px] shrink-0">trending_up</span>
                   <div>
                     <p className="font-body text-label-md uppercase tracking-widest text-on-primary/60">Projected Return</p>
-                    <p className="font-display text-headline-lg sm:text-display-lg-mobile leading-none text-secondary whitespace-nowrap">
+                    <p className="font-display text-headline-lg sm:text-display-lg-mobile leading-none text-secondary-fixed-dim whitespace-nowrap">
                       <Counter
                         target={25000}
                         prefix="Rs. "
@@ -287,7 +287,7 @@ export default function Home() {
                 href="#reviews"
                 className="flex items-center gap-xs mt-md font-body text-body-sm text-on-primary/70 hover:text-on-primary transition-colors"
               >
-                <span className="material-symbols-outlined text-secondary text-[20px]">star</span>
+                <span className="material-symbols-outlined text-secondary-fixed-dim text-[20px]">star</span>
                 Rated on Google — see live reviews
               </a>
             </Reveal>
