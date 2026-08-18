@@ -63,25 +63,25 @@ export default function Layouts() {
                       </div>
                     ) : null}
                   </div>
-                  <div className="p-lg flex flex-col justify-between gap-4">
-                    <div className="flex items-start gap-4">
+                  <div className="p-lg flex flex-col justify-between gap-md">
+                    <div className="flex items-start gap-md">
                       <div className="min-w-0 flex-1">
-                        <h3 title={layout.name} className="font-display text-headline-md text-on-surface mb-1 line-clamp-2">
+                        <h3 title={layout.name} className="font-display text-headline-md text-on-surface mb-xs line-clamp-2">
                           {layout.name}
                         </h3>
-                        <p className="font-body text-body-sm text-on-surface-variant mb-2 truncate">{layout.location}</p>
+                        <p className="font-body text-body-sm text-on-surface-variant mb-sm truncate">{layout.location}</p>
                         {layout.note && (
-                          <p className="hidden md:block font-body text-body-xs text-on-surface-variant mb-2">
+                          <p className="hidden md:block font-body text-body-xs text-on-surface-variant mb-sm">
                             {layout.note}
                           </p>
                         )}
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between gap-3 mt-2">
+                    <div className="flex items-center justify-between gap-sm mt-xs">
                       <button
                         type="button"
-                        className="px-3 py-2 text-label-sm bg-surface border border-outline-variant/20 rounded-full font-body text-on-surface hover:bg-surface-container-low transition-colors"
+                        className="px-sm py-xs text-label-sm bg-surface border border-outline-variant/20 rounded-full font-body text-on-surface hover:bg-surface-container-low transition-colors"
                         onClick={(e) => {
                           e.stopPropagation()
                           e.preventDefault()
@@ -94,7 +94,7 @@ export default function Layouts() {
                         Download
                       </button>
 
-                      <span className="inline-flex items-center gap-2 px-3 py-2 bg-secondary/10 text-secondary rounded-full text-label-sm font-body">
+                      <span className="inline-flex items-center gap-xs px-sm py-xs bg-secondary/10 text-secondary rounded-full text-label-sm font-body">
                         View Layout
                         <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                       </span>

@@ -508,8 +508,7 @@ export default function Home() {
             </h2>
             <MaskReveal tag="p" className="font-body text-body-lg text-on-surface-variant">
               Every ETOR City plot plants Miyazaki and all-time mango, dairy access, sandalwood,
-              custard apple, dragon fruit, stevia and aloe vera — a full orchard working from year
-              one, not sitting idle.
+              custard apple, dragon fruit, stevia and aloe vera — a full orchard working from day one.
             </MaskReveal>
           </Reveal>
 
@@ -634,7 +633,7 @@ export default function Home() {
               Invest smart, pick your package.
             </h2>
             <p className="font-body text-body-lg text-on-surface-variant">
-              Prices as shown in ETOR Group's brochure, until confirmed current with an advisor.
+              Three locations, two price points, one managed programme.
             </p>
           </Reveal>
 
@@ -672,6 +671,9 @@ export default function Home() {
               </Link>
             ))}
           </Reveal>
+          <Disclosure className="mt-md text-center">
+            Prices as shown in ETOR Group's brochure, until confirmed current with an advisor.
+          </Disclosure>
 
           {/* Illustrative return example, straight from the brochure */}
           <Reveal tag="div" className="mt-xl rounded-3xl bg-surface border border-outline-variant/30 p-lg lg:p-xl">

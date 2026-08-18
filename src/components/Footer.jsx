@@ -72,8 +72,8 @@ export default function Footer() {
               <span className="font-display text-headline-md text-on-primary">ETOR GROUP</span>
             </div>
             <p className="font-body text-body-sm text-on-primary-container max-w-[20rem]">
-              A multi-venture organization leading in real estate, agriculture, ROI, Gaming, Forex, Crypto and Money —
-              engineering growth for our investors since {COMPANY.foundedYear}.
+              A multi-venture organization across real estate, agriculture, gaming, forex, crypto and money
+              management — engineering growth for our investors since {COMPANY.foundedYear}.
             </p>
             <div className="flex gap-md">
               {COMPANY.social.map((s) => (
@@ -174,9 +174,13 @@ export default function Footer() {
             <span>
               © {COMPANY.foundedYear}–{new Date().getFullYear()} ETOR Group. All rights reserved.
             </span>
-            <span className="text-[12px] text-on-primary-container/70">
-              RERA Reg. No. {COMPANY.reraNumber} · CIN {COMPANY.cin}
-            </span>
+            {(COMPANY.isReraConfigured || COMPANY.isCinConfigured) && (
+              <span className="text-[12px] text-on-primary-container/70">
+                {COMPANY.isReraConfigured && `RERA Reg. No. ${COMPANY.reraNumber}`}
+                {COMPANY.isReraConfigured && COMPANY.isCinConfigured && ' · '}
+                {COMPANY.isCinConfigured && `CIN ${COMPANY.cin}`}
+              </span>
+            )}
           </div>
           <div className="flex items-center gap-md">
             {/* Internal/company-side tools — trained staff already know

@@ -95,7 +95,7 @@ export default function LayoutPlots() {
               </p>
             </div>
 
-            <div className="flex items-start gap-md">
+            <div className="flex flex-wrap items-start gap-md">
               {plots && (
                 <div className="flex gap-md">
                   <div className="text-center px-md">

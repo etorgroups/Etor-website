@@ -68,7 +68,7 @@ export default function PlotMap() {
               </p>
             </div>
 
-            <div className="flex items-start gap-md">
+            <div className="flex flex-wrap items-start gap-md">
               <div className="flex gap-md">
                 <div className="text-center px-md">
                   <p className="font-display text-headline-lg text-on-surface">{plots.length}</p>
@@ -114,7 +114,7 @@ export default function PlotMap() {
           </Reveal>
 
           <p className="font-body text-body-sm text-on-surface-variant mt-md max-w-2xl">
-            Tap or click any plot for full details. Hover a sold or booked plot to see who holds it and when — this
+            Tap or click any plot for full details, including who holds it and when for sold or booked plots — this
             layout reflects live inventory and updates as plots are booked.
           </p>
         </div>

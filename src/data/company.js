@@ -15,6 +15,12 @@ export const COMPANY = {
   // regulatory claim if it ever ships without being replaced.
   reraNumber: 'YOUR_RERA_NUMBER',
   cin: 'YOUR_CIN_NUMBER',
+  // Gate flags so a page can hide the registration line entirely until real
+  // numbers replace the placeholders above — same pattern as isTawkConfigured
+  // / isEmailjsConfigured. Rendering "YOUR_RERA_NUMBER" live is a worse look
+  // than omitting the line, so nothing should print these two raw.
+  isReraConfigured: false,
+  isCinConfigured: false,
   social: [
     { label: 'WhatsApp', icon: 'whatsapp', href: WHATSAPP_URL },
     { label: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=100093114993555' },

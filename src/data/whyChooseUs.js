@@ -9,7 +9,7 @@ export const WHY_CHOOSE_US = [
   },
   {
     icon: 'currency_exchange',
-    title: '100% Cashback Programme',
+    title: 'Buyback / Cashback Programme',
     body: "A stated programme term on selected packages — cashback paid out over a fixed period, not a capital guarantee. Full conditions are in our Terms.",
   },
   {

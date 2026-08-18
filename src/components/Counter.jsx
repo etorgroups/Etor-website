@@ -2,12 +2,19 @@ import { useEffect, useRef } from 'react'
 import { motion, useInView, useMotionValue, useReducedMotion, useTransform, animate } from 'framer-motion'
 
 // Animated count-up number that triggers once the element scrolls into view.
-export default function Counter({ target, prefix = '', suffix = '', duration = 2, className }) {
+export default function Counter({
+  target,
+  prefix = '',
+  suffix = '',
+  duration = 2,
+  format = (n) => Math.floor(n),
+  className,
+}) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.5 })
   const prefersReducedMotion = useReducedMotion()
   const count = useMotionValue(0)
-  const display = useTransform(count, (latest) => `${prefix}${Math.floor(latest)}${suffix}`)
+  const display = useTransform(count, (latest) => `${prefix}${format(latest)}${suffix}`)
 
   useEffect(() => {
     if (!isInView) return

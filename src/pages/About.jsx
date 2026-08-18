@@ -61,7 +61,7 @@ export default function About() {
   return (
     <div className="flex flex-col w-full">
       {/* Origin */}
-      <section className="relative w-full h-screen min-h-[560px] flex items-center -mt-20 overflow-hidden">
+      <section className="relative w-full h-screen min-h-[560px] flex items-start lg:items-center -mt-20 overflow-hidden">
         <img
           src={heroStory}
           alt="ETOR Group planners reviewing the land"
@@ -79,7 +79,7 @@ export default function About() {
               <br />
               Then everything else.
             </h1>
-            <p className="font-body text-body-lg text-on-primary/80 max-w-[36rem]">
+            <p className="font-body text-body-lg text-on-primary/80 max-w-[19rem] sm:max-w-[36rem]">
               ETOR Group started in real estate in 2014. A decade later, that work became ETOR City —
               a managed land and agriculture programme led by founder B. Nagesh, built plot by plot
               across four locations in Andhra Pradesh.

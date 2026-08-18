@@ -25,6 +25,7 @@ const FILTERS = [
 // share the same benefits checklist; only price/sq.yd and location differ.
 const PACKAGE_PERKS = [
   '3 Crores Yield Benefits',
+  'Buyback / Cashback Plan Available',
   '100% Cash Back In 100 Months',
   'River View Plots',
   "First Time In India — 100% Organic Dairy Farm",
@@ -211,14 +212,14 @@ export default function Projects() {
               <MagneticButton
                 as={Link}
                 to="/contact"
-                className="px-xl py-md bg-primary text-on-primary rounded-full font-body text-label-md uppercase tracking-widest inline-flex justify-center"
+                className="w-full sm:w-auto px-xl py-md bg-primary text-on-primary rounded-full font-body text-label-md uppercase tracking-widest inline-flex justify-center whitespace-nowrap"
               >
                 Speak to ETOR
               </MagneticButton>
               <button
                 type="button"
                 onClick={() => setFilter('all')}
-                className="px-xl py-md border border-outline-variant text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:bg-surface-container transition-colors"
+                className="w-full sm:w-auto px-xl py-md border border-outline-variant text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:bg-surface-container transition-colors whitespace-nowrap"
               >
                 View All Plans
               </button>

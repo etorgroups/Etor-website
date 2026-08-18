@@ -181,9 +181,13 @@ export default function ContactFab() {
         )}
       </AnimatePresence>
 
-      {/* Greeting nudge — appears once, invites a first click */}
+      {/* Greeting nudge — appears once, invites a first click. Also recedes
+          while scrolling (same as the FAB button itself): a fixed bottom-right
+          text card will inevitably land on top of whatever page content —
+          a card, a plot map, a CTA — happens to be in that corner at the
+          2.6s mark, so it only shows once the page is actually at rest. */}
       <AnimatePresence>
-        {nudgeVisible && !open && (
+        {nudgeVisible && !open && !isScrolling && (
           <motion.div
             role="button"
             tabIndex={0}
