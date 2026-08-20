@@ -152,15 +152,6 @@ export default function InvestmentCalculator() {
           </MagneticButton>
         </div>
       </div>
-
-      <p className="font-body text-body-sm text-on-surface-variant mt-lg">
-        This calculator illustrates ETOR Group's stated 100% cashback-in-{CASHBACK_MONTHS}-months term only. It is
-        not a projection of yield, appreciation, or any other return, and does not guarantee performance. See our{' '}
-        <Link to="/terms" className="text-secondary underline underline-offset-2">
-          Terms of Service
-        </Link>{' '}
-        for full details.
-      </p>
     </div>
   )
 }

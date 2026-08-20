@@ -7,7 +7,6 @@ import MagneticButton from '../components/MagneticButton'
 import ParallaxImage from '../components/ParallaxImage'
 import InvestmentCalculator from '../components/InvestmentCalculator'
 import SoldTicker from '../components/SoldTicker'
-import Disclosure from '../components/Disclosure'
 import { PACKAGES } from '../data/packages'
 import { getCityPlotMap, flattenPlots } from '../data/plotMap'
 import etorCity1 from '../assets/images/etor-city-1.webp'
@@ -146,10 +145,6 @@ export default function Projects() {
               })}
             </AnimatePresence>
           </div>
-          <Disclosure className="mt-lg text-center">
-            Prices are as shown in ETOR Group's brochure, until confirmed current with an advisor. Plot counts
-            update live from current inventory.
-          </Disclosure>
         </div>
       </section>
 
@@ -188,10 +183,6 @@ export default function Projects() {
               </div>
             ))}
           </Reveal>
-          <Disclosure className="mt-lg text-center max-w-[48rem] mx-auto">
-            Package inclusions, cashback terms and "first in India" claims are as described in ETOR Group's
-            brochure, pending the owner's legal and commercial verification.
-          </Disclosure>
         </div>
       </section>
 

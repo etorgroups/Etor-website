@@ -2,7 +2,6 @@ import { Link, useParams } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import KineticHeadline from '../components/KineticHeadline'
-import Disclosure from '../components/Disclosure'
 import LayoutCardMedia from '../components/LayoutMap/LayoutCardMedia'
 import { CITY_META } from '../data/plotMap'
 import { getLayoutsForCity } from '../data/layouts'
@@ -104,14 +103,6 @@ export default function Layouts() {
               </Reveal>
             ))}
           </div>
-
-          <Disclosure className="mt-xl text-center max-w-[36rem] mx-auto">
-            These are ETOR Group's official surveyed layouts. For current plot availability, speak to an{' '}
-            <Link to="/contact" className="underline hover:text-secondary">
-              advisor
-            </Link>
-            .
-          </Disclosure>
         </div>
       </section>
     </div>

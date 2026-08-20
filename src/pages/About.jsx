@@ -3,7 +3,6 @@ import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
 import MaskReveal from '../components/MaskReveal'
-import Disclosure from '../components/Disclosure'
 import TiltCard from '../components/TiltCard'
 import ImageLightbox from '../components/ImageLightbox'
 import { JOURNEY } from '../data/journey'
@@ -342,14 +341,6 @@ export default function About() {
               </Reveal>
             ))}
           </div>
-          <Disclosure className="mt-lg text-center">
-            The cashback programme referenced above is a stated programme term, not a guaranteed financial
-            return. See{' '}
-            <Link to="/terms" className="underline hover:text-secondary">
-              Terms
-            </Link>{' '}
-            for full conditions.
-          </Disclosure>
         </div>
       </section>
 
@@ -403,14 +394,6 @@ export default function About() {
               </p>
             </Reveal>
           </div>
-
-          <Disclosure className="text-center mt-xl text-on-primary/50">
-            Cashback and return figures are programme terms as described in ETOR Group's brochure — see{' '}
-            <Link to="/terms" className="underline hover:text-on-primary">
-              Terms
-            </Link>{' '}
-            for full conditions.
-          </Disclosure>
         </div>
       </section>
 
@@ -437,14 +420,6 @@ export default function About() {
               </Reveal>
             ))}
           </div>
-          <Disclosure className="mt-lg text-center">
-            Cashback and diversification claims above describe programme terms as stated in ETOR Group's
-            brochure, not guarantees. See{' '}
-            <Link to="/terms" className="underline hover:text-secondary">
-              Terms
-            </Link>{' '}
-            for full conditions.
-          </Disclosure>
         </div>
       </section>
 

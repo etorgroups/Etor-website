@@ -14,7 +14,6 @@ import InvestmentCalculator from '../components/InvestmentCalculator'
 import SoldTicker from '../components/SoldTicker'
 import KineticHeadline from '../components/KineticHeadline'
 import MaskReveal from '../components/MaskReveal'
-import Disclosure from '../components/Disclosure'
 import { COMPANY } from '../data/company'
 import heroLandscape from '../assets/images/hero-etor-landscape.webp'
 import mangoOrchard from '../assets/images/mango-orchard.webp'
@@ -424,17 +423,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <Disclosure className="mt-md text-center sm:text-left">
-            Acreage and cashback figures are as stated in ETOR Group's programme brochure. Download the{' '}
-            <a href={publicUrl("downloads/etor-city-master-plan.pdf")} download className="underline hover:text-secondary">
-              master plan
-            </a>{' '}
-            or see{' '}
-            <Link to="/terms" className="underline hover:text-secondary">
-              Terms
-            </Link>{' '}
-            for full conditions.
-          </Disclosure>
         </Reveal>
       </section>
 
@@ -596,11 +584,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <Disclosure className="max-w-[48rem] mx-auto text-center">
-            Fruit prices are described as market/auction-dependent — see the 12-year example in "Invest
-            smart" below. Dairy example figures are shown as printed in the brochure — a programme term,
-            not a guaranteed return.
-          </Disclosure>
 
           <div>
             <Reveal tag="p" className="font-body text-label-md text-on-surface-variant uppercase tracking-widest text-center mb-md">
@@ -637,10 +620,6 @@ export default function Home() {
                 </Reveal>
               ))}
             </div>
-            <Disclosure className="mt-md text-center max-w-[42rem] mx-auto">
-              Per-kg prices and health claims as printed in the brochure — not independent lab or medical
-              verification.
-            </Disclosure>
           </div>
         </div>
       </section>
@@ -710,9 +689,6 @@ export default function Home() {
               </Link>
             ))}
           </Reveal>
-          <Disclosure className="mt-md text-center">
-            Prices as shown in ETOR Group's brochure, until confirmed current with an advisor.
-          </Disclosure>
 
           {/* Interactive calculator — previously only lived on the Projects
               page. Moved the highest-engagement tool on the whole site onto
@@ -737,13 +713,9 @@ export default function Home() {
             <p className="font-body text-label-md text-secondary uppercase tracking-widest mb-xs">
               Beyond the cashback: your plantation income
             </p>
-            <h3 className="font-display text-headline-md text-on-surface mb-xs">
+            <h3 className="font-display text-headline-md text-on-surface mb-lg">
               Illustrative example — ₹10,00,000 on a 250 sq.yd plot
             </h3>
-            <p className="font-body text-body-sm text-on-surface-variant mb-lg">
-              As printed in ETOR Group's brochure. Shown for illustration only, not a promise of
-              future performance.
-            </p>
             {/* Below sm: a stacked list, since a 3-column table needs more
                 width than a phone screen gives without forcing a horizontal
                 scroll most visitors would never discover — that silently
@@ -793,15 +765,6 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
-            <Disclosure className="mt-lg">
-              Miyazaki mango is described as a highly valuable, auction-priced fruit — prices vary.
-              All income is shared 50:50 between the company and client, and all prices are based on
-              market prices at the time. See{' '}
-              <Link to="/terms" className="underline hover:text-secondary">
-                Terms
-              </Link>{' '}
-              for full conditions.
-            </Disclosure>
           </Reveal>
         </div>
       </section>
@@ -868,14 +831,6 @@ export default function Home() {
               See What You'd Get
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </MagneticButton>
-            <Disclosure className="text-on-primary/50 text-center max-w-[36rem]">
-              Maintenance duration and benefit tiers are as set out in ETOR Group's brochure and your signed
-              agreement — individual outcomes are not guaranteed. See{' '}
-              <Link to="/terms" className="underline hover:text-secondary-fixed-dim">
-                Terms
-              </Link>{' '}
-              for full conditions.
-            </Disclosure>
           </Reveal>
         </div>
       </section>
@@ -1007,15 +962,6 @@ export default function Home() {
               </div>
             </Reveal>
           </div>
-
-          <Disclosure className="mt-xl max-w-[48rem] mx-auto text-center">
-            As stated in ETOR Group's brochure: this material is a conceptual presentation, not a legal
-            offering, and the developer reserves the right to alter specifications and plans. See{' '}
-            <Link to="/terms" className="underline hover:text-secondary">
-              Terms
-            </Link>{' '}
-            for full conditions.
-          </Disclosure>
         </div>
       </section>
 
@@ -1054,18 +1000,10 @@ export default function Home() {
           <h2 className="font-serif-display text-display-lg-mobile lg:text-display-xl text-on-primary mb-lg max-w-4xl mx-auto">
             See the land. Understand the terms. <span className="text-gradient-shimmer">Decide with clarity.</span>
           </h2>
-          <p className="font-body text-body-lg text-on-primary/60 max-w-2xl mx-auto mb-md">
+          <p className="font-body text-body-lg text-on-primary/60 max-w-2xl mx-auto mb-xl">
             Review the ETOR City master plan, ask any question, and take the next step at your own pace — no
             pressure, no countdown.
           </p>
-          <Disclosure className="max-w-[36rem] mx-auto mb-xl text-on-primary/50">
-            Cashback and return figures shown across this site are programme terms as described in ETOR Group's
-            brochure, subject to the conditions in our{' '}
-            <Link to="/terms" className="underline hover:text-on-primary">
-              Terms
-            </Link>
-            , not a guarantee of performance.
-          </Disclosure>
           <div className="flex flex-col sm:flex-row gap-md justify-center items-center">
             <a
               href={publicUrl("downloads/etor-city-master-plan.pdf")}

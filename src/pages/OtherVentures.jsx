@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
-import Disclosure from '../components/Disclosure'
 import etorRoi from '../assets/images/etor-roi.webp'
 import etorGaming from '../assets/images/etor-gaming.webp'
 import etorForex from '../assets/images/etor-forex.webp'
@@ -114,15 +113,6 @@ export default function OtherVentures() {
               </Reveal>
             ))}
           </div>
-          <Disclosure className="mt-lg text-center max-w-[42rem] mx-auto">
-            ETOR ROI, Gaming, Forex, Crypto and Money are separate ventures from the ETOR City land and
-            agriculture programme, and aren't covered by its brochure or cashback terms. Returns from any
-            venture involving trading or markets are not guaranteed. See{' '}
-            <Link to="/terms" className="underline hover:text-secondary">
-              Terms
-            </Link>{' '}
-            for full conditions.
-          </Disclosure>
         </div>
       </section>
     </div>

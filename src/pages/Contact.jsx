@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
@@ -7,7 +7,6 @@ import MagneticButton from '../components/MagneticButton'
 import KineticHeadline from '../components/KineticHeadline'
 import MaskReveal from '../components/MaskReveal'
 import Accordion from '../components/Accordion'
-import Disclosure from '../components/Disclosure'
 import SocialIcon from '../components/SocialIcon'
 import { COMPANY } from '../data/company'
 import { WHATSAPP_URL } from '../data/whatsapp'
@@ -352,14 +351,6 @@ export default function Contact() {
           <Reveal tag="div" className="max-w-[48rem] mx-auto surface-panel rounded-[1.25rem] p-md lg:p-lg">
             <Accordion items={FAQ} />
           </Reveal>
-          <Disclosure className="text-center mt-lg max-w-[36rem] mx-auto">
-            Cashback and return answers above describe programme terms as stated in ETOR Group's brochure, not
-            guarantees. See{' '}
-            <Link to="/terms" className="underline hover:text-secondary">
-              Terms
-            </Link>{' '}
-            for full conditions.
-          </Disclosure>
         </div>
       </section>
     </div>

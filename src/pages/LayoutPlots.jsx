@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import KineticHeadline from '../components/KineticHeadline'
-import Disclosure from '../components/Disclosure'
 import LayoutImageViewer from '../components/LayoutMap/LayoutImageViewer'
 import PlotMapLegend from '../components/PlotMap/PlotMapLegend'
 import PlotDetailPanel from '../components/PlotMap/PlotDetailPanel'
@@ -171,13 +170,6 @@ export default function LayoutPlots() {
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
             </Link>
           </div>
-
-          <Disclosure className="mt-lg">
-            Plot numbers and dimensions are as shown in ETOR Group's official survey documents.
-            {plots
-              ? ' Availability shown here is an illustrative example, not live inventory — confirm the current status of any plot with an advisor.'
-              : ' Availability is confirmed directly with an advisor, not shown live on this page.'}
-          </Disclosure>
         </div>
       </section>
 

@@ -3,7 +3,6 @@ import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import KineticHeadline from '../components/KineticHeadline'
 import MaskReveal from '../components/MaskReveal'
-import Disclosure from '../components/Disclosure'
 import MagneticButton from '../components/MagneticButton'
 import TiltCard from '../components/TiltCard'
 import InvestJourney from '../components/InvestJourney'
@@ -203,11 +202,6 @@ export default function Services() {
                 </table>
               </div>
 
-              <Disclosure className="text-on-primary/50">
-                Example figures shown as printed in the brochure — a programme term, not a guaranteed return. The
-                ₹25,000/month, ₹5,00,000 top-up example above totals ₹25,00,000 over 100 months.
-              </Disclosure>
-
               <MagneticButton
                 as={Link}
                 to="/contact"
@@ -273,10 +267,6 @@ export default function Services() {
               className="sm:hidden pointer-events-none absolute top-0 right-0 h-full w-10 rounded-r-3xl bg-gradient-to-l from-surface-container-low to-transparent"
             />
           </Reveal>
-          <Disclosure className="mt-lg max-w-[36rem] mx-auto text-center">
-            Plant counts and returns as printed in ETOR Group's brochure — crop yield only, separate from
-            the plot's own cashback return. Not a guarantee of future performance.
-          </Disclosure>
         </div>
       </section>
 
@@ -304,12 +294,9 @@ export default function Services() {
             Ready when you are.
           </h2>
           <p className="font-body text-body-lg text-on-secondary/80 mb-sm">Packages starting from</p>
-          <p className="font-display text-display-xl text-on-secondary mb-md">
+          <p className="font-display text-display-xl text-on-secondary mb-xl">
             ₹3,999 <span className="font-body text-body-md align-top tracking-normal">per sq.yd</span>
           </p>
-          <Disclosure className="mb-xl text-on-secondary/60">
-            As shown in ETOR Group's brochure, until confirmed current with an advisor.
-          </Disclosure>
           <div className="flex flex-col sm:flex-row gap-md justify-center">
             <MagneticButton
               as={Link}
