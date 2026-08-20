@@ -10,6 +10,16 @@ function loadTawk() {
   window.Tawk_API.onLoad = function () {
     window.Tawk_API.hideWidget()
   }
+  // Belt-and-suspenders: hideWidget() only hides the launcher icon, not a
+  // dashboard-configured "Trigger" campaign auto-popping the chat window
+  // open (this is what showed the default GDPR-consent message unprompted
+  // on load — a stock trigger Tawk ships enabled by default on new
+  // properties). onChatMaximized fires whenever the window opens for any
+  // reason, including a trigger, so force it straight back down every time.
+  window.Tawk_API.onChatMaximized = function () {
+    window.Tawk_API.minimize()
+    window.Tawk_API.hideWidget()
+  }
 
   const script = document.createElement('script')
   script.id = 'tawk-script'
