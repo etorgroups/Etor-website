@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://etorgroups.github.io/Etor-website/sitemap.xml
