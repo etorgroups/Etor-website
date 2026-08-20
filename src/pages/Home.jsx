@@ -268,6 +268,30 @@ export default function Home() {
                     </p>
                   </div>
                 </div>
+
+                {/* Bonus ribbon — a genuine brochure perk (3-star accommodation
+                    & recreation), not a discount gimmick, framed like a gift
+                    tag attached to the return badge. Pops in after the badge
+                    itself has settled, on the site's own dormant tertiary
+                    (green) role — already designed to harmonize with the
+                    gold/brown palette, just never activated anywhere. */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.4, rotate: -14, x: -8 }}
+                  animate={{ opacity: 1, scale: 1, rotate: -6, x: 0 }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 1.3 }}
+                  className="absolute -top-4 left-2 right-auto sm:left-auto sm:-top-5 sm:-right-5 z-10"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="absolute -inset-2 rounded-full bg-tertiary-fixed-vivid/50 blur-md animate-glow-pulse"
+                  />
+                  <div className="relative flex items-center gap-xs rounded-full bg-tertiary-fixed-vivid text-on-tertiary-fixed-vivid pl-sm pr-md py-xs shadow-xl ring-1 ring-on-tertiary-fixed-vivid/15">
+                    <span className="material-symbols-outlined text-[16px] sm:text-[18px]">redeem</span>
+                    <span className="font-body text-[10px] sm:text-label-md font-bold uppercase tracking-wide whitespace-nowrap">
+                      + Free 3-Star Stay
+                    </span>
+                  </div>
+                </motion.div>
               </motion.div>
               <div className="flex flex-wrap gap-md mt-lg">
                 <MagneticButton

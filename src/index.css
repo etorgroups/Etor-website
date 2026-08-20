@@ -68,6 +68,14 @@
   --color-on-tertiary-fixed: #173528;
   --color-on-tertiary-fixed-variant: #365c45;
 
+  /* A second, more saturated tertiary "fixed" pair — the chip-on-neutral-
+     surface pair above is deliberately pale, but a filled badge sitting on
+     the hero's photo (which never changes with site theme) needs the
+     richer, more saturated green to actually read as a flag rather than
+     wash out to pale mint the way dark-theme's plain tertiary role does. */
+  --color-tertiary-fixed-vivid: #456052;
+  --color-on-tertiary-fixed-vivid: #ffffff;
+
   --color-background: #f6f1e9;
   --color-on-background: #211d18;
 
