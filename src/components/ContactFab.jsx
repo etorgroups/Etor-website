@@ -10,12 +10,16 @@ const SPRING = { type: 'spring', stiffness: 300, damping: 22 }
 const STAGGER_SPRING = { type: 'spring', stiffness: 260, damping: 20 }
 
 function openChat() {
-  if (window.Tawk_API?.toggle) {
-    window.Tawk_API.toggle()
+  if (window.Tawk_API?.showWidget && window.Tawk_API?.maximize) {
+    // Flag read by TawkWidget's onChatMaximized handler — without it, that
+    // handler can't tell "opened because the visitor clicked our own button"
+    // apart from "Tawk auto-triggered it" and would force it straight closed.
+    window.__etorChatIntentional = true
+    window.Tawk_API.showWidget()
+    window.Tawk_API.maximize()
   } else {
-    // Tawk.to not configured yet — fall back to email so the button is
-    // never a dead click. Remove this branch once src/data/tawk.js has a
-    // real Property ID and the live widget takes over.
+    // Tawk.to not configured yet (or the embed hasn't finished loading) —
+    // fall back to email so the button is never a dead click.
     window.location.href = `mailto:${COMPANY.email}`
   }
 }
