@@ -13,11 +13,20 @@
 //
 // Until these are filled in, both forms fall back to a mailto: link so
 // submissions are never silently lost.
-export const EMAILJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY'
-export const EMAILJS_SERVICE_ID = 'YOUR_EMAILJS_SERVICE_ID'
-export const EMAILJS_CONTACT_TEMPLATE_ID = 'YOUR_CONTACT_TEMPLATE_ID'
-export const EMAILJS_NEWSLETTER_TEMPLATE_ID = 'YOUR_NEWSLETTER_TEMPLATE_ID'
+export const EMAILJS_PUBLIC_KEY = 'K9gY7NbQJzDRXX05B'
+export const EMAILJS_SERVICE_ID = 'service_pw2fn2o'
+export const EMAILJS_CONTACT_TEMPLATE_ID = 'template_pjnpwea'
+export const EMAILJS_NEWSLETTER_TEMPLATE_ID = 'template_fej177n'
 
-export const isEmailjsConfigured =
+const hasCoreConfig =
   EMAILJS_PUBLIC_KEY !== 'YOUR_EMAILJS_PUBLIC_KEY' &&
   EMAILJS_SERVICE_ID !== 'YOUR_EMAILJS_SERVICE_ID'
+
+// Split per-form so activating one template doesn't make the other form
+// attempt a live send against a still-placeholder template ID (which would
+// fail with an EmailJS API error instead of falling back to mailto).
+export const isContactFormConfigured =
+  hasCoreConfig && EMAILJS_CONTACT_TEMPLATE_ID !== 'YOUR_CONTACT_TEMPLATE_ID'
+
+export const isNewsletterConfigured =
+  hasCoreConfig && EMAILJS_NEWSLETTER_TEMPLATE_ID !== 'YOUR_NEWSLETTER_TEMPLATE_ID'

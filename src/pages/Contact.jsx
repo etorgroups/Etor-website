@@ -17,7 +17,7 @@ import {
   EMAILJS_CONTACT_TEMPLATE_ID,
   EMAILJS_PUBLIC_KEY,
   EMAILJS_SERVICE_ID,
-  isEmailjsConfigured,
+  isContactFormConfigured,
 } from '../data/emailjs'
 
 const SUBJECTS = ['Investment Enquiry', 'Partnership Proposal', 'Media & Press', 'Careers', 'General Support']
@@ -60,7 +60,7 @@ export default function Contact() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    if (!isEmailjsConfigured) {
+    if (!isContactFormConfigured) {
       // EmailJS not set up yet — never let a submission just vanish.
       mailtoFallback()
       setForm(initialForm)
@@ -74,8 +74,8 @@ export default function Contact() {
         EMAILJS_SERVICE_ID,
         EMAILJS_CONTACT_TEMPLATE_ID,
         {
-          from_name: form.name,
-          from_email: form.email,
+          name: form.name,
+          email: form.email,
           phone: form.phone || 'Not provided',
           subject: form.subject,
           message: form.message,
@@ -251,7 +251,7 @@ export default function Contact() {
                   )}
                   {status === 'sending' ? 'Sending…' : 'Send Message'}
                 </MagneticButton>
-                {!isEmailjsConfigured && (
+                {!isContactFormConfigured && (
                   <p className="font-body text-body-sm text-on-surface-variant">
                     (Opens your email app for now — live send-on-submit activates once EmailJS is connected.)
                   </p>

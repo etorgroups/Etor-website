@@ -9,7 +9,7 @@ import {
   EMAILJS_NEWSLETTER_TEMPLATE_ID,
   EMAILJS_PUBLIC_KEY,
   EMAILJS_SERVICE_ID,
-  isEmailjsConfigured,
+  isNewsletterConfigured,
 } from '../data/emailjs'
 
 // Every label here must point to real content — no "Careers" or "Media Kit"
@@ -37,7 +37,7 @@ export default function Footer() {
     event.preventDefault()
     if (!email) return
 
-    if (!isEmailjsConfigured) {
+    if (!isNewsletterConfigured) {
       // EmailJS not set up yet — never let a signup just vanish.
       window.location.href = `mailto:${COMPANY.email}?subject=${encodeURIComponent(
         'Newsletter signup',
@@ -51,7 +51,7 @@ export default function Footer() {
       await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_NEWSLETTER_TEMPLATE_ID,
-        { subscriber_email: email },
+        { email },
         { publicKey: EMAILJS_PUBLIC_KEY },
       )
       setStatus('success')
