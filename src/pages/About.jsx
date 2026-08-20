@@ -61,7 +61,7 @@ export default function About() {
   return (
     <div className="flex flex-col w-full">
       {/* Origin */}
-      <section className="relative w-full h-screen min-h-[560px] flex items-start lg:items-center -mt-20 overflow-hidden">
+      <section className="relative w-full h-screen min-h-[560px] flex items-center -mt-20 overflow-hidden">
         <img
           src={heroStory}
           alt="ETOR Group planners reviewing the land"
@@ -71,7 +71,10 @@ export default function About() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/60 to-primary/20" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/50 via-transparent to-primary/55" />
 
-        <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile lg:px-xl pt-20 w-full">
+        {/* pr-12 clears the always-on ExploreNowTab (fixed, right-0, exactly
+            30px wide) below lg — same fix as Home's hero, same reasoning:
+            pr-8 (32px) only left a constant 2px gap, not real buffer. */}
+        <div className="relative z-10 max-w-container-max mx-auto px-margin-mobile lg:px-xl pt-20 w-full pr-12 lg:pr-xl">
           <Reveal tag="div" y={30} className="w-full max-w-[42rem] space-y-lg">
             <Eyebrow tone="light">The story</Eyebrow>
             <h1 className="font-serif-display text-display-lg-mobile lg:text-display-lg text-on-primary leading-none">

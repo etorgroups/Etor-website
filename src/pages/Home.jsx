@@ -225,11 +225,13 @@ export default function Home() {
 
         <div className="relative z-20 max-w-container-max mx-auto px-margin-mobile lg:px-xl pt-20 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-xl items-center w-full">
-            {/* pr-8 clears the always-on ExploreNowTab (fixed, right-0, ~30px
-                wide) below lg — at lg+ this column is grid-constrained and
-                never reaches that edge anyway. Without it, any full-bleed
-                card/button in this column visibly collides with the tab. */}
-            <Reveal tag="div" y={30} className="hero-copy w-full pr-8 lg:pr-0 lg:col-span-7 max-w-[42rem] lg:max-w-none">
+            {/* pr-12 clears the always-on ExploreNowTab (fixed, right-0,
+                exactly 30px wide at every viewport) below lg — at lg+ this
+                column is grid-constrained and never reaches that edge
+                anyway. Needs real buffer past the tab's own width, not just
+                enough to match it: pr-8 (32px) left only a constant 2px gap
+                (32-30) at every screen size, not a safety margin. */}
+            <Reveal tag="div" y={30} className="hero-copy w-full pr-12 lg:pr-0 lg:col-span-7 max-w-[42rem] lg:max-w-none">
               <div className="space-y-md">
                 <Eyebrow tone="light">
                   ETOR City — Believe In <br className="sm:hidden" />
