@@ -16,7 +16,7 @@ const SERVICES_SCHEMA = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     serviceType: 'Managed Land & Agriculture Investment',
-    provider: { '@id': 'https://impacgodeveloper.github.io/EtorGrops-website/#organization' },
+    provider: { '@id': 'https://etorgroups.github.io/Etor-website/#organization' },
     areaServed: { '@type': 'State', name: 'Andhra Pradesh' },
     description:
       "ETOR City's living-asset portfolio: managed land, orchard plantation crops, and an organic dairy income programme, with 33 years of maintenance included.",

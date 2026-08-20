@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://impacgodeveloper.github.io/EtorGrops-website/sitemap.xml
+Sitemap: https://etorgroups.github.io/Etor-website/sitemap.xml

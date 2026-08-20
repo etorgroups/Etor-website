@@ -41,7 +41,7 @@ const CONTACT_SCHEMA = [
   {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    about: { '@id': 'https://impacgodeveloper.github.io/EtorGrops-website/#organization' },
+    about: { '@id': 'https://etorgroups.github.io/Etor-website/#organization' },
   },
   buildBreadcrumbs([{ name: 'Contact', path: '/contact' }]),
 ]

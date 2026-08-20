@@ -1,5 +1,5 @@
 // Vite exposes the configured `base` (see vite.config.js — this site deploys
-// under /EtorGrops-website/ on GitHub Pages) via import.meta.env.BASE_URL.
+// under /Etor-website/ on GitHub Pages) via import.meta.env.BASE_URL.
 // A plain <a href="/x"> resolves against the domain root in the browser and
 // 404s once deployed under that subpath — React Router's <Link>/<NavLink>
 // already handle this correctly via basename, but anything downloadable

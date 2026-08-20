@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <BrowserRouter basename="/EtorGrops-website">
+      <BrowserRouter basename="/Etor-website">
         <SmoothScroll>
           <RouteCurtain />
           {paletteReady && (

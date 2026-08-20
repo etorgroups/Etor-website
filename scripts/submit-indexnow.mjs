@@ -19,9 +19,9 @@ import { fileURLToPath } from 'node:url'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 
-const HOST = 'impacgodeveloper.github.io'
+const HOST = 'etorgroups.github.io'
 const KEY = 'c92f2a38814dc27bdf28f0259939eba0'
-const KEY_LOCATION = `https://${HOST}/EtorGrops-website/${KEY}.txt`
+const KEY_LOCATION = `https://${HOST}/Etor-website/${KEY}.txt`
 
 async function getUrlsFromSitemap() {
   const xml = await readFile(path.join(ROOT, 'public', 'sitemap.xml'), 'utf-8')

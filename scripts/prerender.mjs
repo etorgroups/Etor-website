@@ -29,7 +29,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const DIST = path.join(ROOT, 'dist')
 const PORT = 4173
-const BASE = `http://localhost:${PORT}/EtorGrops-website`
+const BASE = `http://localhost:${PORT}/Etor-website`
 
 const ROUTES = [
   '/',
