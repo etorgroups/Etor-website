@@ -123,6 +123,12 @@ async function run() {
 }
 
 run().catch((err) => {
-  console.error('[prerender] failed:', err)
-  process.exitCode = 1
+  // Prerendering is a purely additive SEO enhancement -- any route this
+  // step doesn't touch still works exactly as before via plain client-side
+  // routing (see the file header comment). So a failure here (most
+  // commonly: no Chromium cached in this build environment, e.g. a fresh
+  // Vercel/CI container that hasn't run `playwright install`) should never
+  // fail the actual deploy -- warn and let `vite build`'s real output ship.
+  console.warn('[prerender] skipped -- prerendering failed, but the plain SPA build still works fine:')
+  console.warn(err?.message || err)
 })

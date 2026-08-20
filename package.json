@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "postinstall": "node scripts/install-playwright-browser.mjs",
     "postbuild": "node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\" && node scripts/prerender.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
