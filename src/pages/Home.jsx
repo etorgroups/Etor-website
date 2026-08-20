@@ -239,16 +239,15 @@ export default function Home() {
                   <br />
                   <span className="text-on-primary">that keeps growing.</span>
                 </KineticHeadline>
-                <p className="font-body text-body-lg text-on-primary max-w-[36rem] drop-shadow-md">
-                  ETOR Group brings land, cultivation, community and long-term participation
-                  together in one living portfolio across Andhra Pradesh.
+                <p className="font-body text-body-lg text-on-primary max-w-[30rem] drop-shadow-md">
+                  One plot. A managed orchard, real income, and a stay that's yours.
                 </p>
               </div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.9, y: 12 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="relative inline-flex mt-lg md:mt-xl"
+                className="relative inline-flex mt-md sm:mt-lg md:mt-xl"
               >
                 <span
                   aria-hidden="true"
@@ -294,7 +293,7 @@ export default function Home() {
                   </div>
                 </motion.div>
               </motion.div>
-              <div className="flex flex-wrap gap-md mt-lg">
+              <div className="flex flex-wrap gap-md mt-sm sm:mt-lg">
                 <MagneticButton
                   as={Link}
                   to="/projects"
@@ -307,24 +306,23 @@ export default function Home() {
                     </span>
                   </span>
                 </MagneticButton>
-                <MagneticButton
-                  as="a"
-                  href="#calculator"
-                  className="group relative px-xl py-md border border-on-primary/30 bg-on-primary/5 backdrop-blur-md text-on-primary rounded-full font-body text-label-md uppercase tracking-widest inline-flex hover:bg-on-primary/10 transition-colors"
-                >
-                  <span className="relative z-10 flex items-center gap-sm">
-                    <span className="material-symbols-outlined text-[20px]">calculate</span>
-                    Calculate My Return
-                  </span>
-                </MagneticButton>
               </div>
-              <a
-                href="#reviews"
-                className="flex items-center gap-xs mt-md font-body text-body-sm text-on-primary/70 hover:text-on-primary transition-colors"
-              >
-                <span className="material-symbols-outlined text-secondary-fixed-dim text-[20px]">star</span>
-                Rated on Google — see live reviews
-              </a>
+              <div className="flex flex-wrap items-center gap-x-lg gap-y-xs mt-md">
+                <a
+                  href="#calculator"
+                  className="flex items-center gap-xs font-body text-body-sm text-on-primary/70 hover:text-on-primary transition-colors"
+                >
+                  <span className="material-symbols-outlined text-secondary-fixed-dim text-[20px]">calculate</span>
+                  Calculate my return
+                </a>
+                <a
+                  href="#reviews"
+                  className="flex items-center gap-xs font-body text-body-sm text-on-primary/70 hover:text-on-primary transition-colors"
+                >
+                  <span className="material-symbols-outlined text-secondary-fixed-dim text-[20px]">star</span>
+                  Rated on Google — see live reviews
+                </a>
+              </div>
             </Reveal>
 
             <motion.div

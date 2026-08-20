@@ -26,6 +26,7 @@ export default function ContactFab() {
   const [isScrolling, setIsScrolling] = useState(false)
   const [navOpen, setNavOpen] = useState(false)
   const [cookieBannerOpen, setCookieBannerOpen] = useState(false)
+  const [nearTop, setNearTop] = useState(true)
   const prefersReducedMotion = useReducedMotion()
   const containerRef = useRef(null)
   const scrollTimeoutRef = useRef(null)
@@ -61,12 +62,22 @@ export default function ContactFab() {
   // position), let it recede while the page is actively moving and return
   // once it settles — the same "don't fight the content" pattern most
   // mobile FABs use.
+  //
+  // It also stays off entirely for the first screen's worth of scroll on
+  // any page — a hero is where a visitor is still reading the actual pitch
+  // (headline, return figure, primary CTAs); a floating chat bubble
+  // competing for the same corner there is clutter, not help, and on a
+  // short mobile viewport with a tall hero it can literally sit on top of
+  // a real button. It reappears once they've scrolled past that first
+  // screen and are far enough in to plausibly want a shortcut to ask something.
   useEffect(() => {
     function handleScroll() {
       setIsScrolling(true)
+      setNearTop(window.scrollY < window.innerHeight * 0.85)
       clearTimeout(scrollTimeoutRef.current)
       scrollTimeoutRef.current = setTimeout(() => setIsScrolling(false), 220)
     }
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -75,7 +86,7 @@ export default function ContactFab() {
   }, [])
 
   const recede = isScrolling && !open
-  const forceHidden = navOpen || cookieBannerOpen
+  const forceHidden = navOpen || cookieBannerOpen || (nearTop && !open)
 
   const items = [
     {
@@ -187,7 +198,7 @@ export default function ContactFab() {
           a card, a plot map, a CTA — happens to be in that corner at the
           2.6s mark, so it only shows once the page is actually at rest. */}
       <AnimatePresence>
-        {nudgeVisible && !open && !isScrolling && (
+        {nudgeVisible && !open && !isScrolling && !forceHidden && (
           <motion.div
             role="button"
             tabIndex={0}
