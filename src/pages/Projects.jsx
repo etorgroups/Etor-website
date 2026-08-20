@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import SEO, { buildBreadcrumbs } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
@@ -44,6 +45,32 @@ const PROJECTS = [
   { id: 'city-3-4', location: 'Ichapuram', title: 'ETOR City 3 & 4', image: etorCity34 },
 ]
 
+// One Place entry per real location — this is the schema most likely to
+// surface ETOR City in "land for sale near [town]" style local searches,
+// since it names the actual towns rather than just "Andhra Pradesh".
+const PROJECTS_SCHEMA = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'ETOR City Locations',
+    itemListElement: PROJECTS.map((project, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Place',
+        name: `${project.title}, ${project.location}`,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: project.location,
+          addressRegion: 'Andhra Pradesh',
+          addressCountry: 'IN',
+        },
+      },
+    })),
+  },
+  buildBreadcrumbs([{ name: 'Projects', path: '/projects' }]),
+]
+
 export default function Projects() {
   const [filter, setFilter] = useState('all')
 
@@ -54,6 +81,12 @@ export default function Projects() {
 
   return (
     <div className="flex flex-col w-full">
+      <SEO
+        title="ETOR City Projects — Sariapalli, Sottadivalasa & Ichapuram"
+        description="Browse ETOR City land plots across Sariapalli, Sottadivalasa and Ichapuram, Andhra Pradesh — real surveyed layouts, live plot availability, and pricing from ₹3,999/sq.yd."
+        path="/projects"
+        schema={PROJECTS_SCHEMA}
+      />
       {/* Header */}
       <section className="relative pt-xl pb-lg overflow-hidden bg-surface-container-low">
         <div className="absolute top-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />

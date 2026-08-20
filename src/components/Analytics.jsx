@@ -2,8 +2,10 @@ import { useEffect } from 'react'
 import {
   GA_MEASUREMENT_ID,
   CLARITY_PROJECT_ID,
+  AHREFS_KEY,
   isGaConfigured,
   isClarityConfigured,
+  isAhrefsConfigured,
 } from '../data/analytics'
 import { getCookieConsent, onCookieConsentChange } from '../lib/cookieConsent'
 
@@ -25,6 +27,16 @@ function loadGa() {
   gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true })
 }
 
+function loadAhrefs() {
+  if (document.getElementById('ahrefs-analytics')) return
+  const script = document.createElement('script')
+  script.id = 'ahrefs-analytics'
+  script.src = 'https://analytics.ahrefs.com/analytics.js'
+  script.dataset.key = AHREFS_KEY
+  script.async = true
+  document.head.appendChild(script)
+}
+
 function loadClarity() {
   if (window.clarity) return
   ;(function (c, l, a, r, i) {
@@ -41,16 +53,17 @@ function loadClarity() {
   })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID)
 }
 
-// Loads GA4 + Microsoft Clarity only once a real ID is configured (see
-// src/data/analytics.js) AND the visitor has accepted cookies — same
-// consent-gated pattern as TawkWidget, since both set their own cookies.
+// Loads GA4 + Microsoft Clarity + Ahrefs only once a real ID is configured
+// (see src/data/analytics.js) AND the visitor has accepted cookies — same
+// consent-gated pattern as TawkWidget, since all three set their own cookies.
 export default function Analytics() {
   useEffect(() => {
-    if (!isGaConfigured && !isClarityConfigured) return
+    if (!isGaConfigured && !isClarityConfigured && !isAhrefsConfigured) return
 
     function loadAll() {
       if (isGaConfigured) loadGa()
       if (isClarityConfigured) loadClarity()
+      if (isAhrefsConfigured) loadAhrefs()
     }
 
     if (getCookieConsent() === 'accepted') {

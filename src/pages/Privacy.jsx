@@ -8,7 +8,12 @@ import { COMPANY } from '../data/company'
 // advice — have it reviewed by counsel before treating it as final.
 export default function Privacy() {
   return (
-    <LegalPage title="Privacy Policy" updated="29 July 2026">
+    <LegalPage
+      title="Privacy Policy"
+      updated="29 July 2026"
+      description="How ETOR Group collects, uses and protects the information you share through our website — contact form, newsletter signup, and site analytics."
+      path="/privacy"
+    >
       <p>
         This Privacy Policy explains how ETOR Group ("we", "us", "our") collects, uses, and protects information
         when you visit {COMPANY.website} or contact us through it. By using this website, you agree to the

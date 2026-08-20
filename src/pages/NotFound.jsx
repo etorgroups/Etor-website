@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
 import Reveal from '../components/Reveal'
 import MagneticButton from '../components/MagneticButton'
 
 export default function NotFound() {
   return (
     <section className="min-h-[70vh] flex items-center justify-center bg-background">
+      <SEO title="Page Not Found" description="The page you're looking for doesn't exist or has been moved." path="/404" noindex />
       <Reveal tag="div" className="max-w-[32rem] text-center px-margin-mobile">
         <p className="font-display text-display-lg text-secondary mb-md">404</p>
         <h1 className="font-display text-headline-xl text-on-surface mb-md">This page has wandered off the plantation.</h1>

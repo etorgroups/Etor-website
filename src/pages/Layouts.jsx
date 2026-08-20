@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
+import SEO, { buildBreadcrumbs } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import KineticHeadline from '../components/KineticHeadline'
@@ -13,6 +14,15 @@ export default function Layouts() {
 
   return (
     <div className="flex flex-col w-full">
+      <SEO
+        title={`${meta.title} Layouts — ${meta.location}`}
+        description={`${layouts.length} real surveyed layout blocks for ${meta.title} in ${meta.location}, Andhra Pradesh — view the full plot map for each.`}
+        path={`/projects/${cityId}/layouts`}
+        schema={buildBreadcrumbs([
+          { name: 'Projects', path: '/projects' },
+          { name: `${meta.title} Layouts`, path: `/projects/${cityId}/layouts` },
+        ])}
+      />
       <section className="relative pt-xl pb-lg bg-surface-container-low">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <Reveal tag="div" className="max-w-2xl">

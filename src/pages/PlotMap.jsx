@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import SEO, { buildBreadcrumbs } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import KineticHeadline from '../components/KineticHeadline'
@@ -44,6 +45,15 @@ export default function PlotMap() {
 
   return (
     <div className="flex flex-col w-full">
+      <SEO
+        title={`${meta.title} Live Plot Map — ${meta.location}`}
+        description={`Live plot availability for ${meta.title} in ${meta.location}, Andhra Pradesh — ${counts.available} plots available, ${counts.sold} sold, updated from real inventory.`}
+        path={`/projects/${cityId}/plots`}
+        schema={buildBreadcrumbs([
+          { name: 'Projects', path: '/projects' },
+          { name: `${meta.title} Plot Map`, path: `/projects/${cityId}/plots` },
+        ])}
+      />
       <section className="relative pt-xl pb-lg bg-surface-container-low">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <Reveal tag="div" className="flex flex-wrap items-start justify-between gap-md mb-md">

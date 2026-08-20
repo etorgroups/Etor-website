@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
+import SEO, { buildBreadcrumbs } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
@@ -22,6 +23,28 @@ import {
 const SUBJECTS = ['Investment Enquiry', 'Partnership Proposal', 'Media & Press', 'Careers', 'General Support']
 
 const initialForm = { name: '', email: '', phone: '', subject: SUBJECTS[0], message: '' }
+
+// The single highest-value schema on the site — FAQPage is what actually
+// earns the expandable Q&A rich result directly in Google search, built
+// straight from the same FAQ content rendered on the page (never let these
+// drift apart, or the rich result stops matching what a visitor sees).
+const CONTACT_SCHEMA = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQ.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    about: { '@id': 'https://impacgodeveloper.github.io/EtorGrops-website/#organization' },
+  },
+  buildBreadcrumbs([{ name: 'Contact', path: '/contact' }]),
+]
 
 export default function Contact() {
   const location = useLocation()
@@ -91,6 +114,12 @@ export default function Contact() {
 
   return (
     <div className="flex flex-col w-full">
+      <SEO
+        title="Contact ETOR Group"
+        description="Get in touch with ETOR Group in Visakhapatnam, Andhra Pradesh — ask about ETOR City plots, the organic dairy programme, or any package. We respond within one business day."
+        path="/contact"
+        schema={CONTACT_SCHEMA}
+      />
       {/* Header */}
       <section className="relative py-xl bg-primary overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3" />

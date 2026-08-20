@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import SEO, { buildBreadcrumbs } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import etorRoi from '../assets/images/etor-roi.webp'
@@ -54,6 +55,12 @@ const VENTURES = [
 export default function OtherVentures() {
   return (
     <div className="flex flex-col w-full">
+      <SEO
+        title="Other Ventures — ROI, Gaming, Forex & Crypto"
+        description="ETOR Group's ventures beyond ETOR City land and agriculture: ETOR ROI, Gaming, Forex and Crypto — separate businesses, kept apart from the land programme."
+        path="/other-ventures"
+        schema={buildBreadcrumbs([{ name: 'Other Ventures', path: '/other-ventures' }])}
+      />
       <section className="py-xl bg-surface-container-low">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <Reveal tag="div" className="max-w-[42rem]">

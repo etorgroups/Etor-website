@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import SEO from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
@@ -31,6 +32,20 @@ import etorCity2 from '../assets/images/etor-city-2.webp'
 import etorCity34 from '../assets/images/etor-city-3-4.webp'
 import founderCeo from '../assets/images/founder-ceo.webp'
 import awardPlaque from '../assets/images/award-viswaguru-world-records-2026.webp'
+
+// FAQPage lives on Contact (that's the FAQ section's real home) — Home just
+// gets the base WebPage type since it's the entry point, not a landing page
+// with its own distinct question set.
+const HOME_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://impacgodeveloper.github.io/EtorGrops-website/',
+  name: 'ETOR City — Managed Land & Agriculture Investment in Andhra Pradesh',
+  description:
+    "ETOR Group's managed land and agriculture programme across Andhra Pradesh — plantation crops, an organic dairy income stream, and a 100-month cashback plan.",
+  isPartOf: { '@id': 'https://impacgodeveloper.github.io/EtorGrops-website/#website' },
+  about: { '@id': 'https://impacgodeveloper.github.io/EtorGrops-website/#organization' },
+}
 
 const METRICS = [
   { target: 12, suffix: '+', label: 'Years Experience', toneClass: 'text-secondary' },
@@ -184,6 +199,12 @@ const AMENITY_THEMES = [
 export default function Home() {
   return (
     <div className="flex flex-col w-full">
+      <SEO
+        title="ETOR City — Managed Land & Agriculture Investment in Andhra Pradesh"
+        description="Own a managed land & agriculture plot in ETOR City, Andhra Pradesh — plantation crops, organic dairy income, and 100% cashback over 100 months. Plots from ₹3,999/sq.yd."
+        path="/"
+        schema={HOME_SCHEMA}
+      />
       {/* Scene 1 — The ground */}
       <section className="relative w-full min-h-screen flex items-center -mt-20 overflow-hidden">
         <motion.img

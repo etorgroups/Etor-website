@@ -1,12 +1,16 @@
 import Reveal from './Reveal'
 import Eyebrow from './Eyebrow'
+import SEO, { buildBreadcrumbs } from './SEO'
 
 // Shared prose layout for Privacy Policy / Terms of Service — deliberately
 // restrained (no imagery, no heavy motion) since this is reference content
 // people scan for a specific clause, not a page they browse.
-export default function LegalPage({ title, updated, children }) {
+export default function LegalPage({ title, updated, description, path, children }) {
   return (
     <div className="flex flex-col w-full">
+      {description && path && (
+        <SEO title={title} description={description} path={path} schema={buildBreadcrumbs([{ name: title, path }])} />
+      )}
       <section className="bg-primary py-xl">
         <Reveal tag="div" className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <Eyebrow tone="dark">Legal</Eyebrow>

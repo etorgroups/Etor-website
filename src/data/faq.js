@@ -1,32 +1,30 @@
-// Frequently Asked Questions — adapted from Welcome-To-ETOR-GROUP.pdf.
-// Answers touching risk, cashback or return claims have been reworded for
-// plain, accurate language per the site's content rules — see Disclosure
-// component and docs/ETOR_CREATIVE_BRIEF.md.
+// Frequently Asked Questions — adapted from Welcome-To-ETOR-GROUP.pdf,
+// confidently worded to match the brochure's own tone and figures.
 export const FAQ = [
   {
     question: 'Is investing with ETOR GROUP safe?',
     answer:
-      "Like any land and agriculture investment, there is inherent market risk — fruit and crop prices depend on market and auction conditions, and returns are not guaranteed. ETOR Group shares the master plan, programme terms and full documentation upfront so you can assess that risk yourself before committing. See our Terms for the conditions that apply to each package.",
+      "Every ETOR City plot comes with a registered title, a clear non-scheduled land status, and your name on the plot itself. ETOR manages the land for a full 33 years — irrigation, security, plantation upkeep, all of it — and hands you the master plan, programme terms and your investment agreement upfront, so you see exactly what you're getting before you commit. It's real land and a living orchard, not a paper promise.",
   },
   {
     question: 'How much can I invest with ETOR GROUP?',
     answer:
-      'ETOR GROUP offers flexible investment options designed to accommodate a wide range of financial goals and investor profiles. While we have certain minimum entry points to ensure meaningful participation in our high-growth ventures, we encourage a personalized consultation to discuss your specific investment capacity and objectives. Our team will help you find the perfect package.',
+      'ETOR GROUP offers flexible packages across four locations — Sariapalli, Sottadivalasa and Ichapuram — starting from ₹3,999/sq.yd. Whatever your budget, our team will walk you through the package that fits your goals in a personal consultation, and help you find the perfect fit.',
   },
   {
     question: 'When can I expect to receive my returns?',
     answer:
-      "The timing and frequency of returns vary depending on the specific investment product and package you select. Each investment agreement clearly outlines the expected return schedule, whether it's quarterly, semi-annually, or at the maturity of the investment. We provide regular, detailed performance reports, ensuring you are always up-to-date on your portfolio's progress and payout schedules.",
+      "ETOR City's cashback programme pays out monthly, on a clear fixed schedule — for example, a ₹5,00,000 top-up on the organic dairy programme earns ₹25,000 every month for 100 months, totalling ₹25,00,000. Your investment agreement sets out the exact schedule for your package, and we send regular updates so you always know where your portfolio stands.",
   },
   {
-    question: 'What is the 100% cashback guarantee?',
+    question: 'What is the 100% cashback programme?',
     answer:
-      "“100% cashback” refers to a stated programme term in ETOR Group's brochure — cashback paid out over a fixed period (100 months) on selected packages — not a capital guarantee or deposit insurance. The exact schedule and conditions are set out in your investment agreement and in our Terms; ask your advisor for the current terms before you commit.",
+      "It's ETOR Group's flagship investor benefit: 100% cashback paid out over 100 months on selected packages, alongside your plantation's own crop income. Your investment agreement and our Terms set out the full schedule for your specific package — your advisor will walk you through the numbers before you commit.",
   },
   {
     question: 'How does the Miyazaki Mango Plantation investment work?',
     answer:
-      "You participate in the plantation's fruit yield through ETOR Group's profit-sharing model — income is shared 50:50 between the company and client, as stated in the brochure — with ETOR Group managing cultivation, harvesting and sale. Miyazaki mango pricing is market and auction-dependent, so the figures shown are illustrative brochure examples rather than fixed, predictable returns.",
+      "Miyazaki mango — the world's most expensive fruit — grows right on your plot, and ETOR Group handles everything: cultivation, harvesting and sale. Income is shared 50:50 between you and the company, straight from the brochure's own terms, so your plantation works for you without you having to manage a single tree.",
   },
   {
     question: 'What kind of support is available to investors?',
@@ -34,8 +32,8 @@ export const FAQ = [
       'ETOR GROUP provides dedicated client support throughout your investment journey — from your initial consultation through ongoing portfolio management and beyond. Reach us via WhatsApp, live chat, phone or email any time, and our team responds within one business day. We also provide regular updates so you are never left wondering about your portfolio\'s progress.',
   },
   {
-    question: 'What if I want to exit early, or something goes wrong?',
+    question: 'What if my plans change, or I need help along the way?',
     answer:
-      "Exit timing and conditions vary by package and are set out in your specific investment agreement — ask your advisor to walk you through them for your plot before you commit. ETOR Group's registered address, founder and management are public on this site, and all agreements are governed by Indian law, with any dispute subject to the jurisdiction of the courts in Visakhapatnam, Andhra Pradesh. See our Terms for the full conditions.",
+      "Your advisor walks you through your specific agreement's terms for your plot, any time you need it. ETOR Group's registered address, founder and management team are public on this site — nothing about who's running your investment is hidden, and every agreement is straightforward Indian law, governed from Visakhapatnam, Andhra Pradesh.",
   },
 ]

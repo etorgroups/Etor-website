@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import SEO, { buildBreadcrumbs } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
@@ -17,6 +18,28 @@ const AWARD_DETAILS = [
   { icon: 'calendar_month', label: 'Awarded on', value: '22 March 2026' },
   { icon: 'eco', label: 'Category', value: 'Green Entrepreneur' },
   { icon: 'location_on', label: 'Venue', value: 'Hotel Daspalla, Visakhapatnam, Andhra Pradesh' },
+]
+
+const ABOUT_SCHEMA = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: 'About ETOR Group',
+    description:
+      'ETOR Group has led real estate and agriculture investment since 2014, founded and run by B. Nagesh — IRDA & FMC certified financial advisor and Vishwaguru World Record holder.',
+    about: { '@id': 'https://impacgodeveloper.github.io/EtorGrops-website/#organization' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'B. Nagesh',
+    jobTitle: 'Founder & CEO',
+    worksFor: { '@id': 'https://impacgodeveloper.github.io/EtorGrops-website/#organization' },
+    description:
+      '12+ years in financial services, wealth management and investment advisory. IRDA & FMC certified Financial Advisor. Guided and mentored over 4 lakh traders and investors. Vishwaguru World Record holder for planting 10 lakh trees within two years. Recipient of 2 FMC Awards for Excellence in Portfolio Management.',
+    award: ['Vishwaguru World Record — 10 lakh trees planted in two years', '2 FMC Awards for Excellence in Portfolio Management', 'Green Entrepreneur, Viswaguru World Records Ugadi Puraskaralu 2026'],
+  },
+  buildBreadcrumbs([{ name: 'The Story', path: '/about' }]),
 ]
 
 const VISWAGURU_URL = 'https://viswaguruworldrecords.com/'
@@ -59,6 +82,12 @@ const CORE_VALUES = [
 export default function About() {
   return (
     <div className="flex flex-col w-full">
+      <SEO
+        title="Our Story & Founder — B. Nagesh"
+        description="ETOR Group has led real estate and agriculture investment since 2014, founded and run by B. Nagesh — IRDA & FMC certified advisor and Vishwaguru World Record holder."
+        path="/about"
+        schema={ABOUT_SCHEMA}
+      />
       {/* Origin */}
       <section className="relative w-full h-screen min-h-[560px] flex items-center -mt-20 overflow-hidden">
         <img

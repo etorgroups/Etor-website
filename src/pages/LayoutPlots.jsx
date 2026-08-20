@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import SEO, { buildBreadcrumbs } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import KineticHeadline from '../components/KineticHeadline'
@@ -64,6 +65,16 @@ export default function LayoutPlots() {
 
   return (
     <div className="flex flex-col w-full">
+      <SEO
+        title={`${layout.name} — ${layout.location}`}
+        description={`Full plot layout for ${layout.name} in ${layout.location}${layout.plotCount ? ` — ${layout.plotCount} plots` : ''}. Real surveyed dimensions and live plot availability.`}
+        path={`/projects/${cityId}/${layoutSlug}/plots`}
+        schema={buildBreadcrumbs([
+          { name: 'Projects', path: '/projects' },
+          { name: `${meta.title} Layouts`, path: `/projects/${cityId}/layouts` },
+          { name: layout.name, path: `/projects/${cityId}/${layoutSlug}/plots` },
+        ])}
+      />
       <section className="relative pt-xl pb-lg bg-surface-container-low">
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <Reveal tag="div" className="flex flex-wrap items-start justify-between gap-md mb-md">

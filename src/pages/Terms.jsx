@@ -9,7 +9,12 @@ import { COMPANY } from '../data/company'
 // regulations) before treating it as final.
 export default function Terms() {
   return (
-    <LegalPage title="Terms of Service" updated="29 July 2026">
+    <LegalPage
+      title="Terms of Service"
+      updated="29 July 2026"
+      description="The terms governing use of the ETOR Group website and investment programme, including the Investment & Risk Disclosure covering cashback and return claims."
+      path="/terms"
+    >
       <p>
         These Terms of Service govern your use of {COMPANY.website} (the "Site"), operated by ETOR Group. By
         using the Site, you agree to these terms. If you don't agree, please don't use the Site.

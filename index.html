@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="google-site-verification" content="lAchN1gsCZjPFbrLsqUozja0qFQsEKGIEQpY-gPju3s" />
     <meta
       name="description"
       content="ETOR Group — a diversified enterprise across premium agriculture, fintech, gaming and ventures, engineering sustainable wealth for a global community of stakeholders."
@@ -53,6 +54,59 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Base structured data — always present in the served HTML (unlike the
+         per-page schema injected by src/components/SEO.jsx after React
+         mounts), so it's visible to crawlers that don't execute JS. Real
+         search engines (Google, Bing) render JS and pick up the per-page
+         schema too; this is the reliable floor for everyone else. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "RealEstateAgent",
+            "@id": "https://impacgodeveloper.github.io/EtorGrops-website/#organization",
+            "name": "ETOR Group",
+            "alternateName": "ETOR City",
+            "url": "https://impacgodeveloper.github.io/EtorGrops-website/",
+            "logo": "https://impacgodeveloper.github.io/EtorGrops-website/favicon.png",
+            "image": "https://impacgodeveloper.github.io/EtorGrops-website/og-image.webp",
+            "description": "ETOR Group develops ETOR City — managed land and agriculture plots across Andhra Pradesh combining plantation crops (Miyazaki mango, sandalwood, dragon fruit, custard apple), an organic dairy programme, and a 100-month investor cashback plan.",
+            "telephone": "+91-9091929395",
+            "email": "etorventure@gmail.com",
+            "priceRange": "₹₹",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "AUDI Show Room Building, 3rd Floor, Resapuvanipalem, Maddilapalem",
+              "addressLocality": "Visakhapatnam",
+              "addressRegion": "Andhra Pradesh",
+              "postalCode": "530013",
+              "addressCountry": "IN"
+            },
+            "areaServed": [
+              { "@type": "City", "name": "Visakhapatnam" },
+              { "@type": "Place", "name": "Sariapalli" },
+              { "@type": "Place", "name": "Sottadivalasa" },
+              { "@type": "Place", "name": "Ichapuram" }
+            ],
+            "founder": { "@type": "Person", "name": "B. Nagesh" },
+            "foundingDate": "2014",
+            "sameAs": [
+              "https://www.facebook.com/profile.php?id=100093114993555",
+              "https://www.instagram.com/etorcity_official/"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://impacgodeveloper.github.io/EtorGrops-website/#website",
+            "url": "https://impacgodeveloper.github.io/EtorGrops-website/",
+            "name": "ETOR Group",
+            "publisher": { "@id": "https://impacgodeveloper.github.io/EtorGrops-website/#organization" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

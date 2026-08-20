@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import SEO, { buildBreadcrumbs } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import KineticHeadline from '../components/KineticHeadline'
@@ -9,6 +10,19 @@ import InvestJourney from '../components/InvestJourney'
 import { INVEST_STEPS } from '../data/investSteps'
 import assetLivingPortfolio from '../assets/images/asset-living-portfolio.webp'
 import assetDairy from '../assets/images/asset-organic-dairy.webp'
+
+const SERVICES_SCHEMA = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Managed Land & Agriculture Investment',
+    provider: { '@id': 'https://impacgodeveloper.github.io/EtorGrops-website/#organization' },
+    areaServed: { '@type': 'State', name: 'Andhra Pradesh' },
+    description:
+      "ETOR City's living-asset portfolio: managed land, orchard plantation crops, and an organic dairy income programme, with 33 years of maintenance included.",
+  },
+  buildBreadcrumbs([{ name: 'Living Assets', path: '/services' }]),
+]
 
 // ETOR Organic Dairy Farm — real figures from the brochure, not a consumer
 // milk-delivery feature list (this is a plot add-on programme, not a
@@ -43,6 +57,12 @@ const PLANTATION_TIERS = [
 export default function Services() {
   return (
     <div className="flex flex-col w-full">
+      <SEO
+        title="Living Assets — Plantation & Dairy Income on Every Plot"
+        description="Every ETOR City plot is a managed, living portfolio: Miyazaki mango, sandalwood, dragon fruit and an organic dairy income stream, maintained for 33 years."
+        path="/services"
+        schema={SERVICES_SCHEMA}
+      />
       {/* Hero */}
       <section className="relative py-xl overflow-hidden bg-gradient-to-br from-surface via-secondary-fixed/40 to-surface">
         <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
