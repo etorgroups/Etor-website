@@ -335,6 +335,10 @@
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--color-secondary) transparent;
+  /* Header is a fixed h-20 (5rem); without this, any #anchor jump (Rated on
+     Google -> #reviews, Calculate My Return -> #calculator) lands with its
+     heading tucked partly behind the header instead of just below it. */
+  scroll-padding-top: 6rem;
 }
 ::-webkit-scrollbar {
   width: 10px;

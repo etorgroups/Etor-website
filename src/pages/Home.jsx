@@ -10,6 +10,7 @@ import { PARTICIPATION_STEPS } from '../data/participationSteps'
 import Counter from '../components/Counter'
 import GoogleReviews from '../components/GoogleReviews'
 import InvestJourney from '../components/InvestJourney'
+import InvestmentCalculator from '../components/InvestmentCalculator'
 import SoldTicker from '../components/SoldTicker'
 import KineticHeadline from '../components/KineticHeadline'
 import MaskReveal from '../components/MaskReveal'
@@ -304,6 +305,16 @@ export default function Home() {
                     <span className="material-symbols-outlined transition-transform group-hover:translate-x-1">
                       arrow_forward
                     </span>
+                  </span>
+                </MagneticButton>
+                <MagneticButton
+                  as="a"
+                  href="#calculator"
+                  className="group relative px-xl py-md border border-on-primary/30 bg-on-primary/5 backdrop-blur-md text-on-primary rounded-full font-body text-label-md uppercase tracking-widest inline-flex hover:bg-on-primary/10 transition-colors"
+                >
+                  <span className="relative z-10 flex items-center gap-sm">
+                    <span className="material-symbols-outlined text-[20px]">calculate</span>
+                    Calculate My Return
                   </span>
                 </MagneticButton>
               </div>
@@ -699,8 +710,29 @@ export default function Home() {
             Prices as shown in ETOR Group's brochure, until confirmed current with an advisor.
           </Disclosure>
 
-          {/* Illustrative return example, straight from the brochure */}
+          {/* Interactive calculator — previously only lived on the Projects
+              page. Moved the highest-engagement tool on the whole site onto
+              Home too: a static example is someone else's number, a slider
+              is your own, and that's the difference between reading about
+              a return and actually exploring one. */}
+          <Reveal tag="div" id="calculator" className="mt-xl">
+            <div className="max-w-[42rem] mx-auto text-center mb-lg">
+              <Eyebrow>See your own numbers</Eyebrow>
+              <h3 className="font-display text-headline-lg text-on-surface mt-md">
+                Move the slider. Watch your cashback change.
+              </h3>
+            </div>
+            <InvestmentCalculator />
+          </Reveal>
+
+          {/* Illustrative return example, straight from the brochure. A
+              second, longer-horizon wealth stream on top of the cashback
+              above — the plantation's own 12-year crop income, not a
+              restatement of it. */}
           <Reveal tag="div" className="mt-xl rounded-3xl bg-surface border border-outline-variant/30 p-lg lg:p-xl">
+            <p className="font-body text-label-md text-secondary uppercase tracking-widest mb-xs">
+              Beyond the cashback: your plantation income
+            </p>
             <h3 className="font-display text-headline-md text-on-surface mb-xs">
               Illustrative example — ₹10,00,000 on a 250 sq.yd plot
             </h3>
