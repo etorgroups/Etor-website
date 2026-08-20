@@ -186,7 +186,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full">
       {/* Scene 1 — The ground */}
-      <section className="relative w-full min-h-screen flex items-start lg:items-center -mt-20 overflow-hidden">
+      <section className="relative w-full min-h-screen flex items-center -mt-20 overflow-hidden">
         <motion.img
           src={heroLandscape}
           alt="Premium mango orchard in coastal Andhra Pradesh at first light"
