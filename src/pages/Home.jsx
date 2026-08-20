@@ -225,7 +225,11 @@ export default function Home() {
 
         <div className="relative z-20 max-w-container-max mx-auto px-margin-mobile lg:px-xl pt-20 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-xl items-center w-full">
-            <Reveal tag="div" y={30} className="hero-copy w-full lg:col-span-7 max-w-[42rem] lg:max-w-none">
+            {/* pr-8 clears the always-on ExploreNowTab (fixed, right-0, ~30px
+                wide) below lg — at lg+ this column is grid-constrained and
+                never reaches that edge anyway. Without it, any full-bleed
+                card/button in this column visibly collides with the tab. */}
+            <Reveal tag="div" y={30} className="hero-copy w-full pr-8 lg:pr-0 lg:col-span-7 max-w-[42rem] lg:max-w-none">
               <div className="space-y-md">
                 <Eyebrow tone="light">
                   ETOR City — Believe In <br className="sm:hidden" />
@@ -247,17 +251,17 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.9, y: 12 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="relative inline-flex mt-md sm:mt-lg md:mt-xl"
+                className="relative inline-flex mt-lg md:mt-xl"
               >
                 <span
                   aria-hidden="true"
                   className="absolute -inset-4 rounded-[2rem] bg-secondary/30 blur-2xl animate-glow-pulse"
                 />
-                <div className="shine-sweep relative inline-flex items-center gap-md sm:gap-lg rounded-[1.5rem] border border-secondary/40 bg-primary/60 backdrop-blur-md text-on-primary px-lg py-md shadow-2xl">
-                  <span className="material-symbols-outlined text-secondary-fixed-dim text-[26px] sm:text-[32px] shrink-0">trending_up</span>
+                <div className="shine-sweep relative inline-flex items-center gap-sm sm:gap-lg rounded-[1.5rem] border border-secondary/40 bg-primary/60 backdrop-blur-md text-on-primary px-md py-sm sm:px-lg sm:py-md shadow-2xl">
+                  <span className="material-symbols-outlined text-secondary-fixed-dim text-[22px] sm:text-[32px] shrink-0">trending_up</span>
                   <div>
                     <p className="font-body text-label-md uppercase tracking-widest text-on-primary/60">Projected Return</p>
-                    <p className="font-display text-headline-lg sm:text-display-lg-mobile leading-none text-secondary-fixed-dim whitespace-nowrap">
+                    <p className="font-display text-headline-md sm:text-display-lg-mobile leading-none text-secondary-fixed-dim whitespace-nowrap">
                       <Counter
                         target={25000}
                         prefix="Rs. "
@@ -279,7 +283,7 @@ export default function Home() {
                   initial={{ opacity: 0, scale: 0.4, rotate: -14, x: -8 }}
                   animate={{ opacity: 1, scale: 1, rotate: -6, x: 0 }}
                   transition={{ type: 'spring', stiffness: 260, damping: 16, delay: 1.3 }}
-                  className="absolute -top-4 left-2 right-auto sm:left-auto sm:-top-5 sm:-right-5 z-10"
+                  className="absolute -top-6 left-2 right-auto sm:left-auto sm:-top-5 sm:-right-5 z-10"
                 >
                   <span
                     aria-hidden="true"
@@ -293,11 +297,11 @@ export default function Home() {
                   </div>
                 </motion.div>
               </motion.div>
-              <div className="flex flex-wrap gap-md mt-sm sm:mt-lg">
+              <div className="flex flex-wrap gap-md mt-md sm:mt-lg">
                 <MagneticButton
                   as={Link}
                   to="/projects"
-                  className="group relative px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest overflow-hidden shadow-xl shadow-secondary/30 inline-flex"
+                  className="group relative w-full sm:w-auto px-lg sm:px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest overflow-hidden shadow-xl shadow-secondary/30 inline-flex justify-center whitespace-nowrap"
                 >
                   <span className="relative z-10 flex items-center gap-sm">
                     Explore ETOR City
@@ -307,7 +311,7 @@ export default function Home() {
                   </span>
                 </MagneticButton>
               </div>
-              <div className="flex flex-wrap items-center gap-x-lg gap-y-xs mt-md">
+              <div className="flex flex-wrap items-center gap-x-lg gap-y-sm mt-md">
                 <a
                   href="#calculator"
                   className="flex items-center gap-xs font-body text-body-sm text-on-primary/70 hover:text-on-primary transition-colors"
