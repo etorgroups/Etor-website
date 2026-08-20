@@ -325,14 +325,16 @@ export default function Contact() {
                 <p className="font-body text-label-md text-on-surface-variant uppercase tracking-widest mb-sm">
                   Prefer a faster answer?
                 </p>
-                <a
-                  href={publicUrl('downloads/etor-city-master-plan.pdf')}
-                  download
-                  className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary transition-colors"
-                >
-                  <span className="material-symbols-outlined text-[18px] text-secondary">download</span>
-                  Download the Master Plan
-                </a>
+                {COMPANY.isMasterPlanReady && (
+                  <a
+                    href={publicUrl('downloads/etor-city-master-plan.pdf')}
+                    download
+                    className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-[18px] text-secondary">download</span>
+                    Download the Master Plan
+                  </a>
+                )}
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"

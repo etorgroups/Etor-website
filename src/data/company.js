@@ -21,6 +21,12 @@ export const COMPANY = {
   // than omitting the line, so nothing should print these two raw.
   isReraConfigured: false,
   isCinConfigured: false,
+  // The PDFs at public/downloads/ are honestly-labelled placeholders ("this
+  // document is a placeholder... the full version is being prepared") —
+  // fine to keep on disk, but every "Download Master Plan" button on the
+  // site currently promises a real document and delivers that stub instead.
+  // Flip to true once the real master plan PDF replaces the placeholder.
+  isMasterPlanReady: false,
   social: [
     { label: 'WhatsApp', icon: 'whatsapp', href: WHATSAPP_URL },
     { label: 'Facebook', icon: 'facebook', href: 'https://www.facebook.com/profile.php?id=100093114993555' },

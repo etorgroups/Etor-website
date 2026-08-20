@@ -532,14 +532,16 @@ export default function Home() {
                     arrow_forward
                   </span>
                 </MagneticButton>
-                <a
-                  href={publicUrl("downloads/etor-city-master-plan.pdf")}
-                  download
-                  className="px-xl py-md border border-outline-variant/50 text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:bg-surface-container-low transition-colors inline-flex items-center gap-sm"
-                >
-                  Master Plan
-                  <span className="material-symbols-outlined text-[18px]">download</span>
-                </a>
+                {COMPANY.isMasterPlanReady && (
+                  <a
+                    href={publicUrl("downloads/etor-city-master-plan.pdf")}
+                    download
+                    className="px-xl py-md border border-outline-variant/50 text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:bg-surface-container-low transition-colors inline-flex items-center gap-sm"
+                  >
+                    Master Plan
+                    <span className="material-symbols-outlined text-[18px]">download</span>
+                  </a>
+                )}
               </div>
             </Reveal>
           </div>
@@ -957,14 +959,16 @@ export default function Home() {
                 ))}
               </address>
               <div className="flex flex-wrap gap-sm pt-sm">
-                <a
-                  href={publicUrl("downloads/etor-city-master-plan.pdf")}
-                  download
-                  className="inline-flex items-center gap-xs px-md py-xs rounded-full border border-outline-variant/40 font-body text-body-sm hover:bg-surface transition-colors"
-                >
-                  <span className="material-symbols-outlined text-[16px]">description</span>
-                  Master Plan
-                </a>
+                {COMPANY.isMasterPlanReady && (
+                  <a
+                    href={publicUrl("downloads/etor-city-master-plan.pdf")}
+                    download
+                    className="inline-flex items-center gap-xs px-md py-xs rounded-full border border-outline-variant/40 font-body text-body-sm hover:bg-surface transition-colors"
+                  >
+                    <span className="material-symbols-outlined text-[16px]">description</span>
+                    Master Plan
+                  </a>
+                )}
                 <a
                   href={publicUrl("downloads/etor-group-whitepaper.pdf")}
                   download
@@ -1022,22 +1026,27 @@ export default function Home() {
             See the land. Understand the terms. <span className="text-gradient-shimmer">Decide with clarity.</span>
           </h2>
           <p className="font-body text-body-lg text-on-primary/60 max-w-2xl mx-auto mb-xl">
-            Review the ETOR City master plan, ask any question, and take the next step at your own pace — no
-            pressure, no countdown.
+            Ask any question, and take the next step at your own pace — no pressure, no countdown.
           </p>
           <div className="flex flex-col sm:flex-row gap-md justify-center items-center">
-            <a
-              href={publicUrl("downloads/etor-city-master-plan.pdf")}
-              download
-              className="w-full sm:w-auto px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest shadow-2xl shadow-secondary/50 inline-flex items-center justify-center gap-sm"
-            >
-              Request Master Plan
-              <span className="material-symbols-outlined text-[18px]">download</span>
-            </a>
+            {COMPANY.isMasterPlanReady && (
+              <a
+                href={publicUrl("downloads/etor-city-master-plan.pdf")}
+                download
+                className="w-full sm:w-auto px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest shadow-2xl shadow-secondary/50 inline-flex items-center justify-center gap-sm"
+              >
+                Request Master Plan
+                <span className="material-symbols-outlined text-[18px]">download</span>
+              </a>
+            )}
             <MagneticButton
               as={Link}
               to="/contact"
-              className="w-full sm:w-auto px-xl py-md bg-on-primary/10 text-on-primary backdrop-blur-md rounded-full font-body text-label-md uppercase tracking-widest hover:bg-on-primary/20 transition-all text-center"
+              className={
+                COMPANY.isMasterPlanReady
+                  ? 'w-full sm:w-auto px-xl py-md bg-on-primary/10 text-on-primary backdrop-blur-md rounded-full font-body text-label-md uppercase tracking-widest hover:bg-on-primary/20 transition-all text-center'
+                  : 'w-full sm:w-auto px-xl py-md bg-secondary text-on-secondary rounded-full font-body text-label-md uppercase tracking-widest shadow-2xl shadow-secondary/50 text-center'
+              }
             >
               Speak to ETOR
             </MagneticButton>
