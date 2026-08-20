@@ -2,14 +2,23 @@ import { useEffect } from 'react'
 import { publicUrl } from '../lib/basePath'
 
 // The real deployed origin (see index.html's canonical/og:url, and
-// public/robots.txt's Sitemap line — all three need to agree). Vite's
-// import.meta.env.BASE_URL only gives the /Etor-website/ path portion,
-// not the domain, so this is spelled out once here rather than guessed from
-// window.location (which would silently produce wrong canonicals if this
-// site is ever previewed/proxied from a different host).
-const SITE_ORIGIN = 'https://etorgroups.github.io'
+// public/robots.txt's Sitemap line — all need to agree). Vite's
+// import.meta.env.BASE_URL only gives the path portion (/Etor-website/ on
+// GitHub Pages, / on Vercel), not the domain, so the domain comes from
+// VITE_SITE_ORIGIN (see .env — defaults to the GitHub Pages domain; Vercel's
+// project settings can override it with that deployment's own domain) rather
+// than being guessed from window.location, which would silently produce
+// wrong canonicals if this site is ever previewed/proxied from a third host.
+const SITE_ORIGIN = import.meta.env.VITE_SITE_ORIGIN
 const DEFAULT_TITLE = 'ETOR Group | Empowering Growth Through Innovation'
 const DEFAULT_IMAGE = `${SITE_ORIGIN}${publicUrl('og-image.webp')}`
+
+// The organization's JSON-LD @id, referenced by name from every page's own
+// per-page schema (Home/About/Services/Contact.jsx) via `about`/`worksFor`/
+// `provider` — matches the RealEstateAgent @id declared in index.html.
+export const ORGANIZATION_ID = `${SITE_ORIGIN}${publicUrl('')}#organization`
+export const WEBSITE_ID = `${SITE_ORIGIN}${publicUrl('')}#website`
+export const SITE_URL = `${SITE_ORIGIN}${publicUrl('')}`
 
 function upsertMeta(attr, key, content) {
   if (!content) return

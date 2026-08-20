@@ -12,7 +12,9 @@
       name="description"
       content="ETOR Group — a diversified enterprise across premium agriculture, fintech, gaming and ventures, engineering sustainable wealth for a global community of stakeholders."
     />
-    <link rel="canonical" href="https://etorgroups.github.io/Etor-website/" />
+    <!-- %VITE_SITE_ORIGIN% + %BASE_URL% together give the right full URL on
+         both hosts this repo deploys to — see .env and vite.config.js. -->
+    <link rel="canonical" href="%VITE_SITE_ORIGIN%%BASE_URL%" />
     <meta name="theme-color" content="#f6f1e9" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#10100e" media="(prefers-color-scheme: dark)" />
 
@@ -25,15 +27,15 @@
       property="og:description"
       content="A diversified enterprise across premium agriculture, fintech, gaming and ventures, engineering sustainable wealth for a global community of stakeholders."
     />
-    <meta property="og:url" content="https://etorgroups.github.io/Etor-website/" />
-    <meta property="og:image" content="https://etorgroups.github.io/Etor-website/og-image.webp" />
+    <meta property="og:url" content="%VITE_SITE_ORIGIN%%BASE_URL%" />
+    <meta property="og:image" content="%VITE_SITE_ORIGIN%%BASE_URL%og-image.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="ETOR Group | Empowering Growth Through Innovation" />
     <meta
       name="twitter:description"
       content="A diversified enterprise across premium agriculture, fintech, gaming and ventures, engineering sustainable wealth for a global community of stakeholders."
     />
-    <meta name="twitter:image" content="https://etorgroups.github.io/Etor-website/og-image.webp" />
+    <meta name="twitter:image" content="%VITE_SITE_ORIGIN%%BASE_URL%og-image.webp" />
 
     <title>ETOR Group | Empowering Growth Through Innovation</title>
     <script>
@@ -69,12 +71,12 @@
         "@graph": [
           {
             "@type": "RealEstateAgent",
-            "@id": "https://etorgroups.github.io/Etor-website/#organization",
+            "@id": "%VITE_SITE_ORIGIN%%BASE_URL%#organization",
             "name": "ETOR Group",
             "alternateName": "ETOR City",
-            "url": "https://etorgroups.github.io/Etor-website/",
-            "logo": "https://etorgroups.github.io/Etor-website/favicon.png",
-            "image": "https://etorgroups.github.io/Etor-website/og-image.webp",
+            "url": "%VITE_SITE_ORIGIN%%BASE_URL%",
+            "logo": "%VITE_SITE_ORIGIN%%BASE_URL%favicon.png",
+            "image": "%VITE_SITE_ORIGIN%%BASE_URL%og-image.webp",
             "description": "ETOR Group develops ETOR City — managed land and agriculture plots across Andhra Pradesh combining plantation crops (Miyazaki mango, sandalwood, dragon fruit, custard apple), an organic dairy programme, and a 100-month investor cashback plan.",
             "telephone": "+91-9091929395",
             "email": "etorventure@gmail.com",
@@ -102,10 +104,10 @@
           },
           {
             "@type": "WebSite",
-            "@id": "https://etorgroups.github.io/Etor-website/#website",
-            "url": "https://etorgroups.github.io/Etor-website/",
+            "@id": "%VITE_SITE_ORIGIN%%BASE_URL%#website",
+            "url": "%VITE_SITE_ORIGIN%%BASE_URL%",
             "name": "ETOR Group",
-            "publisher": { "@id": "https://etorgroups.github.io/Etor-website/#organization" }
+            "publisher": { "@id": "%VITE_SITE_ORIGIN%%BASE_URL%#organization" }
           }
         ]
       }

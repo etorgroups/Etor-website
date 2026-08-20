@@ -19,7 +19,7 @@
 // this one) is deliberately NOT touched -- any route not in this list still
 // falls through to the plain SPA shell and works exactly as before via
 // client-side routing, so this is additive/lower-risk, not a rewrite.
-import { spawn } from 'node:child_process'
+import { spawn, spawnSync } from 'node:child_process'
 import { mkdir, writeFile, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -29,7 +29,12 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..')
 const DIST = path.join(ROOT, 'dist')
 const PORT = 4173
-const BASE = `http://localhost:${PORT}/Etor-website`
+// Must track vite.config.js's own base logic -- `vite preview` serves dist/
+// under whatever base the build used, and navigating to the wrong prefix
+// here would 404 every route (silently making prerendering a no-op instead
+// of erroring, since waitForServer() below treats 404 as "server is up").
+const BASE_PATH = process.env.VERCEL ? '' : '/Etor-website'
+const BASE = `http://localhost:${PORT}${BASE_PATH}`
 
 const ROUTES = [
   '/',
@@ -85,12 +90,32 @@ async function outPathFor(route) {
   return path.join(DIST, route.replace(/^\/+/, ''), 'index.html')
 }
 
+// `preview.kill()` alone only kills the immediate child. With shell: true on
+// Windows that's a cmd.exe wrapper, not the actual vite/node process it
+// launched, so the real server survives, keeps the port, and silently serves
+// stale content (wrong base path, stale build) to the *next* run of this
+// script -- it looks like corrupted/near-empty prerender output with no
+// error, not an obvious crash. Killing the whole process tree (Windows:
+// taskkill /t; POSIX: kill the detached process group) avoids that.
+function killProcessTree(child) {
+  if (process.platform === 'win32') {
+    spawnSync('taskkill', ['/pid', String(child.pid), '/t', '/f'], { stdio: 'ignore' })
+  } else if (child.pid) {
+    try {
+      process.kill(-child.pid, 'SIGKILL')
+    } catch {
+      child.kill('SIGKILL')
+    }
+  }
+}
+
 async function run() {
   console.log('[prerender] starting vite preview...')
   const preview = spawn('npx', ['vite', 'preview', '--port', String(PORT), '--strictPort'], {
     cwd: ROOT,
     stdio: 'ignore',
     shell: true,
+    detached: process.platform !== 'win32',
   })
 
   try {
@@ -116,7 +141,7 @@ async function run() {
 
     await browser.close()
   } finally {
-    preview.kill()
+    killProcessTree(preview)
   }
 
   console.log(`[prerender] done -- ${ROUTES.length} routes prerendered`)

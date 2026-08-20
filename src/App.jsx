@@ -34,7 +34,11 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <BrowserRouter basename="/Etor-website">
+      {/* import.meta.env.BASE_URL mirrors vite.config.js's own base (/Etor-website/
+          on GitHub Pages, / on Vercel) — hardcoding one path here would leave
+          routing broken on whichever host doesn't match it. BrowserRouter
+          wants no trailing slash, unlike BASE_URL itself. */}
+      <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, '')}>
         <SmoothScroll>
           <RouteCurtain />
           {paletteReady && (

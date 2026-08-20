@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import SEO, { buildBreadcrumbs } from '../components/SEO'
+import SEO, { buildBreadcrumbs, ORGANIZATION_ID } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import KineticHeadline from '../components/KineticHeadline'
@@ -16,7 +16,7 @@ const SERVICES_SCHEMA = [
     '@context': 'https://schema.org',
     '@type': 'Service',
     serviceType: 'Managed Land & Agriculture Investment',
-    provider: { '@id': 'https://etorgroups.github.io/Etor-website/#organization' },
+    provider: { '@id': ORGANIZATION_ID },
     areaServed: { '@type': 'State', name: 'Andhra Pradesh' },
     description:
       "ETOR City's living-asset portfolio: managed land, orchard plantation crops, and an organic dairy income programme, with 33 years of maintenance included.",

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import SEO, { buildBreadcrumbs } from '../components/SEO'
+import SEO, { buildBreadcrumbs, ORGANIZATION_ID } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
@@ -27,14 +27,14 @@ const ABOUT_SCHEMA = [
     name: 'About ETOR Group',
     description:
       'ETOR Group has led real estate and agriculture investment since 2014, founded and run by B. Nagesh — IRDA & FMC certified financial advisor and Vishwaguru World Record holder.',
-    about: { '@id': 'https://etorgroups.github.io/Etor-website/#organization' },
+    about: { '@id': ORGANIZATION_ID },
   },
   {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'B. Nagesh',
     jobTitle: 'Founder & CEO',
-    worksFor: { '@id': 'https://etorgroups.github.io/Etor-website/#organization' },
+    worksFor: { '@id': ORGANIZATION_ID },
     description:
       '12+ years in financial services, wealth management and investment advisory. IRDA & FMC certified Financial Advisor. Guided and mentored over 4 lakh traders and investors. Vishwaguru World Record holder for planting 10 lakh trees within two years. Recipient of 2 FMC Awards for Excellence in Portfolio Management.',
     award: ['Vishwaguru World Record — 10 lakh trees planted in two years', '2 FMC Awards for Excellence in Portfolio Management', 'Green Entrepreneur, Viswaguru World Records Ugadi Puraskaralu 2026'],

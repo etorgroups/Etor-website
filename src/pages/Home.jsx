@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import SEO from '../components/SEO'
+import SEO, { ORGANIZATION_ID, WEBSITE_ID, SITE_URL } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
@@ -39,12 +39,12 @@ import awardPlaque from '../assets/images/award-viswaguru-world-records-2026.web
 const HOME_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  '@id': 'https://etorgroups.github.io/Etor-website/',
+  '@id': SITE_URL,
   name: 'ETOR City — Managed Land & Agriculture Investment in Andhra Pradesh',
   description:
     "ETOR Group's managed land and agriculture programme across Andhra Pradesh — plantation crops, an organic dairy income stream, and a 100-month cashback plan.",
-  isPartOf: { '@id': 'https://etorgroups.github.io/Etor-website/#website' },
-  about: { '@id': 'https://etorgroups.github.io/Etor-website/#organization' },
+  isPartOf: { '@id': WEBSITE_ID },
+  about: { '@id': ORGANIZATION_ID },
 }
 
 const METRICS = [

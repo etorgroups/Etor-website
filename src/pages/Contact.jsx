@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
-import SEO, { buildBreadcrumbs } from '../components/SEO'
+import SEO, { buildBreadcrumbs, ORGANIZATION_ID } from '../components/SEO'
 import Reveal from '../components/Reveal'
 import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
@@ -41,7 +41,7 @@ const CONTACT_SCHEMA = [
   {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    about: { '@id': 'https://etorgroups.github.io/Etor-website/#organization' },
+    about: { '@id': ORGANIZATION_ID },
   },
   buildBreadcrumbs([{ name: 'Contact', path: '/contact' }]),
 ]
