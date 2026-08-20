@@ -7,11 +7,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\"",
+    "postbuild": "node -e \"require('fs').copyFileSync('dist/index.html','dist/404.html')\" && node scripts/prerender.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "postdeploy": "node scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

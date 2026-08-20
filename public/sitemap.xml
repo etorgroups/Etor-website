@@ -29,6 +29,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://impacgodeveloper.github.io/EtorGrops-website/projects/city-1/plots</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://impacgodeveloper.github.io/EtorGrops-website/projects/city-2/plots</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://impacgodeveloper.github.io/EtorGrops-website/projects/city-3-4/plots</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://impacgodeveloper.github.io/EtorGrops-website/other-ventures</loc>
     <priority>0.6</priority>
   </url>
