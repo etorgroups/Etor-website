@@ -79,7 +79,7 @@ export default function CustomCursor() {
         style={{ x: ringX, y: ringY, translate: '-50% -50%' }}
       >
         {variant.label && (
-          <span className="font-body text-[10px] font-bold uppercase tracking-widest text-secondary">
+          <span className="font-body text-[10px] font-bold uppercase tracking-widest text-secondary-strong">
             {variant.label}
           </span>
         )}

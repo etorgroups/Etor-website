@@ -28,7 +28,7 @@ export default function Layouts() {
           <Reveal tag="div" className="max-w-2xl">
             <Link
               to="/projects"
-              className="flex w-fit items-center gap-xs font-body text-label-md text-on-surface-variant hover:text-secondary transition-colors mb-sm"
+              className="flex w-fit items-center gap-xs font-body text-label-md text-on-surface-variant hover:text-secondary-strong transition-colors mb-sm"
             >
               <span className="material-symbols-outlined text-[18px]">arrow_back</span>
               Back to All Projects
@@ -103,7 +103,7 @@ export default function Layouts() {
                         Download
                       </button>
 
-                      <span className="inline-flex items-center gap-xs px-sm py-xs bg-secondary/10 text-secondary rounded-full text-label-sm font-body">
+                      <span className="inline-flex items-center gap-xs px-sm py-xs bg-secondary/10 text-secondary-strong rounded-full text-label-sm font-body">
                         View Layout
                         <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
                       </span>

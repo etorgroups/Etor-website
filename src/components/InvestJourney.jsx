@@ -34,7 +34,7 @@ export default function InvestJourney({ steps }) {
                 transition={{ duration: 0.5, delay: index * 0.1, ease: EASE }}
                 className="relative w-16 h-16 rounded-full bg-surface border-2 border-secondary flex items-center justify-center shadow-lg"
               >
-                <span className="material-symbols-outlined text-secondary text-[26px]">{step.icon}</span>
+                <span className="material-symbols-outlined text-secondary-strong text-[26px]">{step.icon}</span>
                 <span className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-secondary text-on-secondary text-[11px] font-bold flex items-center justify-center">
                   {index + 1}
                 </span>
@@ -65,7 +65,7 @@ export default function InvestJourney({ steps }) {
                 transition={{ duration: 0.5, delay: index * 0.05, ease: EASE }}
                 className="relative z-10 shrink-0 w-14 h-14 rounded-full bg-surface border-2 border-secondary flex items-center justify-center shadow-lg"
               >
-                <span className="material-symbols-outlined text-secondary text-[22px]">{step.icon}</span>
+                <span className="material-symbols-outlined text-secondary-strong text-[22px]">{step.icon}</span>
                 <span className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-secondary text-on-secondary text-[10px] font-bold flex items-center justify-center">
                   {index + 1}
                 </span>

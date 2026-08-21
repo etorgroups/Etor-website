@@ -48,9 +48,9 @@ const HOME_SCHEMA = {
 }
 
 const METRICS = [
-  { target: 12, suffix: '+', label: 'Years Experience', toneClass: 'text-secondary' },
+  { target: 12, suffix: '+', label: 'Years Experience', toneClass: 'text-secondary-strong' },
   { target: 250, suffix: '+', label: 'Acres Across ETOR City', toneClass: 'text-on-surface' },
-  { target: 100, suffix: '%', label: 'Cashback In 100 Months', toneClass: 'text-secondary' },
+  { target: 100, suffix: '%', label: 'Cashback In 100 Months', toneClass: 'text-secondary-strong' },
   { value: '4', label: 'ETOR City Locations', toneClass: 'text-on-surface' },
 ]
 
@@ -206,7 +206,13 @@ export default function Home() {
         schema={HOME_SCHEMA}
       />
       {/* Scene 1 — The ground */}
-      <section className="relative w-full min-h-screen flex items-center -mt-20 overflow-hidden">
+      {/* bg-primary here has no visible effect (the photo + scrim overlays
+          below fully cover it) -- it exists purely so --color-secondary-strong
+          resolves to the bright fixed-dim gold for the Eyebrow nested inside,
+          matching every other permanently-dark section (see index.css's
+          .bg-primary rule). Without it this hero would inherit the light
+          theme's cream-tuned darker gold, muted against a dark photo. */}
+      <section className="relative w-full min-h-screen flex items-center -mt-20 overflow-hidden bg-primary">
         <motion.img
           src={heroLandscape}
           alt="Premium mango orchard in coastal Andhra Pradesh at first light"
@@ -408,7 +414,7 @@ export default function Home() {
                   </svg>
                   <div>
                     <p className="font-body text-body-sm text-on-surface-variant leading-none">Over 100 months</p>
-                    <p className="font-display text-headline-md text-secondary leading-none mt-1">₹25,00,000</p>
+                    <p className="font-display text-headline-md text-secondary-strong leading-none mt-1">₹25,00,000</p>
                   </div>
                 </motion.div>
               </motion.div>
@@ -629,12 +635,12 @@ export default function Home() {
                       <h4 className="font-display text-body-lg text-on-surface leading-tight break-words">
                         {crop.title}
                       </h4>
-                      <p className="font-body text-body-sm text-secondary mb-sm">{crop.subtitle}</p>
+                      <p className="font-body text-body-sm text-secondary-strong mb-sm">{crop.subtitle}</p>
                       <p className="font-body text-body-sm text-on-surface-variant leading-relaxed mb-md flex-1">
                         {crop.body}
                       </p>
                       {crop.priceTag && (
-                        <span className="inline-flex items-center self-start px-sm py-1 rounded-full bg-secondary/10 text-secondary font-body text-label-md">
+                        <span className="inline-flex items-center self-start px-sm py-1 rounded-full bg-secondary/10 text-secondary-strong font-body text-label-md">
                           {crop.priceTag}
                         </span>
                       )}
@@ -733,7 +739,7 @@ export default function Home() {
               above — the plantation's own 12-year crop income, not a
               restatement of it. */}
           <Reveal tag="div" className="mt-xl rounded-3xl bg-surface border border-outline-variant/30 p-lg lg:p-xl">
-            <p className="font-body text-label-md text-secondary uppercase tracking-widest mb-xs">
+            <p className="font-body text-label-md text-secondary-strong uppercase tracking-widest mb-xs">
               Beyond the cashback: your plantation income
             </p>
             <h3 className="font-display text-headline-md text-on-surface mb-lg">
@@ -749,7 +755,7 @@ export default function Home() {
                   <p className="font-body text-body-sm text-on-surface mb-xs">{row.crop}</p>
                   <div className="flex items-baseline justify-between">
                     <span className="font-body text-body-sm text-on-surface-variant">{row.perYear} / yr</span>
-                    <span className="font-body text-body-md text-secondary font-medium">{row.over12yr}</span>
+                    <span className="font-body text-body-md text-secondary-strong font-medium">{row.over12yr}</span>
                   </div>
                 </div>
               ))}
@@ -757,7 +763,7 @@ export default function Home() {
                 <p className="font-body text-body-sm font-medium text-on-surface mb-xs">
                   Total return after company share
                 </p>
-                <p className="font-display text-headline-md text-secondary">₹4,26,70,000</p>
+                <p className="font-display text-headline-md text-secondary-strong">₹4,26,70,000</p>
               </div>
             </div>
 
@@ -775,7 +781,7 @@ export default function Home() {
                     <tr key={row.crop} className="border-b border-outline-variant/15">
                       <td className="py-sm pr-md text-on-surface">{row.crop}</td>
                       <td className="py-sm pr-md text-on-surface-variant">{row.perYear}</td>
-                      <td className="py-sm text-secondary font-medium">{row.over12yr}</td>
+                      <td className="py-sm text-secondary-strong font-medium">{row.over12yr}</td>
                     </tr>
                   ))}
                   <tr>
@@ -783,7 +789,7 @@ export default function Home() {
                       Total return after company share
                     </td>
                     <td className="py-sm pr-md" />
-                    <td className="py-sm text-secondary font-display text-headline-md">₹4,26,70,000</td>
+                    <td className="py-sm text-secondary-strong font-display text-headline-md">₹4,26,70,000</td>
                   </tr>
                 </tbody>
               </table>
@@ -880,13 +886,13 @@ export default function Home() {
                 className="rounded-3xl bg-surface-container-low p-lg border border-outline-variant/20"
               >
                 <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center mb-md">
-                  <span className="material-symbols-outlined text-secondary">{theme.icon}</span>
+                  <span className="material-symbols-outlined text-secondary-strong">{theme.icon}</span>
                 </div>
                 <h3 className="font-display text-headline-md text-on-surface mb-md">{theme.title}</h3>
                 <ul className="space-y-sm">
                   {theme.items.map((item) => (
                     <li key={item} className="flex items-start gap-sm font-body text-body-sm text-on-surface-variant">
-                      <span className="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">
+                      <span className="material-symbols-outlined text-secondary-strong text-[18px] shrink-0 mt-0.5">
                         check_circle
                       </span>
                       {item}
@@ -928,18 +934,18 @@ export default function Home() {
               />
               <div>
                 <p className="font-display text-headline-md text-on-surface">B. Nagesh</p>
-                <p className="font-body text-body-sm text-secondary mb-sm">Founder & CEO, ETOR Group</p>
+                <p className="font-body text-body-sm text-secondary-strong mb-sm">Founder & CEO, ETOR Group</p>
                 <p className="font-body text-body-sm text-on-surface-variant leading-relaxed">
                   ETOR Group has operated since {COMPANY.foundedYear} under Mr. Nagesh's leadership. Read
                   the full story, team and history on the{' '}
-                  <Link to="/about" className="underline hover:text-secondary">
+                  <Link to="/about" className="underline hover:text-secondary-strong">
                     About page
                   </Link>
                   .
                 </p>
                 <Link
                   to="/about#recognition"
-                  className="inline-flex items-center gap-xs mt-sm px-md py-xs rounded-full bg-secondary/10 text-secondary font-body text-body-sm hover:bg-secondary/20 transition-colors"
+                  className="inline-flex items-center gap-xs mt-sm px-md py-xs rounded-full bg-secondary/10 text-secondary-strong font-body text-body-sm hover:bg-secondary/20 transition-colors"
                 >
                   <span className="material-symbols-outlined text-[16px]">workspace_premium</span>
                   Green Entrepreneur, Ugadi Puraskaralu 2026
@@ -998,7 +1004,7 @@ export default function Home() {
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <Reveal tag="div" className="max-w-[36rem] mx-auto text-center mb-xl">
             <h2 className="font-display text-headline-xl text-on-surface mb-md">
-              Live <span className="text-secondary">Google Reviews</span>
+              Live <span className="text-secondary-strong">Google Reviews</span>
             </h2>
             <p className="font-body text-body-lg text-on-surface-variant">
               Pulled directly from ETOR Group's Google Business Profile — not written by us.

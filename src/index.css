@@ -57,14 +57,31 @@
      gold fill with DARK ink text on top, not white. This brings the light
      theme in line with that same pattern — #c6963c reads as real metallic
      gold, and on-secondary flips to a dark warm ink (6.2:1 contrast on the
-     fill, well past the 4.5:1 AA floor; the fill itself sits at 2.4:1
-     against the cream surface, which is a visual "how much does it pop"
-     number rather than a text-contrast requirement, and is not a concern
-     given every filled use also carries a border/shadow). */
+     fill, well past the 4.5:1 AA floor). The fill sitting at only 2.4:1
+     against the cream surface is fine for a FILLED shape (border/shadow
+     already separate it from the page) -- but the same token is also used
+     directly as plain text/icon color in dozens of places (eyebrow labels,
+     checkmarks, table figures) with nothing backing it, and 2.4:1 there is
+     a real WCAG AA failure (needs 4.5:1). See --color-secondary-strong
+     below, which is what those text/icon usages actually use instead. */
   --color-secondary: #c6963c;
   --color-on-secondary: #2b1a08;
   --color-secondary-container: #f3e2c6;
   --color-on-secondary-container: #4a3410;
+
+  /* The gold accent as plain TEXT/icon color directly on the page surface
+     (eyebrow labels, checkmarks, headline accent words, table figures) --
+     a different job from --color-secondary above, which is tuned to be a
+     bright FILL with dark text on top. Bright-enough-to-read-as-gold and
+     dark-enough-to-hit-4.5:1-on-cream can't both be true of one value (see
+     the note above), so this is deliberately darker: 6.1:1 on the surface,
+     7:1+ on secondary-container -- still unmistakably gold/bronze, just
+     tuned for text instead of a fill. Sections with a permanently-dark
+     background (.bg-primary -- hero/footer/CTA bands) override this back
+     to the bright fixed-dim gold below, since dark ink already gives that
+     plenty of contrast and darkening it there would make it hard to read
+     instead of easier. */
+  --color-secondary-strong: #7a5220;
 
   /* Deep emerald — the heritage/land signal (badges, ratings, plot-count
      stats), reserved for premium moments so it stays a signal, not
@@ -252,6 +269,9 @@
   --color-on-secondary: #2b1a08;
   --color-secondary-container: #70461f;
   --color-on-secondary-container: #f6dfc4;
+  /* Unlike the light theme, plain text/icon use of this gold is already
+     fine against the dark surface (9.7:1) -- no darkening needed here. */
+  --color-secondary-strong: #e3b35f;
 
   --color-tertiary: #8fcb9e;
   --color-on-tertiary: #173528;
@@ -402,6 +422,17 @@ html {
 .custom-cursor,
 .custom-cursor * {
   cursor: none !important;
+}
+
+/* .bg-primary sections (hero/footer/CTA bands) are permanently dark ink in
+   both themes -- inside them, --color-secondary-strong should stay the
+   bright gold (already 9:1+ contrast on dark ink) rather than inherit the
+   light theme's darkened-for-the-cream-surface value, which would go the
+   wrong direction and become harder to read on a dark background instead
+   of easier. Custom properties cascade, so this one rule covers every
+   text-secondary-strong usage nested anywhere inside such a section. */
+.bg-primary {
+  --color-secondary-strong: var(--color-secondary-fixed-dim);
 }
 
 /* Lenis drives scroll physics itself once mounted — native CSS smooth

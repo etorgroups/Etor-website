@@ -78,7 +78,7 @@ export default function TestimonialCarousel({ testimonials }) {
               </div>
               <div className="text-left">
                 <p className="font-display text-headline-md text-on-surface leading-none">{current.name}</p>
-                <p className="font-body text-body-sm text-secondary mt-xs">{current.role}</p>
+                <p className="font-body text-body-sm text-secondary-strong mt-xs">{current.role}</p>
               </div>
             </div>
           </motion.div>

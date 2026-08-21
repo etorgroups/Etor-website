@@ -89,7 +89,13 @@ export default function About() {
         schema={ABOUT_SCHEMA}
       />
       {/* Origin */}
-      <section className="relative w-full h-screen min-h-[560px] flex items-center -mt-20 overflow-hidden">
+      {/* bg-primary here has no visible effect (the photo + scrim overlays
+          below fully cover it) -- it exists purely so --color-secondary-strong
+          resolves to the bright fixed-dim gold for the Eyebrow nested inside,
+          matching every other permanently-dark section (see index.css's
+          .bg-primary rule). Without it this hero would inherit the light
+          theme's cream-tuned darker gold, muted against a dark photo. */}
+      <section className="relative w-full h-screen min-h-[560px] flex items-center -mt-20 overflow-hidden bg-primary">
         <img
           src={heroStory}
           alt="ETOR Group planners reviewing the land"
@@ -191,7 +197,7 @@ export default function About() {
                   '2 FMC Awards for Excellence in Portfolio Management',
                 ].map((credential) => (
                   <li key={credential} className="flex items-start gap-xs font-body text-body-sm text-on-surface-variant">
-                    <span className="material-symbols-outlined text-secondary text-[18px] mt-0.5 shrink-0">check_circle</span>
+                    <span className="material-symbols-outlined text-secondary-strong text-[18px] mt-0.5 shrink-0">check_circle</span>
                     {credential}
                   </li>
                 ))}
@@ -200,7 +206,7 @@ export default function About() {
               <div className="space-y-md">
                 <div className="flex items-center gap-md">
                   <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-secondary">verified_user</span>
+                    <span className="material-symbols-outlined text-secondary-strong">verified_user</span>
                   </div>
                   <div>
                     <p className="font-body text-label-md text-on-surface">Accountability First</p>
@@ -211,7 +217,7 @@ export default function About() {
                 </div>
                 <div className="flex items-center gap-md">
                   <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-secondary">engineering</span>
+                    <span className="material-symbols-outlined text-secondary-strong">engineering</span>
                   </div>
                   <div>
                     <p className="font-body text-label-md text-on-surface">Hands-On Execution</p>
@@ -273,7 +279,7 @@ export default function About() {
                 href={VISWAGURU_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary-fixed-dim hover:text-secondary transition-colors"
+                className="inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary-fixed-dim hover:text-secondary-strong transition-colors"
               >
                 Visit Viswaguru World Records
                 <span className="material-symbols-outlined text-[18px]">arrow_outward</span>
@@ -362,7 +368,7 @@ export default function About() {
                 <span className="font-display text-display-lg text-secondary/20 absolute top-md right-lg leading-none">
                   {stage.step}
                 </span>
-                <p className="font-body text-label-md text-secondary uppercase tracking-widest mb-sm">
+                <p className="font-body text-label-md text-secondary-strong uppercase tracking-widest mb-sm">
                   {stage.period}
                 </p>
                 <h3 className="font-display text-headline-md text-on-surface mb-sm">{stage.title}</h3>
@@ -390,7 +396,7 @@ export default function About() {
                 className="p-md rounded-[1.5rem] bg-surface border border-outline-variant/20"
               >
                 <div className="w-11 h-11 mb-md bg-secondary/10 rounded-xl flex items-center justify-center">
-                  <span className="material-symbols-outlined text-secondary text-[22px]">{value.icon}</span>
+                  <span className="material-symbols-outlined text-secondary-strong text-[22px]">{value.icon}</span>
                 </div>
                 <h4 className="font-display text-headline-md text-on-surface mb-xs">{value.title}</h4>
                 <p className="font-body text-body-sm text-on-surface-variant leading-relaxed">{value.body}</p>
@@ -405,7 +411,7 @@ export default function About() {
         <div className="max-w-container-max mx-auto px-margin-mobile lg:px-xl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-xl">
             <Reveal tag="div">
-              <span className="material-symbols-outlined text-secondary text-[40px] mb-md block">target</span>
+              <span className="material-symbols-outlined text-secondary-strong text-[40px] mb-md block">target</span>
               <h3 className="font-display text-headline-lg text-on-primary mb-md">Our Mission</h3>
               <p className="font-body text-body-lg text-on-primary/70 leading-relaxed">
                 To redefine real estate investment through innovative, sustainable projects — offering a 100%
@@ -415,7 +421,7 @@ export default function About() {
             </Reveal>
 
             <Reveal tag="div" delay={0.1}>
-              <span className="material-symbols-outlined text-secondary text-[40px] mb-md block">visibility</span>
+              <span className="material-symbols-outlined text-secondary-strong text-[40px] mb-md block">visibility</span>
               <h3 className="font-display text-headline-lg text-on-primary mb-md">Our Vision</h3>
               <p className="font-body text-body-lg text-on-primary/70 leading-relaxed">
                 To be a recognized leader in land-led, sustainable real estate development — known for
@@ -440,7 +446,7 @@ export default function About() {
             {WHY_CHOOSE_US.map((item, index) => (
               <Reveal key={item.title} tag="div" delay={index * 0.06} className="flex gap-md">
                 <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-secondary">{item.icon}</span>
+                  <span className="material-symbols-outlined text-secondary-strong">{item.icon}</span>
                 </div>
                 <div>
                   <h4 className="font-display text-headline-md text-on-surface mb-xs">{item.title}</h4>
@@ -466,7 +472,7 @@ export default function About() {
             </p>
             <Link
               to="/other-ventures"
-              className="inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary shrink-0"
+              className="inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary-strong shrink-0"
             >
               See Other Ventures
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>

@@ -24,7 +24,7 @@ export default function PlotDetailPanel({ plot, cityTitle, onClose }) {
             <div className="p-lg space-y-lg">
               <div className="flex items-start justify-between">
                 <div>
-                  <p className="font-body text-label-md text-secondary uppercase tracking-widest">{cityTitle}</p>
+                  <p className="font-body text-label-md text-secondary-strong uppercase tracking-widest">{cityTitle}</p>
                   <h3 className="font-display text-headline-lg text-on-surface mt-xs">
                     Plot {plot.number}
                   </h3>

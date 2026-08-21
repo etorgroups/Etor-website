@@ -79,7 +79,7 @@ function OtherAppsMenu({ className = '' }) {
         aria-expanded={open}
         aria-label="Other ETOR apps"
         title="Other ETOR apps"
-        className="flex items-center justify-center w-9 h-9 rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary transition-colors"
+        className="flex items-center justify-center w-9 h-9 rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary-strong transition-colors"
       >
         <span className="material-symbols-outlined text-[18px]">apps</span>
       </button>
@@ -223,7 +223,7 @@ export default function Header() {
               end={link.to === '/'}
               className={({ isActive }) =>
                 `nav-underline whitespace-nowrap font-body text-[13px] 2xl:text-label-md uppercase tracking-wide 2xl:tracking-widest transition-colors ${
-                  isActive ? 'text-secondary font-bold' : 'text-on-surface-variant hover:text-secondary'
+                  isActive ? 'text-secondary-strong font-bold' : 'text-on-surface-variant hover:text-secondary-strong'
                 }`
               }
             >
@@ -239,7 +239,7 @@ export default function Header() {
             download
             aria-label="Download master plan"
             title="Download master plan"
-            className="hidden xl:inline-flex items-center gap-xs px-sm py-xs rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary transition-colors font-body text-label-md uppercase tracking-widest whitespace-nowrap"
+            className="hidden xl:inline-flex items-center gap-xs px-sm py-xs rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary-strong transition-colors font-body text-label-md uppercase tracking-widest whitespace-nowrap"
           >
             <span className="material-symbols-outlined text-[18px]">download</span>
           </a> */}
@@ -247,7 +247,7 @@ export default function Header() {
             type="button"
             onClick={() => window.dispatchEvent(new CustomEvent('command-palette:toggle'))}
             aria-label="Open quick navigation"
-            className="hidden sm:flex lg:hidden min-[1080px]:flex! items-center gap-xs px-sm py-xs rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary transition-colors"
+            className="hidden sm:flex lg:hidden min-[1080px]:flex! items-center gap-xs px-sm py-xs rounded-full border border-outline-variant/40 hover:border-secondary/60 text-on-surface-variant hover:text-secondary-strong transition-colors"
           >
             <span className="material-symbols-outlined text-[18px]">search</span>
             <kbd className="hidden xl:inline font-body text-[10px] uppercase tracking-wider">⌘K</kbd>
@@ -316,7 +316,7 @@ export default function Header() {
                     end={link.to === '/'}
                     className={({ isActive }) =>
                       `block py-[1.35rem] font-body text-label-md uppercase tracking-widest border-b border-outline-variant/20 ${
-                        isActive ? 'text-secondary' : 'text-on-surface-variant'
+                        isActive ? 'text-secondary-strong' : 'text-on-surface-variant'
                       }`
                     }
                   >
@@ -372,7 +372,7 @@ export default function Header() {
                 <span className="font-body text-label-md uppercase tracking-widest text-on-surface-variant">
                   Download Master Plan
                 </span>
-                <span className="material-symbols-outlined text-secondary">download</span>
+                <span className="material-symbols-outlined text-secondary-strong">download</span>
               </motion.a> */}
               {/* Play store CTA removed */}
               <motion.button
@@ -384,7 +384,7 @@ export default function Header() {
                 <span className="font-body text-label-md uppercase tracking-widest text-on-surface-variant">
                   Quick Search
                 </span>
-                <span className="material-symbols-outlined text-secondary">search</span>
+                <span className="material-symbols-outlined text-secondary-strong">search</span>
               </motion.button>
               <motion.div variants={MENU_ROW_VARIANTS} className="flex items-center justify-between pt-[0.9rem]">
                 <span className="font-body text-label-md uppercase tracking-widest text-on-surface-variant">

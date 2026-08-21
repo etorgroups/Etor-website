@@ -83,7 +83,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="hover:text-secondary transition-colors"
+                  className="hover:text-secondary-strong transition-colors"
                 >
                   <SocialIcon name={s.icon} className="w-5 h-5" />
                 </a>

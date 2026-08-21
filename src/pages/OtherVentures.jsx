@@ -72,7 +72,7 @@ export default function OtherVentures() {
               ETOR Group also operates outside land and agriculture — in ROI, gaming, forex,
               crypto and broader ventures. These sit apart from the ETOR City programme, which
               is why they're kept here rather than mixed into the{' '}
-              <Link to="/services" className="underline hover:text-secondary">
+              <Link to="/services" className="underline hover:text-secondary-strong">
                 Living Assets
               </Link>{' '}
               page.
@@ -102,7 +102,7 @@ export default function OtherVentures() {
 
                 <div className="relative z-10">
                   <div className="w-14 h-14 mb-lg rounded-2xl bg-secondary/20 flex items-center justify-center">
-                    <span className="material-symbols-outlined text-secondary text-[28px]">{venture.icon}</span>
+                    <span className="material-symbols-outlined text-secondary-strong text-[28px]">{venture.icon}</span>
                   </div>
                   <h3 className="font-display text-headline-md text-on-primary mb-sm">{venture.name}</h3>
                   <p className="font-body text-body-sm text-on-primary/70 leading-relaxed">{venture.description}</p>
@@ -110,7 +110,7 @@ export default function OtherVentures() {
 
                 <Link
                   to="/contact"
-                  className="relative z-10 inline-flex items-center gap-sm font-body text-label-md uppercase tracking-widest text-secondary"
+                  className="relative z-10 inline-flex items-center gap-sm font-body text-label-md uppercase tracking-widest text-secondary-strong"
                 >
                   Ask about this
                   <span className="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">

@@ -81,7 +81,7 @@ export default function ExploreNowTab() {
                   className="w-full flex items-center justify-between gap-sm px-md py-sm text-left font-body text-body-sm text-on-surface hover:bg-surface-container-low transition-colors"
                 >
                   <span className="flex items-center gap-sm">
-                    <span className="material-symbols-outlined text-[18px] text-secondary">play_circle</span>
+                    <span className="material-symbols-outlined text-[18px] text-secondary-strong">play_circle</span>
                     {video.title}
                   </span>
                   <span className="material-symbols-outlined text-[16px] text-on-surface-variant">

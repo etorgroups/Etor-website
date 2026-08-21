@@ -100,7 +100,7 @@ export default function CommandPalette() {
               key={page.to}
               onSelect={() => go(page.to)}
               keywords={page.keywords}
-              className="flex items-center gap-sm px-md py-sm rounded-lg cursor-pointer font-body text-body-sm text-on-surface data-[selected=true]:bg-secondary/10 data-[selected=true]:text-secondary"
+              className="flex items-center gap-sm px-md py-sm rounded-lg cursor-pointer font-body text-body-sm text-on-surface data-[selected=true]:bg-secondary/10 data-[selected=true]:text-secondary-strong"
             >
               <span className="material-symbols-outlined text-[18px]">{page.icon}</span>
               {page.label}
@@ -113,7 +113,7 @@ export default function CommandPalette() {
             <Command.Item
               key={id}
               onSelect={() => go(`/projects/${id}/layouts`)}
-              className="flex items-center gap-sm px-md py-sm rounded-lg cursor-pointer font-body text-body-sm text-on-surface data-[selected=true]:bg-secondary/10 data-[selected=true]:text-secondary"
+              className="flex items-center gap-sm px-md py-sm rounded-lg cursor-pointer font-body text-body-sm text-on-surface data-[selected=true]:bg-secondary/10 data-[selected=true]:text-secondary-strong"
             >
               <span className="material-symbols-outlined text-[18px]">map</span>
               {meta.title}
@@ -128,7 +128,7 @@ export default function CommandPalette() {
               toggleTheme()
               setOpen(false)
             }}
-            className="flex items-center gap-sm px-md py-sm rounded-lg cursor-pointer font-body text-body-sm text-on-surface data-[selected=true]:bg-secondary/10 data-[selected=true]:text-secondary"
+            className="flex items-center gap-sm px-md py-sm rounded-lg cursor-pointer font-body text-body-sm text-on-surface data-[selected=true]:bg-secondary/10 data-[selected=true]:text-secondary-strong"
           >
             <span className="material-symbols-outlined text-[18px]">contrast</span>
             Toggle light / dark theme

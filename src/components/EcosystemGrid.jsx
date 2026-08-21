@@ -56,7 +56,7 @@ export default function EcosystemGrid({ pillars }) {
                 />
                 <span
                   className={`material-symbols-outlined text-[32px] ${
-                    pillar.highlight ? 'text-on-secondary' : 'text-secondary'
+                    pillar.highlight ? 'text-on-secondary' : 'text-secondary-strong'
                   }`}
                 >
                   {pillar.icon}

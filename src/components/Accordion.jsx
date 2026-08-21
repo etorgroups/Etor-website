@@ -20,7 +20,7 @@ export default function Accordion({ items }) {
             >
               <span className="font-display text-headline-md text-on-surface">{item.question}</span>
               <span
-                className="material-symbols-outlined text-secondary shrink-0 transition-transform duration-300"
+                className="material-symbols-outlined text-secondary-strong shrink-0 transition-transform duration-300"
                 style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
               >
                 expand_more

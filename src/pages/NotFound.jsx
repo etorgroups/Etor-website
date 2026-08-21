@@ -8,7 +8,7 @@ export default function NotFound() {
     <section className="min-h-[70vh] flex items-center justify-center bg-background">
       <SEO title="Page Not Found" description="The page you're looking for doesn't exist or has been moved." path="/404" noindex />
       <Reveal tag="div" className="max-w-[32rem] text-center px-margin-mobile">
-        <p className="font-display text-display-lg text-secondary mb-md">404</p>
+        <p className="font-display text-display-lg text-secondary-strong mb-md">404</p>
         <h1 className="font-display text-headline-xl text-on-surface mb-md">This page has wandered off the plantation.</h1>
         <p className="font-body text-body-lg text-on-surface-variant mb-xl">
           The page you're looking for doesn't exist or has been moved.
@@ -31,7 +31,7 @@ export default function NotFound() {
         </div>
         <Link
           to="/contact"
-          className="mt-lg inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary hover:text-secondary-container transition-colors"
+          className="mt-lg inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary-strong hover:text-secondary-container transition-colors"
         >
           Or contact us directly
           <span className="material-symbols-outlined text-[18px]">arrow_forward</span>

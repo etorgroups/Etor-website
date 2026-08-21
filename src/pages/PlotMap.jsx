@@ -60,7 +60,7 @@ export default function PlotMap() {
             <div>
               <Link
                 to="/projects"
-                className="flex w-fit items-center gap-xs font-body text-label-md text-on-surface-variant hover:text-secondary transition-colors mb-sm"
+                className="flex w-fit items-center gap-xs font-body text-label-md text-on-surface-variant hover:text-secondary-strong transition-colors mb-sm"
               >
                 <span className="material-symbols-outlined text-[18px]">arrow_back</span>
                 Back to All Projects
@@ -97,7 +97,7 @@ export default function PlotMap() {
                 href={meta.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-sm px-lg py-sm bg-surface border border-outline-variant/40 text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:border-secondary/60 hover:text-secondary transition-colors shrink-0"
+                className="inline-flex items-center gap-sm px-lg py-sm bg-surface border border-outline-variant/40 text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:border-secondary/60 hover:text-secondary-strong transition-colors shrink-0"
               >
                 Directions
                 <span className="material-symbols-outlined text-[18px]">directions</span>

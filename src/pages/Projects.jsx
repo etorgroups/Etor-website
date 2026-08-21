@@ -97,7 +97,7 @@ export default function Projects() {
             <Eyebrow>Our Portfolio</Eyebrow>
             <h1 className="font-serif-display text-display-lg-mobile lg:text-display-lg text-on-surface mt-md">
               Find your place in the <br />
-              <span className="text-secondary">ETOR City</span> story
+              <span className="text-secondary-strong">ETOR City</span> story
             </h1>
           </Reveal>
 
@@ -111,7 +111,7 @@ export default function Projects() {
                 className={`px-lg py-sm rounded-full font-body text-label-md uppercase tracking-widest transition-colors ${
                   filter === item.value
                     ? 'bg-primary text-on-primary'
-                    : 'bg-surface text-on-surface-variant hover:text-secondary border border-outline-variant/40'
+                    : 'bg-surface text-on-surface-variant hover:text-secondary-strong border border-outline-variant/40'
                 }`}
               >
                 {item.label}
@@ -211,7 +211,7 @@ export default function Projects() {
           <Reveal tag="div" className="grid grid-cols-1 md:grid-cols-2 gap-md max-w-[48rem] mx-auto">
             {PACKAGE_PERKS.map((perk) => (
               <div key={perk} className="flex items-center gap-sm p-md rounded-xl bg-surface border border-outline-variant/20">
-                <span className="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+                <span className="material-symbols-outlined text-secondary-strong text-[20px]">check_circle</span>
                 <span className="font-body text-body-sm text-on-surface">{perk}</span>
               </div>
             ))}

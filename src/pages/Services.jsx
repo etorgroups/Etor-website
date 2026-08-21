@@ -76,7 +76,7 @@ export default function Services() {
                 tag="h1"
                 className="font-serif-display text-display-lg-mobile lg:text-display-lg text-on-surface leading-tight"
               >
-                Land, cultivation and <span className="text-secondary">long-term value.</span>
+                Land, cultivation and <span className="text-secondary-strong">long-term value.</span>
               </KineticHeadline>
               <MaskReveal tag="p" className="font-body text-body-lg text-on-surface-variant max-w-[36rem]">
                 ETOR City sits at the centre of ETOR Group's living-asset portfolio: managed land, orchards
@@ -96,7 +96,7 @@ export default function Services() {
                 </MagneticButton>
                 <div className="flex items-center gap-sm">
                   <div className="w-10 h-10 rounded-full bg-secondary/10 border-2 border-surface flex items-center justify-center">
-                    <span className="material-symbols-outlined text-secondary text-[22px]">verified</span>
+                    <span className="material-symbols-outlined text-secondary-strong text-[22px]">verified</span>
                   </div>
                   <span className="font-body text-body-sm text-on-surface-variant">100% Cashback — programme term</span>
                 </div>
@@ -138,7 +138,7 @@ export default function Services() {
             </p>
             <Link
               to="/other-ventures"
-              className="inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary shrink-0"
+              className="inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary-strong shrink-0"
             >
               See Other Ventures
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -170,7 +170,7 @@ export default function Services() {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-surface rounded-2xl p-md shadow-xl flex items-center gap-sm">
-                <span className="material-symbols-outlined text-secondary">verified</span>
+                <span className="material-symbols-outlined text-secondary-strong">verified</span>
                 <div>
                   <p className="font-body text-label-md text-on-surface leading-none">100% Organic</p>
                   <p className="font-body text-body-sm text-on-surface-variant">Certified Quality</p>
@@ -189,7 +189,7 @@ export default function Services() {
               <div className="grid grid-cols-2 gap-md">
                 {DAIRY_FACTS.map((fact) => (
                   <div key={fact.title} className="flex items-start gap-sm">
-                    <span className="material-symbols-outlined text-secondary shrink-0">{fact.icon}</span>
+                    <span className="material-symbols-outlined text-secondary-strong shrink-0">{fact.icon}</span>
                     <div>
                       <p className="font-body text-label-md text-on-primary">{fact.title}</p>
                       <p className="font-body text-body-sm text-on-primary/60">{fact.body}</p>
@@ -215,7 +215,7 @@ export default function Services() {
                       <tr key={tier.area} className="border-t border-on-primary/10">
                         <td className="py-xs pr-md text-on-primary">{tier.area}</td>
                         <td className="py-xs pr-md text-on-primary/70">{tier.cows}</td>
-                        <td className="py-xs text-secondary font-medium">{tier.monthly}</td>
+                        <td className="py-xs text-secondary-strong font-medium">{tier.monthly}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -276,7 +276,7 @@ export default function Services() {
                       <td className="py-sm pr-md text-on-surface-variant">{tier.dragonFruit} plants</td>
                       <td className="py-sm pr-md text-on-surface-variant">{tier.miyazaki} plants</td>
                       <td className="py-sm pr-md text-on-surface-variant">{tier.investment}</td>
-                      <td className="py-sm text-secondary font-medium">{tier.roi12yr}</td>
+                      <td className="py-sm text-secondary-strong font-medium">{tier.roi12yr}</td>
                     </tr>
                   ))}
                 </tbody>

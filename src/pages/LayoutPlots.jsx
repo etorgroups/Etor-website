@@ -56,7 +56,7 @@ export default function LayoutPlots() {
     return (
       <div className="flex flex-col w-full py-xl text-center">
         <p className="font-body text-body-lg text-on-surface-variant mb-md">That layout couldn't be found.</p>
-        <Link to={`/projects/${cityId}/layouts`} className="text-secondary underline">
+        <Link to={`/projects/${cityId}/layouts`} className="text-secondary-strong underline">
           View {meta.title} layouts
         </Link>
       </div>
@@ -81,7 +81,7 @@ export default function LayoutPlots() {
             <div>
               <Link
                 to={`/projects/${cityId}/layouts`}
-                className="flex w-fit items-center gap-xs font-body text-label-md text-on-surface-variant hover:text-secondary transition-colors mb-sm"
+                className="flex w-fit items-center gap-xs font-body text-label-md text-on-surface-variant hover:text-secondary-strong transition-colors mb-sm"
               >
                 <span className="material-symbols-outlined text-[18px]">arrow_back</span>
                 {siblingCount > 1 ? `All ${meta.title} Layouts` : 'Back to Projects'}
@@ -99,7 +99,7 @@ export default function LayoutPlots() {
               </p>
               <p className="font-body text-body-sm text-on-surface-variant mt-xs">
                 This plot is managed by ETOR for 33 years — your benefit is sized to what you choose.{' '}
-                <Link to="/services" className="text-secondary hover:underline">
+                <Link to="/services" className="text-secondary-strong hover:underline">
                   See dairy & plantation tiers →
                 </Link>
               </p>
@@ -130,7 +130,7 @@ export default function LayoutPlots() {
                 href={layout.directionsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-sm px-lg py-sm bg-surface border border-outline-variant/40 text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:border-secondary/60 hover:text-secondary transition-colors shrink-0"
+                className="inline-flex items-center gap-sm px-lg py-sm bg-surface border border-outline-variant/40 text-on-surface rounded-full font-body text-label-md uppercase tracking-widest hover:border-secondary/60 hover:text-secondary-strong transition-colors shrink-0"
               >
                 Directions
                 <span className="material-symbols-outlined text-[18px]">directions</span>
@@ -175,7 +175,7 @@ export default function LayoutPlots() {
             </p>
             <Link
               to="/contact"
-              className="shrink-0 inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary"
+              className="shrink-0 inline-flex items-center gap-xs font-body text-label-md uppercase tracking-widest text-secondary-strong"
             >
               Ask About a Plot
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>

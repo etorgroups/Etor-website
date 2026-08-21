@@ -102,7 +102,7 @@ export default function InvestmentCalculator() {
             <div className="min-w-0">
               <AnimatedCurrency
                 value={monthlyCashback}
-                className="font-display text-headline-md text-secondary block whitespace-nowrap"
+                className="font-display text-headline-md text-secondary-strong block whitespace-nowrap"
               />
               <p className="font-body text-body-sm text-on-surface-variant">Cashback / month</p>
             </div>
@@ -125,7 +125,7 @@ export default function InvestmentCalculator() {
           </div>
 
           <div className="flex flex-col gap-3 p-md rounded-xl bg-surface border border-outline-variant/20 mb-lg sm:flex-row sm:items-start">
-            <span className="material-symbols-outlined text-secondary">eco</span>
+            <span className="material-symbols-outlined text-secondary-strong">eco</span>
             <p className="font-body text-body-sm text-on-surface">
               This package's stated yield potential:{' '}
               <span className="font-display text-on-surface">{pkg.statedYield}</span>

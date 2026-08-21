@@ -215,7 +215,7 @@ export default function PlotMapCanvas({ cityMap, panZoom, statusFilter, selected
           type="button"
           onClick={panZoom.zoomIn}
           aria-label="Zoom in"
-          className="w-10 h-10 rounded-full bg-surface shadow-md border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary hover:border-secondary/60 transition-colors"
+          className="w-10 h-10 rounded-full bg-surface shadow-md border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary-strong hover:border-secondary/60 transition-colors"
         >
           <span className="material-symbols-outlined text-[20px]">add</span>
         </button>
@@ -223,7 +223,7 @@ export default function PlotMapCanvas({ cityMap, panZoom, statusFilter, selected
           type="button"
           onClick={panZoom.zoomOut}
           aria-label="Zoom out"
-          className="w-10 h-10 rounded-full bg-surface shadow-md border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary hover:border-secondary/60 transition-colors"
+          className="w-10 h-10 rounded-full bg-surface shadow-md border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary-strong hover:border-secondary/60 transition-colors"
         >
           <span className="material-symbols-outlined text-[20px]">remove</span>
         </button>
@@ -231,7 +231,7 @@ export default function PlotMapCanvas({ cityMap, panZoom, statusFilter, selected
           type="button"
           onClick={() => panZoom.fit(cityMap.canvas.width, cityMap.canvas.height)}
           aria-label="Reset view"
-          className="w-10 h-10 rounded-full bg-surface shadow-md border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary hover:border-secondary/60 transition-colors"
+          className="w-10 h-10 rounded-full bg-surface shadow-md border border-outline-variant/40 flex items-center justify-center text-on-surface hover:text-secondary-strong hover:border-secondary/60 transition-colors"
         >
           <span className="material-symbols-outlined text-[20px]">filter_center_focus</span>
         </button>
@@ -257,7 +257,7 @@ export default function PlotMapCanvas({ cityMap, panZoom, statusFilter, selected
                 Plot {hover.plot.number} · {hover.plot.block}
               </p>
             </div>
-            <p className="font-body text-body-sm text-secondary font-semibold">
+            <p className="font-body text-body-sm text-secondary-strong font-semibold">
               {PLOT_STATUS[hover.plot.status].label}
             </p>
             {hover.plot.status === 'sold' && (

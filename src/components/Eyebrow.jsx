@@ -1,7 +1,7 @@
 // Small pulsing-dot pill label used above headlines throughout the site.
 export default function Eyebrow({ children, tone = 'light' }) {
   const tones = {
-    light: 'border-secondary text-secondary',
+    light: 'border-secondary text-secondary-strong',
     dark: 'border-secondary-fixed-dim text-secondary-fixed-dim',
   }
 

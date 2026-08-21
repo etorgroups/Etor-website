@@ -129,7 +129,7 @@ export default function Contact() {
             tag="h1"
             className="font-serif-display text-display-lg-mobile lg:text-display-lg text-on-primary mt-md mb-md"
           >
-            Start a Conversation with <span className="text-secondary">ETOR Group</span>
+            Start a Conversation with <span className="text-secondary-strong">ETOR Group</span>
           </KineticHeadline>
           <MaskReveal tag="p" className="font-body text-body-lg text-on-primary/70">
             Whether you're exploring an investment, a partnership, or just curious about our ventures, our team
@@ -150,7 +150,7 @@ export default function Contact() {
             >
               {status === 'success' && (
                 <div className="mb-lg p-md rounded-xl bg-secondary/10 border border-secondary/30 flex items-center gap-sm">
-                  <span className="material-symbols-outlined text-secondary">check_circle</span>
+                  <span className="material-symbols-outlined text-secondary-strong">check_circle</span>
                   <p className="font-body text-body-sm text-on-surface">
                     Thanks — your message has been received. Our team will reach out shortly.
                   </p>
@@ -159,7 +159,7 @@ export default function Contact() {
 
               {status === 'fallback' && (
                 <div className="mb-lg p-md rounded-xl bg-secondary/10 border border-secondary/30 flex items-start gap-sm">
-                  <span className="material-symbols-outlined text-secondary">mail</span>
+                  <span className="material-symbols-outlined text-secondary-strong">mail</span>
                   <p className="font-body text-body-sm text-on-surface">
                     We've opened your email app with your message ready to send — just hit send there. If
                     nothing opened, email us directly at{' '}
@@ -290,7 +290,7 @@ export default function Contact() {
             <Reveal tag="div" delay={0.15} x={30} y={0} className="lg:col-span-2 space-y-md">
               <div className="p-lg rounded-[1.5rem] bg-surface-container-low border border-outline-variant/20 hover:border-secondary/40 transition-colors">
                 <div className="flex items-center gap-sm mb-md">
-                  <span className="material-symbols-outlined text-secondary">location_on</span>
+                  <span className="material-symbols-outlined text-secondary-strong">location_on</span>
                   <h3 className="font-display text-headline-md text-on-surface">Visakhapatnam HQ</h3>
                 </div>
                 <p className="font-body text-body-sm text-on-surface-variant mb-md">
@@ -299,23 +299,23 @@ export default function Contact() {
                 <div className="space-y-xs">
                   <a
                     href={`tel:${COMPANY.phone.replace(/\s/g, '')}`}
-                    className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary transition-colors"
+                    className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary-strong transition-colors"
                   >
-                    <span className="material-symbols-outlined text-[18px] text-secondary">call</span>
+                    <span className="material-symbols-outlined text-[18px] text-secondary-strong">call</span>
                     {COMPANY.phone}
                   </a>
                   <a
                     href={`mailto:${COMPANY.email}`}
-                    className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary transition-colors"
+                    className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary-strong transition-colors"
                   >
-                    <span className="material-symbols-outlined text-[18px] text-secondary">mail</span>
+                    <span className="material-symbols-outlined text-[18px] text-secondary-strong">mail</span>
                     {COMPANY.email}
                   </a>
                   <a
                     href={`https://${COMPANY.website}`}
-                    className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary transition-colors"
+                    className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary-strong transition-colors"
                   >
-                    <span className="material-symbols-outlined text-[18px] text-secondary">language</span>
+                    <span className="material-symbols-outlined text-[18px] text-secondary-strong">language</span>
                     {COMPANY.website}
                   </a>
                 </div>
@@ -329,9 +329,9 @@ export default function Contact() {
                   <a
                     href={publicUrl('downloads/etor-city-master-plan.pdf')}
                     download
-                    className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary transition-colors"
+                    className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary-strong transition-colors"
                   >
-                    <span className="material-symbols-outlined text-[18px] text-secondary">download</span>
+                    <span className="material-symbols-outlined text-[18px] text-secondary-strong">download</span>
                     Download the Master Plan
                   </a>
                 )}
@@ -339,15 +339,15 @@ export default function Contact() {
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary transition-colors"
+                  className="flex items-center gap-sm font-body text-body-sm text-on-surface hover:text-secondary-strong transition-colors"
                 >
-                  <SocialIcon name="whatsapp" className="w-[18px] h-[18px] text-secondary" />
+                  <SocialIcon name="whatsapp" className="w-[18px] h-[18px] text-secondary-strong" />
                   Chat on WhatsApp
                 </a>
               </div>
 
               <div className="p-lg rounded-[1.5rem] bg-primary text-on-primary">
-                <p className="font-body text-label-md uppercase tracking-widest text-secondary mb-md">Follow Us</p>
+                <p className="font-body text-label-md uppercase tracking-widest text-secondary-strong mb-md">Follow Us</p>
                 <div className="flex gap-md">
                   {COMPANY.social.map((s) => (
                     <a

@@ -79,7 +79,7 @@ export default function CookieConsent() {
         >
           <p className="font-body text-[12px] sm:text-[12px] text-on-surface-variant leading-snug sm:whitespace-nowrap">
             We use minimal cookies. See{' '}
-            <Link to="/privacy" className="text-secondary underline underline-offset-2">
+            <Link to="/privacy" className="text-secondary-strong underline underline-offset-2">
               Privacy Policy
             </Link>
             .

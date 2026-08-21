@@ -4,7 +4,7 @@ import { getActivityFeed } from '../data/plotMap'
 function Chip({ item, isLast }) {
   return (
     <div className="flex items-center gap-xs px-lg font-body text-body-sm text-on-surface-variant whitespace-nowrap">
-      <span className="material-symbols-outlined text-secondary text-[16px]">{item.icon}</span>
+      <span className="material-symbols-outlined text-secondary-strong text-[16px]">{item.icon}</span>
       {item.text}
       {!isLast && (
         <span className="text-outline-variant ml-lg" aria-hidden="true">
