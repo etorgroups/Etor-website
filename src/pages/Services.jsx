@@ -308,7 +308,14 @@ export default function Services() {
       </section>
 
       {/* Investment CTA */}
-      <section className="relative py-xl overflow-hidden bg-secondary">
+      {/* A flat solid fill this large reads flat no matter how good the
+          underlying color is -- a soft directional highlight plus a gentle
+          opposite-corner vignette is what turns a "color swatch" into
+          something with real depth, the same treatment premium banner/CTA
+          sections use instead of a dead-flat fill. */}
+      <section
+        className="relative py-xl overflow-hidden bg-secondary bg-[radial-gradient(circle_at_18%_-15%,rgb(255_255_255_/_0.22),transparent_60%),radial-gradient(circle_at_100%_115%,rgb(0_0_0_/_0.2),transparent_55%)]"
+      >
         <Reveal tag="div" className="relative z-10 max-w-container-max mx-auto px-margin-mobile lg:px-xl text-center">
           <h2 className="font-serif-display text-display-lg-mobile lg:text-display-lg text-on-secondary mb-md">
             Ready when you are.

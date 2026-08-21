@@ -13,11 +13,15 @@
                             the same deep green private members' clubs and
                             century-old retailers use for permanence, not a
                             generic "success" green
-     Both secondary and tertiary were previously under-saturated (secondary
-     read as plain brown, tertiary as washed sage) — richer saturation at the
-     same or deeper lightness is what separates "premium metallic/emerald"
-     from "muddy," while keeping contrast ratios equal or better (verified
-     against white and the cream surface below, all ≥4.5:1). Neutrals lean a
+     Secondary and tertiary were both previously under-saturated (secondary
+     read as plain brown, tertiary as washed sage). Tertiary's fix was a
+     straight saturation/lightness bump. Secondary's needed a structural
+     fix, not just a hue tweak: a fill dark enough to hold contrast against
+     WHITE text can never be bright enough to read as real gold, so no
+     amount of hue-shifting a dark fill escapes "brown." The dark theme
+     already had the right pattern (bright gold fill + dark ink text) —
+     secondary now uses that same pattern in both themes. See the secondary
+     token below for the actual values/contrast numbers. Neutrals lean a
      hair warm (not pure gray) on purpose, in both themes — warm undertones
      are what let a bronze/gold accent sit comfortably against the surface
      instead of fighting it the way a cool-gray neutral would. */
@@ -36,7 +40,7 @@
   --color-inverse-on-surface: #f8f2e9;
   --color-outline: #7a7167;
   --color-outline-variant: #cdc2b5;
-  --color-surface-tint: #8c5e26;
+  --color-surface-tint: #c6963c;
 
   --color-primary: #1c1916;
   --color-on-primary: #fffaf2;
@@ -44,17 +48,23 @@
   --color-on-primary-container: #d8cec2;
   --color-inverse-primary: #e7d8c4;
 
-  /* Bronze/gold accent sampled and richened from the ETOR coin logo. The
-     old #86562d (28° hue, 50% sat) sat right in "muddy brown" territory —
-     WCAG research on rich vs. cheap-looking gold puts the muddy threshold
-     around 50% lightness combined with under ~55% saturation. This is
-     hue 33°/57% sat at the same 35% lightness: warmer and more saturated
-     without losing contrast (5.6:1 on white, 5.0:1 on the cream surface
-     below, both still comfortably above the 4.5:1 AA floor). */
-  --color-secondary: #8c5e26;
-  --color-on-secondary: #ffffff;
-  --color-secondary-container: #f2ddc6;
-  --color-on-secondary-container: #4a280e;
+  /* Bronze/gold accent sampled and richened from the ETOR coin logo.
+     A fill dark enough to hold 4.5:1 contrast against WHITE text can never
+     be bright enough to actually read as "gold" — that ceiling is what kept
+     every earlier attempt (including one still tuned for white-on-fill) in
+     muddy-brown territory no matter how much the hue/saturation shifted.
+     The dark theme below already had the right answer: a genuinely bright
+     gold fill with DARK ink text on top, not white. This brings the light
+     theme in line with that same pattern — #c6963c reads as real metallic
+     gold, and on-secondary flips to a dark warm ink (6.2:1 contrast on the
+     fill, well past the 4.5:1 AA floor; the fill itself sits at 2.4:1
+     against the cream surface, which is a visual "how much does it pop"
+     number rather than a text-contrast requirement, and is not a concern
+     given every filled use also carries a border/shadow). */
+  --color-secondary: #c6963c;
+  --color-on-secondary: #2b1a08;
+  --color-secondary-container: #f3e2c6;
+  --color-on-secondary-container: #4a3410;
 
   /* Deep emerald — the heritage/land signal (badges, ratings, plot-count
      stats), reserved for premium moments so it stays a signal, not
@@ -80,9 +90,9 @@
   --color-on-primary-fixed: #2b2119;
   --color-on-primary-fixed-variant: #554233;
 
-  --color-secondary-fixed: #f2ddc6;
-  --color-secondary-fixed-dim: #dfb27f;
-  --color-on-secondary-fixed: #3a1e08;
+  --color-secondary-fixed: #f0dab0;
+  --color-secondary-fixed-dim: #e3b35f;
+  --color-on-secondary-fixed: #2b1a08;
   --color-on-secondary-fixed-variant: #72451e;
 
   --color-tertiary-fixed: #dbe8db;
@@ -233,10 +243,13 @@
   --color-inverse-on-surface: #211d18;
   --color-outline: #9a8e81;
   --color-outline-variant: #4a4139;
-  --color-surface-tint: #dfb27f;
+  --color-surface-tint: #e3b35f;
 
-  --color-secondary: #dfb27f;
-  --color-on-secondary: #35200d;
+  /* Same dark-ink-on-bright-gold pattern as the light theme's secondary
+     (richened to match) -- this role already had the right idea, it just
+     needed the same saturation bump. */
+  --color-secondary: #e3b35f;
+  --color-on-secondary: #2b1a08;
   --color-secondary-container: #70461f;
   --color-on-secondary-container: #f6dfc4;
 
@@ -411,7 +424,7 @@ html.lenis[data-lenis-stopped] {
     padding: 0;
     background-color: var(--color-background);
     color: var(--color-on-background);
-    background-image: radial-gradient(circle at 12% 2%, rgb(140 94 38 / 0.07), transparent 28rem);
+    background-image: radial-gradient(circle at 12% 2%, rgb(198 150 60 / 0.07), transparent 28rem);
   }
 
   body {
