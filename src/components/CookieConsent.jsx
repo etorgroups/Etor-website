@@ -75,27 +75,27 @@ export default function CookieConsent() {
           exit={{ opacity: 0, y: 16, scale: 0.96 }}
           transition={{ type: 'spring', stiffness: 260, damping: 26 }}
           style={{ pointerEvents: forceHidden || recede ? 'none' : 'auto' }}
-          className="fixed bottom-3 left-3 sm:bottom-4 sm:left-4 z-50 w-[calc(100%-1.5rem)] max-w-[15rem] sm:max-w-fit surface-panel rounded-2xl sm:rounded-full p-sm sm:py-xs sm:pl-md sm:pr-xs shadow-2xl sm:flex sm:items-center sm:gap-sm"
+          className="fixed bottom-3 left-3 sm:bottom-4 sm:left-4 z-50 w-[calc(100%-1.5rem)] max-w-[19rem] sm:max-w-fit surface-panel rounded-2xl sm:rounded-full p-md sm:py-sm sm:pl-lg sm:pr-xs shadow-2xl sm:flex sm:items-center sm:gap-md"
         >
-          <p className="font-body text-[12px] sm:text-[12px] text-on-surface-variant leading-snug sm:whitespace-nowrap">
+          <p className="font-body text-body-sm text-on-surface-variant leading-snug sm:whitespace-nowrap">
             We use minimal cookies. See{' '}
             <Link to="/privacy" className="text-secondary-strong underline underline-offset-2">
               Privacy Policy
             </Link>
             .
           </p>
-          <div className="flex gap-xs mt-sm sm:mt-0 shrink-0">
+          <div className="flex gap-sm mt-sm sm:mt-0 shrink-0">
             <button
               type="button"
               onClick={() => choose('accepted')}
-              className="flex-1 sm:flex-initial px-sm py-xs rounded-full bg-secondary text-on-secondary font-body text-[11px] uppercase tracking-widest hover:opacity-90 transition-opacity whitespace-nowrap"
+              className="flex-1 sm:flex-initial px-md py-xs rounded-full bg-secondary text-on-secondary font-body text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity whitespace-nowrap"
             >
               Accept
             </button>
             <button
               type="button"
               onClick={() => choose('declined')}
-              className="flex-1 sm:flex-initial px-sm py-xs rounded-full border border-outline-variant text-on-surface-variant font-body text-[11px] uppercase tracking-widest hover:bg-surface-container transition-colors whitespace-nowrap"
+              className="flex-1 sm:flex-initial px-md py-xs rounded-full border border-outline-variant text-on-surface-variant font-body text-label-md uppercase tracking-widest hover:bg-surface-container transition-colors whitespace-nowrap"
             >
               Decline
             </button>
