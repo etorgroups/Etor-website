@@ -61,12 +61,18 @@ export default function Preloader() {
       },
     })
 
-    tl.from(logoRef.current, { opacity: 0, scale: 0.85, duration: 0.5, ease: 'expo.out' })
+    // Real content (hero photo, headline) is fully loaded and painted behind
+    // this overlay well before the timeline finishes -- the 2.5s the old
+    // durations added up to (0.5 + 1.1 + 0.2 + 0.7) was pure artificial delay
+    // on top of actual load time, not covering for anything still loading.
+    // Kept as a quick branded flourish rather than cut entirely, just fast
+    // enough that it reads as a moment, not a wait.
+    tl.from(logoRef.current, { opacity: 0, scale: 0.85, duration: 0.3, ease: 'expo.out' })
       .to(
         progress,
         {
           value: 100,
-          duration: 1.1,
+          duration: 0.5,
           ease: 'power2.inOut',
           onUpdate: () => {
             if (countRef.current) countRef.current.textContent = String(Math.round(progress.value))
@@ -75,9 +81,9 @@ export default function Preloader() {
         },
         0.1,
       )
-      .to({}, { duration: 0.2 })
+      .to({}, { duration: 0.1 })
       .call(playSplashWhoosh)
-      .to(overlayRef.current, { yPercent: -100, duration: 0.7, ease: [0.76, 0, 0.24, 1] })
+      .to(overlayRef.current, { yPercent: -100, duration: 0.4, ease: [0.76, 0, 0.24, 1] })
 
     return () => tl.kill()
   }, [visible])

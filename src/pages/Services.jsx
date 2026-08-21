@@ -109,6 +109,7 @@ export default function Services() {
                   <img
                     src={assetLivingPortfolio}
                     alt="Orchard rows and open pasture leading to a dairy shelter across ETOR City's managed land"
+                    fetchPriority="high"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent" />

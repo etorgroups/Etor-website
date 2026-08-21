@@ -467,6 +467,7 @@ export default function Home() {
                   src={awardPlaque}
                   alt="Viswaguru World Records 'Green Entrepreneur' award plaque presented to B. Nagesh, Founder & CEO of ETOR Group"
                   loading="lazy"
+                  fetchPriority="low"
                   decoding="async"
                   className="w-full h-full object-contain"
                 />
@@ -580,6 +581,7 @@ export default function Home() {
                   src={asset.image}
                   alt={asset.alt}
                   loading="lazy"
+                  fetchPriority="low"
                   decoding="async"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
@@ -1020,6 +1022,7 @@ export default function Home() {
           src={mangoOrchard}
           alt=""
           aria-hidden="true"
+          loading="lazy"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />

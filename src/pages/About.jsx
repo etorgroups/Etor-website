@@ -99,6 +99,7 @@ export default function About() {
         <img
           src={heroStory}
           alt="ETOR Group planners reviewing the land"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-primary/65" />
@@ -487,6 +488,7 @@ export default function About() {
           src={mangoOrchard}
           alt=""
           aria-hidden="true"
+          loading="lazy"
           decoding="async"
           className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
