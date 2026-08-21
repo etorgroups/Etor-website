@@ -269,7 +269,7 @@ export default function ContactFab() {
           transition={{ ...SPRING, delay: 0.6 }}
           aria-label={open ? 'Close contact options' : 'Open contact options'}
           aria-expanded={open}
-          className="relative w-16 h-16 rounded-full bg-secondary text-on-secondary border border-white/20 shadow-[0_32px_80px_-32px_rgba(134,86,45,0.45)] flex items-center justify-center overflow-hidden transition-all duration-300 hover:shadow-[0_35px_100px_-30px_rgba(134,86,45,0.55)]"
+          className="relative w-16 h-16 rounded-full bg-secondary text-on-secondary border border-white/20 shadow-[0_32px_80px_-32px_rgba(140,94,38,0.45)] flex items-center justify-center overflow-hidden transition-all duration-300 hover:shadow-[0_35px_100px_-30px_rgba(140,94,38,0.55)]"
         >
           {!prefersReducedMotion && (
             <motion.span

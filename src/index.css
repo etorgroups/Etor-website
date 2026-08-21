@@ -1,14 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors — ETOR Group design system, v2.
-     Three deliberate accents, each with one job:
-       ink (primary)     — structure: full-bleed sections, headings, scrims
-       sapphire (secondary) — interactive: links, active states, primary actions
-       gold (tertiary)    — premium signal: badges, ratings, the highest-value CTA
-     Neutrals lean a hair cool/warm (not pure gray) on purpose — flat neutral
-     gray is what reads as "generic" at a glance; a deliberate undertone is
-     what makes a palette feel designed rather than default. */
+  /* Colors — ETOR Group design system, v3 ("heritage wealth" palette).
+     Three deliberate accents, each with one job — restrained to the
+     "one anchor + one metallic + one heritage hue" mix premium real-estate/
+     private-wealth brands actually use (Sotheby's-style palettes), rather
+     than the generic infinite-rainbow default:
+       ink (primary)      — structure: full-bleed sections, headings, scrims
+       bronze/gold (secondary) — interactive: links, active states, primary
+                            actions, the metallic "wealth" signal
+       emerald (tertiary) — heritage/land signal: badges, ratings, stats —
+                            the same deep green private members' clubs and
+                            century-old retailers use for permanence, not a
+                            generic "success" green
+     Both secondary and tertiary were previously under-saturated (secondary
+     read as plain brown, tertiary as washed sage) — richer saturation at the
+     same or deeper lightness is what separates "premium metallic/emerald"
+     from "muddy," while keeping contrast ratios equal or better (verified
+     against white and the cream surface below, all ≥4.5:1). Neutrals lean a
+     hair warm (not pure gray) on purpose, in both themes — warm undertones
+     are what let a bronze/gold accent sit comfortably against the surface
+     instead of fighting it the way a cool-gray neutral would. */
   --color-surface: #f6f1e9;
   --color-surface-dim: #ded7cc;
   --color-surface-bright: #fffdfa;
@@ -24,7 +36,7 @@
   --color-inverse-on-surface: #f8f2e9;
   --color-outline: #7a7167;
   --color-outline-variant: #cdc2b5;
-  --color-surface-tint: #8a5a2d;
+  --color-surface-tint: #8c5e26;
 
   --color-primary: #1c1916;
   --color-on-primary: #fffaf2;
@@ -32,18 +44,28 @@
   --color-on-primary-container: #d8cec2;
   --color-inverse-primary: #e7d8c4;
 
-  --color-secondary: #86562d;
+  /* Bronze/gold accent sampled and richened from the ETOR coin logo. The
+     old #86562d (28° hue, 50% sat) sat right in "muddy brown" territory —
+     WCAG research on rich vs. cheap-looking gold puts the muddy threshold
+     around 50% lightness combined with under ~55% saturation. This is
+     hue 33°/57% sat at the same 35% lightness: warmer and more saturated
+     without losing contrast (5.6:1 on white, 5.0:1 on the cream surface
+     below, both still comfortably above the 4.5:1 AA floor). */
+  --color-secondary: #8c5e26;
   --color-on-secondary: #ffffff;
   --color-secondary-container: #f2ddc6;
   --color-on-secondary-container: #4a280e;
 
-  /* Gold/bronze accent sampled from the ETOR coin logo — a deliberate
-     "black and gold" luxury layer reserved for premium moments (badges,
-     ratings, the highest-value CTA) so it stays a signal, not wallpaper.
-     Deep enough that on-tertiary white text clears 7:1 contrast; unlike
-     primary/secondary this role is intentionally identical in both themes
-     — see the dark-theme comment further down. */
-  --color-tertiary: #456052;
+  /* Deep emerald — the heritage/land signal (badges, ratings, plot-count
+     stats), reserved for premium moments so it stays a signal, not
+     wallpaper. The old #456052 was only 16% saturated (a washed sage, not
+     an emerald); this is the same hue family pushed to 61% saturation and
+     20% lightness — the register century-old retailers and private clubs
+     use for "permanence," and still clears 9:1 on white. Deep enough that
+     on-tertiary white text clears that easily; unlike primary/secondary
+     this role is intentionally identical in both themes — see the
+     dark-theme comment further down. */
+  --color-tertiary: #14523d;
   --color-on-tertiary: #ffffff;
   --color-tertiary-container: #dbe8db;
   --color-on-tertiary-container: #18382a;
@@ -70,10 +92,10 @@
 
   /* A second, more saturated tertiary "fixed" pair — the chip-on-neutral-
      surface pair above is deliberately pale, but a filled badge sitting on
-     the hero's photo (which never changes with site theme) needs the
-     richer, more saturated green to actually read as a flag rather than
-     wash out to pale mint the way dark-theme's plain tertiary role does. */
-  --color-tertiary-fixed-vivid: #456052;
+     the hero's photo (which never changes with site theme) needs the same
+     rich emerald as the plain tertiary role above to actually read as a
+     flag rather than wash out to pale mint. */
+  --color-tertiary-fixed-vivid: #14523d;
   --color-on-tertiary-fixed-vivid: #ffffff;
 
   --color-background: #f6f1e9;
@@ -184,13 +206,17 @@
 
 /* Dark theme token overrides only, so every existing bg-* / text-* utility
    repaints automatically with zero per-component changes. The primary,
-   on-primary, tertiary and fixed roles are deliberately left untouched:
-   those back the full-bleed black hero and CTA sections and photo scrims,
-   which read as dramatic dark blocks in both themes, not just dark mode.
-   Only the neutral surface, text, secondary and error roles invert.
-   Surfaces carry a deliberate cool navy undertone (not neutral gray) —
-   that's what separates a "designed" dark theme from one that's merely
-   inverted; pure gray next to the sapphire secondary reads muddy. */
+   on-primary, and fixed roles are deliberately left untouched: those back
+   the full-bleed black hero and CTA sections and photo scrims, which read
+   as dramatic dark blocks in both themes, not just dark mode.
+   Surfaces carry a deliberate warm charcoal undertone (not neutral gray) —
+   research on premium dark UI is consistent that warm-tinted near-black
+   (vs. flat #000/#121212 gray) is what a gold/bronze accent actually wants
+   to sit against; a cool-gray neutral fights a warm metallic instead of
+   supporting it. Plain tertiary is also richened here (pale washed sage ->
+   a more saturated jade) to match the light theme's deeper emerald — the
+   fixed/fixed-vivid tertiary roles stay untouched since those already
+   carry the theme-independent rich value everywhere. */
 :root[data-theme="dark"] {
   --color-surface: #141210;
   --color-surface-dim: #0d0c0b;
@@ -214,7 +240,7 @@
   --color-secondary-container: #70461f;
   --color-on-secondary-container: #f6dfc4;
 
-  --color-tertiary: #a6c3a8;
+  --color-tertiary: #8fcb9e;
   --color-on-tertiary: #173528;
   --color-tertiary-container: #365c45;
   --color-on-tertiary-container: #dbe8db;
@@ -385,7 +411,7 @@ html.lenis[data-lenis-stopped] {
     padding: 0;
     background-color: var(--color-background);
     color: var(--color-on-background);
-    background-image: radial-gradient(circle at 12% 2%, rgb(134 86 45 / 0.07), transparent 28rem);
+    background-image: radial-gradient(circle at 12% 2%, rgb(140 94 38 / 0.07), transparent 28rem);
   }
 
   body {
