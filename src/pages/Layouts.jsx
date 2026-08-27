@@ -53,11 +53,8 @@ export default function Layouts() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
             {layouts.map((layout, index) => (
               <Reveal key={layout.slug} tag="div" delay={index * 0.06}>
-                {/* Card navigation to the plots page is temporarily disabled until real plot data is ready.
-                    Restore by swapping this <div> back to:
-                    <Link to={`/projects/${cityId}/${layout.slug}/plots`} className="...">
-                */}
-                <div
+                <Link
+                  to={`/projects/${cityId}/${layout.slug}/plots`}
                   className="group block rounded-[1.5rem] overflow-hidden border border-outline-variant/30 bg-surface-container-low hover:border-secondary/60 hover:shadow-2xl transition-[border-color,box-shadow,transform] duration-300"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-[#f4f1ea]">
@@ -112,7 +109,7 @@ export default function Layouts() {
                       </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>

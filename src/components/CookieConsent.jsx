@@ -75,27 +75,27 @@ export default function CookieConsent() {
           exit={{ opacity: 0, y: 16, scale: 0.96 }}
           transition={{ type: 'spring', stiffness: 260, damping: 26 }}
           style={{ pointerEvents: forceHidden || recede ? 'none' : 'auto' }}
-          className="fixed bottom-3 left-3 sm:bottom-4 sm:left-4 z-50 w-[calc(100%-1.5rem)] max-w-[19rem] sm:max-w-fit surface-panel rounded-2xl sm:rounded-full p-md sm:py-sm sm:pl-lg sm:pr-xs shadow-2xl sm:flex sm:items-center sm:gap-md"
+          className="fixed left-0 right-0 bottom-0 lg:left-6 lg:right-auto lg:bottom-6 z-50 w-full lg:w-fit surface-panel rounded-t-2xl lg:rounded-full p-lg lg:py-md lg:pl-xl lg:pr-sm shadow-2xl border-t lg:border border-outline-variant/30 pb-[calc(theme(spacing.lg)+env(safe-area-inset-bottom))] lg:pb-md lg:flex lg:items-center lg:gap-lg"
         >
-          <p className="font-body text-body-sm text-on-surface-variant leading-snug sm:whitespace-nowrap">
+          <p className="font-body text-body-md text-on-surface-variant leading-snug lg:whitespace-nowrap">
             We use minimal cookies. See{' '}
             <Link to="/privacy" className="text-secondary-strong underline underline-offset-2">
               Privacy Policy
             </Link>
             .
           </p>
-          <div className="flex gap-sm mt-sm sm:mt-0 shrink-0">
+          <div className="flex gap-sm mt-md lg:mt-0 shrink-0">
             <button
               type="button"
               onClick={() => choose('accepted')}
-              className="flex-1 sm:flex-initial px-md py-xs rounded-full bg-secondary text-on-secondary font-body text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity whitespace-nowrap"
+              className="flex-1 lg:flex-initial px-lg py-sm rounded-full bg-secondary text-on-secondary font-body text-label-md uppercase tracking-widest hover:opacity-90 transition-opacity whitespace-nowrap"
             >
               Accept
             </button>
             <button
               type="button"
               onClick={() => choose('declined')}
-              className="flex-1 sm:flex-initial px-md py-xs rounded-full border border-outline-variant text-on-surface-variant font-body text-label-md uppercase tracking-widest hover:bg-surface-container transition-colors whitespace-nowrap"
+              className="flex-1 lg:flex-initial px-lg py-sm rounded-full border border-outline-variant text-on-surface-variant font-body text-label-md uppercase tracking-widest hover:bg-surface-container transition-colors whitespace-nowrap"
             >
               Decline
             </button>

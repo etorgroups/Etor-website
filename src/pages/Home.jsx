@@ -12,7 +12,8 @@ import Counter from '../components/Counter'
 import GoogleReviews from '../components/GoogleReviews'
 import InvestJourney from '../components/InvestJourney'
 import InvestmentCalculator from '../components/InvestmentCalculator'
-import SoldTicker from '../components/SoldTicker'
+// SoldTicker shows mock plot-availability data — hidden until real data is shared.
+// import SoldTicker from '../components/SoldTicker'
 import KineticHeadline from '../components/KineticHeadline'
 import MaskReveal from '../components/MaskReveal'
 import { COMPANY } from '../data/company'
@@ -59,11 +60,15 @@ const FEATURED_ASSETS = [
     tag: 'Flagship crop',
     title: 'Miyazaki Mango',
     body:
-      "ETOR Group's brochure describes Miyazaki mango as the world's most expensive fruit, and ETOR as the first in the real-estate industry to plan a Miyazaki plantation inside a residential-style development.",
+      "Miyazaki mango is renowned as the world's most expensive fruit — and ETOR City is the first residential-style development in Indian real estate to plant it at scale, right on your plot.",
     priceTag: '₹2,75,000 / kg',
     highlights: ['Rich in zinc, calcium & vitamins C, E, A, K', 'Served as a welcome fruit at Burj Khalifa & other 5-star hotels'],
     image: assetMango,
     alt: 'Ripe Miyazaki mango still life',
+    // Source photo has a lot of empty dark studio background around the
+    // fruit; zoom + reposition so the mango itself reads clearly instead of
+    // sitting small and half-buried under the caption text.
+    imgClassName: 'object-[72%_32%] scale-[1.55] group-hover:scale-[1.6]',
     note: 'Fruit prices are described as market/auction-dependent — see the 12-year example in "Invest smart" below.',
   },
   {
@@ -427,7 +432,11 @@ export default function Home() {
         </div>
       </section>
 
-      <SoldTicker />
+      {/* SoldTicker ("X plots still available in ETOR City ...") is driven by
+          mock/generated plot data, not real inventory counts from the client
+          — hidden until real plot data is shared. Restore by uncommenting:
+          <SoldTicker />
+      */}
 
       {/* Scene 2 — The proof rail */}
       <section className="bg-surface py-lg border-y border-outline-variant/30">
@@ -583,9 +592,9 @@ export default function Home() {
                   loading="lazy"
                   fetchPriority="low"
                   decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out ${asset.imgClassName ?? 'group-hover:scale-105'}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/45 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent" />
                 <div className="absolute inset-0 p-lg lg:p-xl flex flex-col justify-end">
                   <span className="font-body text-label-md text-secondary-fixed-dim uppercase tracking-[0.2em] mb-xs">
                     {asset.tag}

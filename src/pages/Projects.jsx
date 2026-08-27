@@ -7,9 +7,12 @@ import Eyebrow from '../components/Eyebrow'
 import MagneticButton from '../components/MagneticButton'
 import ParallaxImage from '../components/ParallaxImage'
 import InvestmentCalculator from '../components/InvestmentCalculator'
-import SoldTicker from '../components/SoldTicker'
+// SoldTicker shows mock plot-availability data — hidden until real data is shared.
+// import SoldTicker from '../components/SoldTicker'
 import { PACKAGES } from '../data/packages'
-import { getCityPlotMap, flattenPlots } from '../data/plotMap'
+// getCityPlotMap/flattenPlots were only used for the mock "Plots Available" count,
+// which is commented out below until real plot data is shared.
+// import { getCityPlotMap, flattenPlots } from '../data/plotMap'
 import etorCity1 from '../assets/images/etor-city-1.webp'
 import etorCity2 from '../assets/images/etor-city-2.webp'
 import etorCity34 from '../assets/images/etor-city-3-4.webp'
@@ -125,7 +128,11 @@ export default function Projects() {
         </div>
       </section>
 
-      <SoldTicker />
+      {/* SoldTicker ("X plots still available in ETOR City ...") is driven by
+          mock/generated plot data, not real inventory counts from the client
+          — hidden until real plot data is shared. Restore by uncommenting:
+          <SoldTicker />
+      */}
 
       {/* Package cards */}
       <section className="py-xl bg-background">
@@ -134,9 +141,12 @@ export default function Projects() {
             <AnimatePresence mode="popLayout">
               {visibleProjects.map((project) => {
                 const pkg = PACKAGES.find((p) => p.id === project.id)
-                const available = flattenPlots(getCityPlotMap(project.id)).filter(
-                  (p) => p.status === 'available',
-                ).length
+                // "Plots Available" count below is mock/generated data, not a real
+                // inventory figure from the client — hidden until real plot data is
+                // shared. Restore by uncommenting the `available` line + badge div.
+                // const available = flattenPlots(getCityPlotMap(project.id)).filter(
+                //   (p) => p.status === 'available',
+                // ).length
 
                 return (
                   <motion.div
@@ -154,9 +164,9 @@ export default function Projects() {
                       <ParallaxImage src={project.image} alt={project.title} className="absolute inset-0 w-full h-full" />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent" />
 
-                      <div className="absolute top-lg left-lg px-md py-xs rounded-full bg-surface/90 backdrop-blur-md font-body text-label-md text-on-surface uppercase tracking-widest">
+                      {/* <div className="absolute top-lg left-lg px-md py-xs rounded-full bg-surface/90 backdrop-blur-md font-body text-label-md text-on-surface uppercase tracking-widest">
                         {available} Plots Available
-                      </div>
+                      </div> */}
 
                       <div className="absolute inset-x-0 bottom-0 p-lg text-on-primary">
                         <p className="font-body text-label-md text-on-primary/70 uppercase tracking-widest mb-xs">
