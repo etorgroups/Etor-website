@@ -65,10 +65,6 @@ const FEATURED_ASSETS = [
     highlights: ['Rich in zinc, calcium & vitamins C, E, A, K', 'Served as a welcome fruit at Burj Khalifa & other 5-star hotels'],
     image: assetMango,
     alt: 'Ripe Miyazaki mango still life',
-    // Source photo has a lot of empty dark studio background around the
-    // fruit; zoom + reposition so the mango itself reads clearly instead of
-    // sitting small and half-buried under the caption text.
-    imgClassName: 'object-[72%_32%] scale-[1.55] group-hover:scale-[1.6]',
     note: 'Fruit prices are described as market/auction-dependent — see the 12-year example in "Invest smart" below.',
   },
   {
@@ -578,24 +574,25 @@ export default function Home() {
             </MaskReveal>
           </Reveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-lg">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-lg items-stretch">
             {FEATURED_ASSETS.map((asset, index) => (
               <Reveal
                 key={asset.title}
                 tag="div"
                 delay={index * 0.1}
-                className="group relative rounded-3xl overflow-hidden shadow-xl aspect-[4/3]"
+                className="group flex flex-col rounded-3xl overflow-hidden shadow-xl bg-primary"
               >
-                <img
-                  src={asset.image}
-                  alt={asset.alt}
-                  loading="lazy"
-                  fetchPriority="low"
-                  decoding="async"
-                  className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out ${asset.imgClassName ?? 'group-hover:scale-105'}`}
-                />
-                <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-primary/95 via-primary/60 to-transparent" />
-                <div className="absolute inset-0 p-lg lg:p-xl flex flex-col justify-end">
+                <div className="relative aspect-[4/3] overflow-hidden shrink-0">
+                  <img
+                    src={asset.image}
+                    alt={asset.alt}
+                    loading="lazy"
+                    fetchPriority="low"
+                    decoding="async"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-lg lg:p-xl flex flex-col flex-1">
                   <span className="font-body text-label-md text-secondary-fixed-dim uppercase tracking-[0.2em] mb-xs">
                     {asset.tag}
                   </span>
@@ -605,7 +602,7 @@ export default function Home() {
                       {asset.priceTag}
                     </span>
                   )}
-                  <p className="font-body text-body-sm text-on-primary/75 leading-relaxed max-w-[30rem] mb-sm">
+                  <p className="font-body text-body-sm text-on-primary/75 leading-relaxed mb-sm">
                     {asset.body}
                   </p>
                   {asset.highlights && (
