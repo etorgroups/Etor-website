@@ -53,10 +53,12 @@ export default function Layouts() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
             {layouts.map((layout, index) => (
               <Reveal key={layout.slug} tag="div" delay={index * 0.06}>
-                <Link
+                {/* Plot-map navigation disabled until real inventory data is ready — do not delete, re-enable later */}
+                {/* <Link
                   to={`/projects/${cityId}/${layout.slug}/plots`}
                   className="group block rounded-[1.5rem] overflow-hidden border border-outline-variant/30 bg-surface-container-low hover:border-secondary/60 hover:shadow-2xl transition-[border-color,box-shadow,transform] duration-300"
-                >
+                > */}
+                <div className="group block rounded-[1.5rem] overflow-hidden border border-outline-variant/30 bg-surface-container-low transition-[border-color,box-shadow,transform] duration-300">
                   <div className="relative aspect-[4/3] overflow-hidden bg-[#f4f1ea]">
                     <div className="w-full h-full transition-transform duration-500 group-hover:scale-105">
                       <LayoutCardMedia
@@ -103,13 +105,15 @@ export default function Layouts() {
                         Download
                       </button>
 
-                      <span className="inline-flex items-center gap-xs px-sm py-xs bg-secondary/10 text-secondary-strong rounded-full text-label-sm font-body">
+                      {/* "View Layout" click-through badge disabled along with the plot-map navigation above */}
+                      {/* <span className="inline-flex items-center gap-xs px-sm py-xs bg-secondary/10 text-secondary-strong rounded-full text-label-sm font-body">
                         View Layout
                         <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-                      </span>
+                      </span> */}
                     </div>
                   </div>
-                </Link>
+                </div>
+                {/* </Link> */}
               </Reveal>
             ))}
           </div>
