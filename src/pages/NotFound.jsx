@@ -15,7 +15,7 @@ export default function NotFound() {
         </p>
         <div className="flex flex-wrap items-center justify-center gap-md">
           <MagneticButton
-            as={Link}
+            as={Link} 
             to="/"
             className="px-xl py-md bg-primary text-on-primary rounded-full font-body text-label-md uppercase tracking-widest inline-flex"
           >
